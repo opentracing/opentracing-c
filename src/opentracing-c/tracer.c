@@ -181,7 +181,8 @@ static int null_tracer_extract(opentracing_tracer* tracer,
     (void) format;
     (void) carrier;
     assert(span_context != NULL);
-    *span_context = malloc(sizeof(span_context));
+    *span_context =
+        (opentracing_span_context*) malloc(sizeof(opentracing_span_context));
     if (*span_context == NULL) {
         return 0;
     }
