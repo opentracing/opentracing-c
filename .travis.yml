@@ -115,19 +115,19 @@ branches:
   - master
 cache:
   directories:
-  - "$HOME/install"
+  - $HOME/install
 before_install:
 - eval "${MATRIX_EVAL}"
 - ./scripts/install-deps.sh "$HOME/install"
 script:
 - ./scripts/build.sh "$HOME/install"
 after_success:
-- "./scripts/upload-coverage.sh"
-- "./scripts/generate-doc.sh && touch build/doc/Debug/html/.nojekyll"
+- ./scripts/upload-coverage.sh
+- ./scripts/generate-doc.sh && touch build/doc/Debug/html/.nojekyll
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: "$GITHUB_TOKEN"
+  github-token: $GITHUB_TOKEN
   keep-history: true
   local-dir: build/doc/Debug/html
 env:
@@ -135,4 +135,5 @@ env:
   - LANG="en_US.UTF-8"
   - PATH="$HOME/install/bin:$PATH"
   - COVERAGE="ON"
-  - secure: HWgJ+vry5gwaAWJzK7dKaD2mN2JjaTO/xQFyMaTs0hY5oWIgG+k9LtKd2Z7hnGaw8ZHNCMI2Lpf3ekzctvWKBhMlaoF6RHZdJfZkoXJaWeRkyHUi4WVdj3sOQM6DipadGKrc/f239NKVAPpAMv8FMIfgMI0u5FJj0BoO3vXeLEKa4l+00bIzQtqTB+B1v22sGOUKYbRk2bR5VXBpX66ZPq371sBDwSn9qdK/bpRwxA3xmAA/6H6vgjv7ah3DN+BnxEuhWX02XOy2RsdkbZChkTV+2qAQML7dcXlPeHvaCOGy7Wig88yXOvvCCXeWMuha2/rETjNOzVhTSIGNCD/shLETf8qu1MkHly5A3vmFMMDGLpnz+eXbHzBjxWmhHRUFEnCcyXrQpGgMhYjsmK9h6ix9c2FUUdt2mNTqn4YNeLG9PJ8rQPPNEu3xvYFzf6CImwLGJDzsfA8ozxOqDJFicpw8/KWZ1lGerKayv0rQsvFvWL7DTFxT5zMZ86FjTJajaiBKDjhNVHRKw0ZeG3zyZrpbd7J1dMN7AiJb65eIXMHBaZLI2pyKfKY5+bZ5NgY81Z1LFmwuunyumD8w7JxzA6dx0u+70EnV+g4odr5kskBh6sBryIrCxtLLr9/GFwgIdHBW5kcLQWrMV3kBCO/2wwD3Bz18ASjJbacqaF25T6Y=
+  - secure: ddrPCYo9bl6vPVqIboq59TVxFtRhZuElfg8gzb1OASe9l8X68+pshbKakJ6/WVWzl8Y6jV2f5oSrqJq8PRoClQ6AnHDws2kbz2pcwlOxmcJn5tokHYd/CwtAG9Gwu3JHv1sVwvYlR7PWpKznxVTw/vixBOlXDRtDBxHv9Y7Cr8BUyFBz+1q7cVAk7H8V+t3DhWXT/FoqLRhTrlML+WT+mupZ3WdNpmDuMnt+4GuzgTvTkjq8PN2ue/CEpodc6xLUyTIRrOCN19UsR3EZ4/FbwFDgfOQfGdrLqt0YFh8yOKislixKyOCufchjd7ar6NBH4H6SjPJ9Fi972one7QU8sUb13/iq8MmNLfQSTATvpF0p+eGTFQg3bn969HqWOOS/zLEDtneMM5kFF7JvXgjVuhZbTlQ1MJj53x7v51h+btEiv1TwIiPd0rOpmhXrBiR6usNfncxYt4E771yBGoxxoYQx5HIX1WRJoreEa+S6zF4WwUWysKK7/apCPLjztsKXyx2gyN17xzJEwJOKC+6mGmrOQA9mWRba9GxE/8/BxF35/04WFpX7lkEh7p9jgSbgHXe2tx6mfxysnQahW0lPTTpa5xd9tp7Haj2H4wIeVv9KGSqq2bTSrmTYBJ8reb/23vTOdUdj4XEvhoiaSei86HL/COAImrGAuyoy9KnqDwo=
+  - secure: TPQ6zW8SA4Cw5cDfUZ0VfiGcxDSUvo2p2gKSHvyvpffZCAYss0D3eOyqD/f1q0q1iLQx6OAkLfOiTV6aV5BNo+5NwWptoqOfFt+nyj1BK/05mNlsuSBWpHKuPwHuJ8UxZ+ukWi3JIRzzP5tpNvET1wOcdH0jVr7B1ztQt8H/HiHfYIkXGY0MYg2I8V8SouBlssmqSp25iWMWKn7lG+UPHYVtJ+l7ca4WysStl0yFDdbor1xCCjC/hBGj++F2Ri0Wn8dQIYnnFkqpQZ5zD8JXYweUy7cQJ5+vZZrEZwAbh33znMaaEDVcJPc9OsFr91cvw78GtqnAOBASgyWFJf3F8FEAvSRRNBTwN150Adcjwujo9D3sncc5Q9yCiz64t80jMVOouQ1IJ2uFyeIgigXOziI+z7c+rpMEmLXNmXTof4T7VOhQ/ytjJalb4PRADydLVNFUiATQzXOirLyf5AFukQpF36ak9Z1yShmBUbGQXliO9uASaDDm3ABsksgF9zWQY9d5KRJByCuO4XoYaBkf1eWIj0zcsMKJF6KwlGQw1HMku1kK9tZkwJwd2PqZ80iYCFJKrjFl0Ulujln7omUnLN2qG0Sp1VEg51xLGaI98KiZTAztM05Zx0pjdvQ2b0RkvxgEhqxLdncpnrBK0Z1HWOM3whrhN3puY0YsQSgcoyI=
