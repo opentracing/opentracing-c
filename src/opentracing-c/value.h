@@ -41,8 +41,10 @@ typedef struct opentracing_value {
         uint64_t uint64_value;
         /** Storage for string value. */
         char* string_value;
-    };
+    } value;
 } opentracing_value;
+
+/** @todo Constructor and destructor for generic value. */
 
 #ifdef __cplusplus
 }
