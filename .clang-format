@@ -38,7 +38,7 @@ IncludeCategories:
     Priority:        1
   - Regex:           '^"'
     Priority:        2
-  - Regex:           '^"jaegertracingc/'
+  - Regex:           '^"opentracingc/'
     Priority:        3
 IndentCaseLabels: false
 IndentWidth:     4

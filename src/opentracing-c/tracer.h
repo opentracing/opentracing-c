@@ -52,8 +52,14 @@ typedef struct opentracing_start_span_options {
     int num_tags;
 } opentracing_start_span_options;
 
-/** Tracer interface. */
+/**
+ * Tracer interface.
+ * @extends opentracing_destructible
+ */
 typedef struct opentracing_tracer {
+    /** Base class member. */
+    opentracing_destructible base;
+
     /**
      * Equivalent to calling start_span_with_options with options as NULL.
      * @param tracer Tracer instance.
@@ -72,6 +78,7 @@ typedef struct opentracing_tracer {
      */
     opentracing_span* (*start_span_with_options)(
         struct opentracing_tracer* tracer,
+        const char* operation_name,
         const opentracing_start_span_options* options);
 
     /**
@@ -79,12 +86,49 @@ typedef struct opentracing_tracer {
      * @param tracer Tracer instance.
      * @param format Propagation format.
      * @param carrier Opaque carrier.
-     * @return Zero on success, error code on failure.
+     * @param span_context Span context to serialize to carrier.
+     * @return Zero on success, error code on propagation failure.
      */
     int (*inject)(struct opentracing_tracer* tracer,
                   opentracing_propagation_format format,
-                  void* carrier);
+                  void* carrier,
+                  const opentracing_span_context* span_context);
+
+    /**
+     * Extract span context from carrier.
+     * @attention If the tracer cannot allocate a span, it should return zero
+     *            and set span_context to NULL. Callers should note that a
+     *            return value of zero does not mean the span_context is not
+     *            NULL.
+     * @param tracer Tracer instance.
+     * @param format Propagation format.
+     * @param carrier Opaque carrier.
+     * @param[out] span_context Span context pointer to return decoded span.
+     *                          Set to NULL on propagation failure or out of
+     *                          memory.
+     * @return Zero on success, error code on propagation failure.
+     */
+    int (*extract)(struct opentracing_tracer* tracer,
+                   opentracing_propagation_format format,
+                   void* carrier,
+                   opentracing_span_context** span_context);
 } opentracing_tracer;
+
+/**
+ * Get the tracer singleton. At process start, set to a no-op tracer.
+ * @return Global tracer instance.
+ * @attention Do not modify members.
+ * @see opentracing_init_global_tracer()
+ */
+opentracing_tracer* opentracing_global_tracer(void);
+
+/**
+ * Install a global tracer. Ideally, only called once. Good candidate for use
+ * of pthread_once.
+ * @param tracer New global tracer instance.
+ * @see opentracing_global_tracer()
+ */
+void opentracing_init_global_tracer(opentracing_tracer* tracer);
 
 #ifdef __cplusplus
 }

@@ -17,6 +17,9 @@ extern "C" {
  * @extends opentracing_destructible
  */
 typedef struct opentracing_span_context {
+    /** Base class member. */
+    opentracing_destructible base;
+
     /**
      * Calls a function for each baggage item in the span context. If the
      * function returns opentracing_false, it will not be called again, and
@@ -122,8 +125,14 @@ typedef struct opentracing_finish_span_options {
 /* Forward declaration. */
 struct opentracing_tracer;
 
-/** Span interface. */
+/**
+ * Span interface.
+ * @extends opentracing_destructible
+ */
 typedef struct opentracing_span {
+    /** Base class member. */
+    opentracing_destructible base;
+
     /**
      * Sets the end timestamp and finalizes span state.
      *
@@ -153,8 +162,7 @@ typedef struct opentracing_span {
      * @return Span context associated with this span.
      * @see finish
      */
-    opentracing_span_context (*span_context)(
-        const struct opentracing_span* span);
+    opentracing_span_context* (*span_context)(struct opentracing_span* span);
 
     /**
      * Sets or changes the operation name.

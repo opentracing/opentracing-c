@@ -1,5 +1,6 @@
-# OpenTracing API for C
-ANSI C implementation of the OpenTracing API http://opentracing.io
+# opentracing-c
+
+ANSI C implementation of the OpenTracing API http://opentracing.io.
 
 ## Required Reading
 
@@ -49,7 +50,7 @@ call
     }
 ```
 
-##### Non-Singleton initialization
+##### Non-singleton initialization
 
 If you prefer direct control to singletons, manage ownership of the
 `opentracing_tracer` implementation explicitly.
