@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +87,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">tracer.h File Reference</div>  </div>
 </div><!--header-->
@@ -118,9 +119,19 @@ Typedefs</h2></td></tr>
 <a class="el" href="structopentracing__start__span__options.html">opentracing_start_span_options</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tracer_8h.html#ae9154002649163ea319f2aa36630d8b9">opentracing_start_span_options</a></td></tr>
 <tr class="memdesc:ae9154002649163ea319f2aa36630d8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options used when calling start_span_with_options().  <a href="#ae9154002649163ea319f2aa36630d8b9">More...</a><br/></td></tr>
 <tr class="separator:ae9154002649163ea319f2aa36630d8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0265eb09e5199d1ec4498c5909acc66"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tracer_8h.html#ac0265eb09e5199d1ec4498c5909acc66">opentracing_tracer</a></td></tr>
-<tr class="memdesc:ac0265eb09e5199d1ec4498c5909acc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracer interface.  <a href="#ac0265eb09e5199d1ec4498c5909acc66">More...</a><br/></td></tr>
+<tr class="memitem:ac0265eb09e5199d1ec4498c5909acc66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0265eb09e5199d1ec4498c5909acc66"></a>
+typedef struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tracer_8h.html#ac0265eb09e5199d1ec4498c5909acc66">opentracing_tracer</a></td></tr>
+<tr class="memdesc:ac0265eb09e5199d1ec4498c5909acc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracer interface. <br/></td></tr>
 <tr class="separator:ac0265eb09e5199d1ec4498c5909acc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4555099d3659ef4ecc6c7cbae67d7f43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tracer_8h.html#a4555099d3659ef4ecc6c7cbae67d7f43">opentracing_global_tracer</a> (void)</td></tr>
+<tr class="memdesc:a4555099d3659ef4ecc6c7cbae67d7f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the tracer singleton.  <a href="#a4555099d3659ef4ecc6c7cbae67d7f43">More...</a><br/></td></tr>
+<tr class="separator:a4555099d3659ef4ecc6c7cbae67d7f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c303a44e0916bb612ddb831ed717d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tracer_8h.html#a36c303a44e0916bb612ddb831ed717d9">opentracing_init_global_tracer</a> (<a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer)</td></tr>
+<tr class="memdesc:a36c303a44e0916bb612ddb831ed717d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a global tracer.  <a href="#a36c303a44e0916bb612ddb831ed717d9">More...</a><br/></td></tr>
+<tr class="separator:a36c303a44e0916bb612ddb831ed717d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="ae9154002649163ea319f2aa36630d8b9"></a>
@@ -151,17 +162,52 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac0265eb09e5199d1ec4498c5909acc66"></a>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a4555099d3659ef4ecc6c7cbae67d7f43"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>  <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a></td>
+          <td class="memname"><a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>* opentracing_global_tracer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tracer interface. </p>
+<p>Get the tracer singleton. </p>
+<p>At process start, set to a no-op tracer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Global tracer instance. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Do not modify members. </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="tracer_8h.html#a36c303a44e0916bb612ddb831ed717d9" title="Install a global tracer. ">opentracing_init_global_tracer()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a36c303a44e0916bb612ddb831ed717d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void opentracing_init_global_tracer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *&#160;</td>
+          <td class="paramname"><em>tracer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Install a global tracer. </p>
+<p>Ideally, only called once. Good candidate for use of pthread_once. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tracer</td><td>New global tracer instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="tracer_8h.html#a4555099d3659ef4ecc6c7cbae67d7f43" title="Get the tracer singleton. ">opentracing_global_tracer()</a> </dd></dl>
 
 </div>
 </div>

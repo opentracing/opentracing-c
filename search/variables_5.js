@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['log_5ffields',['log_fields',['../structopentracing__span.html#a2484dfb2743833c9247a9dd365c005f1',1,'opentracing_span']]],
-  ['log_5frecords',['log_records',['../structopentracing__finish__span__options.html#a77bfc1d497cdf01e4a9fd241a8c3a206',1,'opentracing_finish_span_options']]]
+  ['key',['key',['../structopentracing__log__field.html#a135a6e2ae13f4927484e5bbac92a0495',1,'opentracing_log_field::key()'],['../structopentracing__tag.html#a0b943ba957061182448abc6981320d48',1,'opentracing_tag::key()']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['key',['key',['../structopentracing__log__field.html#a135a6e2ae13f4927484e5bbac92a0495',1,'opentracing_log_field::key()'],['../structopentracing__tag.html#a0b943ba957061182448abc6981320d48',1,'opentracing_tag::key()']]]
+  ['inject',['inject',['../structopentracing__tracer.html#a97df9ace8a404b8b9e16dd8f51b3eca2',1,'opentracing_tracer']]],
+  ['int64_5fvalue',['int64_value',['../structopentracing__value.html#a874e318b0b6189039e4401f1df6f21cd',1,'opentracing_value']]]
 ];
