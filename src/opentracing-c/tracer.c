@@ -205,10 +205,13 @@ opentracing_tracer* opentracing_global_tracer(void)
     return global_tracer;
 }
 
-void opentracing_set_global_tracer(opentracing_tracer* tracer)
+void opentracing_init_global_tracer(opentracing_tracer* tracer)
 {
     assert(tracer != NULL);
     assert(global_tracer != NULL);
+    if (global_tracer == tracer) {
+        return;
+    }
     ((opentracing_destructible*) global_tracer)
         ->destroy((opentracing_destructible*) global_tracer);
     global_tracer = tracer;

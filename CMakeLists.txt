@@ -48,16 +48,24 @@ set(srcs
   "src/opentracing-c/tracer.c"
   "src/opentracing-c/tracer.h"
   "src/opentracing-c/value.h")
+
+add_library(opentracingc-static STATIC ${srcs})
+set_target_properties(opentracingc-static PROPERTIES OUTPUT_NAME opentracingc)
+
 add_library(opentracingc SHARED ${srcs})
-target_include_directories(opentracingc PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
-  $<INSTALL_INTERFACE:include>)
-target_compile_options(opentracingc PUBLIC ${flags} ${coverage_flags})
+
+foreach(lib opentracingc opentracingc-static)
+  target_include_directories(${lib} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
+    $<INSTALL_INTERFACE:include>)
+  target_compile_options(${lib} PUBLIC ${flags})
+endforeach()
 
 if(BUILD_TESTING)
+  target_compile_options(opentracingc-static PUBLIC ${coverage_flags})
   add_executable(tracer_test "test/tracer_test.c")
-  target_link_libraries(tracer_test PUBLIC opentracingc)
+  target_link_libraries(tracer_test PUBLIC opentracingc-static)
   add_test(tracer_test tracer_test)
   if(OPENTRACINGC_COVERAGE)
     setup_target_for_coverage(NAME tracer_test_coverage EXECUTABLE tracer_test)
