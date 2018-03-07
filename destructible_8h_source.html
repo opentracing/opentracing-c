@@ -92,22 +92,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="destructible_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OPENTRACINGC_DESTRUCTIBLE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define OPENTRACINGC_DESTRUCTIBLE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structopentracing__destructible.html">   14</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structopentracing__destructible.html">opentracing_destructible</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">   19</a></span>&#160;    void (*<a class="code" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">destroy</a>)(<span class="keyword">struct </span><a class="code" href="structopentracing__destructible.html">opentracing_destructible</a>* destructible);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <a class="code" href="destructible_8h.html#a12e9cf4de04709416e13e87af108c31a">opentracing_destructible</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* OPENTRACINGC_DESTRUCTIBLE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="config_8h.html">opentracing-c/config.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structopentracing__destructible.html">   16</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structopentracing__destructible.html">opentracing_destructible</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">   21</a></span>&#160;    void (*<a class="code" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">destroy</a>)(<span class="keyword">struct </span><a class="code" href="structopentracing__destructible.html">opentracing_destructible</a>* destructible);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <a class="code" href="destructible_8h.html#a12e9cf4de04709416e13e87af108c31a">opentracing_destructible</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* OPENTRACINGC_DESTRUCTIBLE_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="config_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div></div>
 <div class="ttc" id="destructible_8h_html_a12e9cf4de04709416e13e87af108c31a"><div class="ttname"><a href="destructible_8h.html#a12e9cf4de04709416e13e87af108c31a">opentracing_destructible</a></div><div class="ttdeci">struct opentracing_destructible opentracing_destructible</div><div class="ttdoc">Destructible interface. </div></div>
-<div class="ttc" id="structopentracing__destructible_html"><div class="ttname"><a href="structopentracing__destructible.html">opentracing_destructible</a></div><div class="ttdoc">Destructible interface. </div><div class="ttdef"><b>Definition:</b> destructible.h:14</div></div>
-<div class="ttc" id="structopentracing__destructible_html_aa2b91020ebd02740f5c0e53de50a3624"><div class="ttname"><a href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">opentracing_destructible::destroy</a></div><div class="ttdeci">void(* destroy)(struct opentracing_destructible *destructible)</div><div class="ttdoc">Destructor to clean up any resources allocated to the instance. </div><div class="ttdef"><b>Definition:</b> destructible.h:19</div></div>
+<div class="ttc" id="structopentracing__destructible_html"><div class="ttname"><a href="structopentracing__destructible.html">opentracing_destructible</a></div><div class="ttdoc">Destructible interface. </div><div class="ttdef"><b>Definition:</b> destructible.h:16</div></div>
+<div class="ttc" id="structopentracing__destructible_html_aa2b91020ebd02740f5c0e53de50a3624"><div class="ttname"><a href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">opentracing_destructible::destroy</a></div><div class="ttdeci">void(* destroy)(struct opentracing_destructible *destructible)</div><div class="ttdoc">Destructor to clean up any resources allocated to the instance. </div><div class="ttdef"><b>Definition:</b> destructible.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
