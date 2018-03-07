@@ -5,11 +5,13 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain.cmake"
     CACHE FILEPATH "Toolchain to use for building this package")
 
-project(opentracing-c VERSION 0.0.1 LANGUAGES C)
+project(opentracing-c VERSION 0.0.1)
 
 include(CheckCCompilerFlag)
+include(CheckIncludeFile)
 include(CheckTypeSize)
 include(CTest)
+include(GenerateExportHeader)
 
 include(GenerateDocumentation)
 
@@ -51,9 +53,15 @@ set(srcs
   "src/opentracing-c/value.h")
 
 add_library(opentracingc-static STATIC ${srcs})
-set_target_properties(opentracingc-static PROPERTIES OUTPUT_NAME opentracingc)
-
 add_library(opentracingc SHARED ${srcs})
+generate_export_header(opentracingc
+  EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/src/opentracing-c/visibility.h")
+set_target_properties(opentracingc-static PROPERTIES
+  OUTPUT_NAME opentracingc
+  COMPILE_DEFINITIONS OPENTRACINGC_STATIC_DEFINE)
+set_target_properties(opentracingc PROPERTIES
+  C_VISIBILITY_INLINES hidden
+  C_VISIBILITY_PRESET hidden)
 
 check_include_file("sys/time.h" have_sys_time_h)
 if(have_sys_time_h)

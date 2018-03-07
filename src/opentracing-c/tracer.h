@@ -3,6 +3,7 @@
 
 #include <opentracing-c/propagation.h>
 #include <opentracing-c/span.h>
+#include <opentracing-c/visibility.h>
 
 /** @file */
 
@@ -120,7 +121,7 @@ typedef struct opentracing_tracer {
  * @attention Do not modify members.
  * @see opentracing_init_global_tracer()
  */
-opentracing_tracer* opentracing_global_tracer(void);
+OPENTRACINGC_EXPORT opentracing_tracer* opentracing_global_tracer(void);
 
 /**
  * Install a global tracer. Ideally, only called once. Good candidate for use
@@ -128,7 +129,8 @@ opentracing_tracer* opentracing_global_tracer(void);
  * @param tracer New global tracer instance.
  * @see opentracing_global_tracer()
  */
-void opentracing_init_global_tracer(opentracing_tracer* tracer);
+OPENTRACINGC_EXPORT void
+opentracing_init_global_tracer(opentracing_tracer* tracer);
 
 #ifdef __cplusplus
 }

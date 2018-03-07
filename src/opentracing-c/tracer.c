@@ -1,7 +1,6 @@
 #include <opentracing-c/tracer.h>
 
 #include <assert.h>
-#include <stdlib.h>
 
 static void null_destroy(opentracing_destructible* destructible)
 {
@@ -32,23 +31,8 @@ static void null_foreach_baggage_item(opentracing_span_context* span_context,
 typedef struct null_span {
     opentracing_span base;
     opentracing_span_context null_span_context;
-    opentracing_tracer* null_tracer;
+    opentracing_tracer* tracer_ptr;
 } null_span;
-
-static void allocated_destroy(opentracing_destructible* allocated)
-{
-    free(allocated);
-}
-
-static void null_span_destroy(opentracing_destructible* span)
-{
-    assert(span != NULL);
-    opentracing_destructible* span_context =
-        (opentracing_destructible*) &((null_span*) span)->null_span_context;
-    span_context->destroy(span_context);
-
-    free(span);
-}
 
 static void null_span_finish(opentracing_span* span)
 {
@@ -119,12 +103,12 @@ static const char* null_span_baggage_item(const opentracing_span* span,
 static opentracing_tracer* null_span_tracer(opentracing_span* span)
 {
     assert(span != NULL);
-    return ((null_span*) span)->null_tracer;
+    return ((null_span*) span)->tracer_ptr;
 }
 
 #define NULL_SPAN_INIT                   \
     {                                    \
-        {{&null_span_destroy},           \
+        {NULL_DESTRUCTIBLE_INIT,         \
          &null_span_finish,              \
          &null_span_finish_with_options, \
          &null_span_span_context,        \
@@ -137,6 +121,8 @@ static opentracing_tracer* null_span_tracer(opentracing_span* span)
             NULL_SPAN_CONTEXT_INIT, NULL \
     }
 
+static null_span null_span_singleton = NULL_SPAN_INIT;
+
 static opentracing_span* null_tracer_start_span_with_options(
     opentracing_tracer* tracer,
     const char* operation_name,
@@ -145,12 +131,11 @@ static opentracing_span* null_tracer_start_span_with_options(
     (void) tracer;
     (void) operation_name;
     (void) options;
-    null_span* span = (null_span*) malloc(sizeof(null_span));
-    if (span == NULL) {
-        return NULL;
+    null_span* span;
+    span = &null_span_singleton;
+    if (span->tracer_ptr != tracer) {
+        span->tracer_ptr = tracer;
     }
-    *span = (null_span) NULL_SPAN_INIT;
-    span->null_tracer = tracer;
     return (opentracing_span*) span;
 }
 
@@ -181,13 +166,8 @@ static int null_tracer_extract(opentracing_tracer* tracer,
     (void) format;
     (void) carrier;
     assert(span_context != NULL);
-    *span_context =
-        (opentracing_span_context*) malloc(sizeof(opentracing_span_context));
-    if (*span_context == NULL) {
-        return 0;
-    }
+    *span_context = &null_span_singleton.null_span_context;
     **span_context = (opentracing_span_context) NULL_SPAN_CONTEXT_INIT;
-    ((opentracing_destructible*) (*span_context))->destroy = &allocated_destroy;
     return 0;
 }
 
