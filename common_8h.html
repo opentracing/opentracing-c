@@ -94,26 +94,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;time.h&gt;</code><br/>
+<code>#include &lt;sys/time.h&gt;</code><br/>
 </div>
 <p><a href="common_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__time__value.html">opentracing_time_value</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__duration.html">opentracing_duration</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration type to calculate precise intervals (should use CLOCK_MONOTIC).  <a href="structopentracing__duration.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration type to calculate precise intervals (should use monotonic clock).  <a href="structopentracing__duration.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__timestamp.html">opentracing_timestamp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp type to represent absolute time (should use CLOCK_REALTIME).  <a href="structopentracing__timestamp.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp type to represent absolute time (should use system clock).  <a href="structopentracing__timestamp.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a542a213c72d1bcc1837e3367b7da869c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structopentracing__duration.html">opentracing_duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a542a213c72d1bcc1837e3367b7da869c">opentracing_duration</a></td></tr>
-<tr class="memdesc:a542a213c72d1bcc1837e3367b7da869c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration type to calculate precise intervals (should use CLOCK_MONOTIC).  <a href="#a542a213c72d1bcc1837e3367b7da869c">More...</a><br/></td></tr>
+<tr class="memitem:a95fa372fbd7408507a32b48be7fae5f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95fa372fbd7408507a32b48be7fae5f6"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="structopentracing__time__value.html">opentracing_time_value</a>&#160;</td><td class="memItemRight" valign="bottom"><b>opentracing_time_value</b></td></tr>
+<tr class="separator:a95fa372fbd7408507a32b48be7fae5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a542a213c72d1bcc1837e3367b7da869c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a542a213c72d1bcc1837e3367b7da869c"></a>
+typedef struct <a class="el" href="structopentracing__duration.html">opentracing_duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a542a213c72d1bcc1837e3367b7da869c">opentracing_duration</a></td></tr>
+<tr class="memdesc:a542a213c72d1bcc1837e3367b7da869c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration type to calculate precise intervals (should use monotonic clock). <br/></td></tr>
 <tr class="separator:a542a213c72d1bcc1837e3367b7da869c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3f67970c5f6eca7631386c218be0c23"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
 <a class="el" href="structopentracing__timestamp.html">opentracing_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#ab3f67970c5f6eca7631386c218be0c23">opentracing_timestamp</a></td></tr>
-<tr class="memdesc:ab3f67970c5f6eca7631386c218be0c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp type to represent absolute time (should use CLOCK_REALTIME).  <a href="#ab3f67970c5f6eca7631386c218be0c23">More...</a><br/></td></tr>
+<tr class="memdesc:ab3f67970c5f6eca7631386c218be0c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp type to represent absolute time (should use system clock).  <a href="#ab3f67970c5f6eca7631386c218be0c23">More...</a><br/></td></tr>
 <tr class="separator:ab3f67970c5f6eca7631386c218be0c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -125,20 +133,6 @@ Enumerations</h2></td></tr>
 <tr class="separator:acf6fc93ce79fc62aa05384dfcb5c3e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a542a213c72d1bcc1837e3367b7da869c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structopentracing__duration.html">opentracing_duration</a>  <a class="el" href="structopentracing__duration.html">opentracing_duration</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Duration type to calculate precise intervals (should use CLOCK_MONOTIC). </p>
-
-</div>
-</div>
 <a class="anchor" id="ab3f67970c5f6eca7631386c218be0c23"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +143,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Timestamp type to represent absolute time (should use CLOCK_REALTIME). </p>
+<p>Timestamp type to represent absolute time (should use system clock). </p>
 
 </div>
 </div>

@@ -14,6 +14,7 @@ var searchData=
   ['opentracing_5ftag',['opentracing_tag',['../structopentracing__tag.html',1,'']]],
   ['opentracing_5ftext_5fmap_5freader',['opentracing_text_map_reader',['../structopentracing__text__map__reader.html',1,'']]],
   ['opentracing_5ftext_5fmap_5fwriter',['opentracing_text_map_writer',['../structopentracing__text__map__writer.html',1,'']]],
+  ['opentracing_5ftime_5fvalue',['opentracing_time_value',['../structopentracing__time__value.html',1,'']]],
   ['opentracing_5ftimestamp',['opentracing_timestamp',['../structopentracing__timestamp.html',1,'']]],
   ['opentracing_5ftracer',['opentracing_tracer',['../structopentracing__tracer.html',1,'']]],
   ['opentracing_5fvalue',['opentracing_value',['../structopentracing__value.html',1,'']]]

@@ -30,6 +30,7 @@ var searchData=
   ['opentracing_5ftag',['opentracing_tag',['../structopentracing__tag.html',1,'opentracing_tag'],['../tracer_8h.html#adf05e508720fd691ebcabd882187ee7d',1,'opentracing_tag():&#160;tracer.h']]],
   ['opentracing_5ftext_5fmap_5freader',['opentracing_text_map_reader',['../structopentracing__text__map__reader.html',1,'opentracing_text_map_reader'],['../propagation_8h.html#abf0364e46645669a53906c729e40c93d',1,'opentracing_text_map_reader():&#160;propagation.h']]],
   ['opentracing_5ftext_5fmap_5fwriter',['opentracing_text_map_writer',['../structopentracing__text__map__writer.html',1,'opentracing_text_map_writer'],['../propagation_8h.html#a765edcdf64a1b0129e2155e00ea03257',1,'opentracing_text_map_writer():&#160;propagation.h']]],
+  ['opentracing_5ftime_5fvalue',['opentracing_time_value',['../structopentracing__time__value.html',1,'']]],
   ['opentracing_5ftimestamp',['opentracing_timestamp',['../structopentracing__timestamp.html',1,'opentracing_timestamp'],['../common_8h.html#ab3f67970c5f6eca7631386c218be0c23',1,'opentracing_timestamp():&#160;common.h']]],
   ['opentracing_5ftracer',['opentracing_tracer',['../structopentracing__tracer.html',1,'opentracing_tracer'],['../tracer_8h.html#ac0265eb09e5199d1ec4498c5909acc66',1,'opentracing_tracer():&#160;tracer.h']]],
   ['opentracing_5fvalue',['opentracing_value',['../structopentracing__value.html',1,'opentracing_value'],['../value_8h.html#a8630d9e5f11794303d05cbe8346c8f6d',1,'opentracing_value():&#160;value.h']]],
