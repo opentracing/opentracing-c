@@ -11,6 +11,9 @@ extern "C" {
 
 /** Error codes for errors occurring in span context propagation. */
 typedef enum opentracing_propagation_error_code {
+    /** Success value. */
+    opentracing_propagation_error_code_success = 0,
+
     /**
      * Occurs when the format passed to inject() or extract() is not
      * recognized by the tracer implementation.
@@ -90,7 +93,7 @@ typedef struct opentracing_text_map_writer {
      * same key leads to undefined behavior.
      * @param key String key
      * @param value String value
-     * @return Zero on success, error code on failure.
+     * @return opentracing_propagation_error_code indicating success or failure.
      */
     opentracing_propagation_error_code (*set)(const char* key,
                                               const char* value);
