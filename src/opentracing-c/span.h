@@ -1,6 +1,7 @@
 #ifndef OPENTRACINGC_SPAN_H
 #define OPENTRACINGC_SPAN_H
 
+#include <opentracing-c/config.h>
 #include <opentracing-c/destructible.h>
 #include <opentracing-c/value.h>
 

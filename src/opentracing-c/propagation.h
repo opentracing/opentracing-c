@@ -1,6 +1,8 @@
 #ifndef OPENTRACINGC_PROPAGATION_H
 #define OPENTRACINGC_PROPAGATION_H
 
+#include <opentracing-c/config.h>
+
 /** @file */
 
 #ifdef __cplusplus

@@ -1,6 +1,7 @@
 #ifndef OPENTRACINGC_TRACER_H
 #define OPENTRACINGC_TRACER_H
 
+#include <opentracing-c/config.h>
 #include <opentracing-c/propagation.h>
 #include <opentracing-c/span.h>
 #include <opentracing-c/visibility.h>

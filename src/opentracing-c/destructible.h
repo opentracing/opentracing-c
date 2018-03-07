@@ -1,6 +1,8 @@
 #ifndef OPENTRACINGC_DESTRUCTIBLE_H
 #define OPENTRACINGC_DESTRUCTIBLE_H
 
+#include <opentracing-c/config.h>
+
 /** @file */
 
 #ifdef __cplusplus

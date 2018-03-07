@@ -1,6 +1,8 @@
 #ifndef OPENTRACINGC_CONFIG_H
 #define OPENTRACINGC_CONFIG_H
 
+#include <opentracing-c/visibility.h>
+
 /** @file */
 
 #ifdef __cplusplus

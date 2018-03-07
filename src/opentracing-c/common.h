@@ -1,6 +1,8 @@
 #ifndef OPENTRACINGC_COMMON_H
 #define OPENTRACINGC_COMMON_H
 
+#include <opentracing-c/config.h>
+
 #include <time.h>
 
 #ifdef HAVE_SYS_TIME_H
