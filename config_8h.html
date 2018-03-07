@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>opentracing-c: opentracing-c Directory Reference</title>
+<title>opentracing-c: opentracing-c/config.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,7 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -57,6 +57,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -79,17 +85,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">opentracing-c Directory Reference</div>  </div>
+<div class="title">config.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="config_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:config_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.html">config.h</a> <a href="config_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:visibility_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>visibility.h</b> <a href="visibility_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac7f371fd101bb311e1727afc046c44b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7f371fd101bb311e1727afc046c44b9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OPENTRACINGC_MAJOR_VERSION</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ac7f371fd101bb311e1727afc046c44b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78308a4b2f9b4f1f0beb2fca097d4a06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78308a4b2f9b4f1f0beb2fca097d4a06"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OPENTRACINGC_MINOR_VERSION</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a78308a4b2f9b4f1f0beb2fca097d4a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa406c4115553bfafcbcb14f643eea3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa406c4115553bfafcbcb14f643eea3b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OPENTRACINGC_PATCH_VERSION</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:afa406c4115553bfafcbcb14f643eea3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dfd9e05ef5667f87805ff0e92dd81f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6dfd9e05ef5667f87805ff0e92dd81f4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OPENTRACINGC_VERSION_STRING</b>&#160;&#160;&#160;&quot;0.0.1&quot;</td></tr>
+<tr class="separator:a6dfd9e05ef5667f87805ff0e92dd81f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aae46056558e9d6fef6380f9678ffe3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aae46056558e9d6fef6380f9678ffe3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAVE_SYS_TIME_H</b></td></tr>
+<tr class="separator:a2aae46056558e9d6fef6380f9678ffe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685dd3a9258e98ec78cf4e35fcba4bb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a685dd3a9258e98ec78cf4e35fcba4bb5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OPENTRACINGC_USE_TIMESPEC</b></td></tr>
+<tr class="separator:a685dd3a9258e98ec78cf4e35fcba4bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
