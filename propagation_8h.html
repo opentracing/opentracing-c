@@ -145,12 +145,13 @@ typedef struct <br class="typebreak"/>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a74c0b0681ff7eb490421ea8cb6316b6d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a> { <br/>
-&#160;&#160;<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252">opentracing_propagation_error_code_unsupported_format</a> = -1, 
+&#160;&#160;<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da014f95af4a92f0c7eb8356195551c3ba">opentracing_propagation_error_code_success</a> = 0, 
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252">opentracing_propagation_error_code_unsupported_format</a> = -1, 
 <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da9be48f24cc628d9632ead4f6faab7328">opentracing_propagation_error_code_span_context_not_found</a> = -2, 
 <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6dae476586e10bbf73559c6b668b9543663">opentracing_propagation_error_code_invalid_span_context</a> = -3, 
-<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da5069f91630e9c8c44953c03eba571b63">opentracing_propagation_error_code_invalid_carrier</a> = -4, 
 <br/>
-&#160;&#160;<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf">opentracing_propagation_error_code_span_context_corrupted</a> = -5
+&#160;&#160;<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da5069f91630e9c8c44953c03eba571b63">opentracing_propagation_error_code_invalid_carrier</a> = -4, 
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf">opentracing_propagation_error_code_span_context_corrupted</a> = -5
 <br/>
  }</td></tr>
 <tr class="memdesc:a74c0b0681ff7eb490421ea8cb6316b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes for errors occurring in span context propagation.  <a href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">More...</a><br/></td></tr>
@@ -222,7 +223,10 @@ Enumerations</h2></td></tr>
 
 <p>Error codes for errors occurring in span context propagation. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252"></a>opentracing_propagation_error_code_unsupported_format</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6da014f95af4a92f0c7eb8356195551c3ba"></a>opentracing_propagation_error_code_success</em>&#160;</td><td class="fielddoc">
+<p>Success value. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252"></a>opentracing_propagation_error_code_unsupported_format</em>&#160;</td><td class="fielddoc">
 <p>Occurs when the format passed to inject() or extract() is not recognized by the tracer implementation. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6da9be48f24cc628d9632ead4f6faab7328"></a>opentracing_propagation_error_code_span_context_not_found</em>&#160;</td><td class="fielddoc">
