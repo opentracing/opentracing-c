@@ -44,7 +44,12 @@ typedef struct opentracing_value {
     } value;
 } opentracing_value;
 
-/** @todo Constructor and destructor for generic value. */
+/**
+ * @note To avoid memory allocation in the opentracing-c interface, no
+ *       initializer or destructor is defined here for opentracing_value
+ *       (relevant for strings), but they should be fairly straightforward to
+ *       implement.
+ */
 
 #ifdef __cplusplus
 }
