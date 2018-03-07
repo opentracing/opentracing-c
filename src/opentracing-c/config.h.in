@@ -1,0 +1,22 @@
+#ifndef OPENTRACINGC_CONFIG_H
+#define OPENTRACINGC_CONFIG_H
+
+/** @file */
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+#define OPENTRACINGC_MAJOR_VERSION @PROJECT_VERSION_MAJOR@
+#define OPENTRACINGC_MINOR_VERSION @PROJECT_VERSION_MINOR@
+#define OPENTRACINGC_PATCH_VERSION @PROJECT_VERSION_PATCH@
+#define OPENTRACINGC_VERSION_STRING "@PROJECT_VERSION@"
+
+#cmakedefine HAVE_SYS_TIME_H
+#cmakedefine OPENTRACINGC_USE_TIMESPEC
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* OPENTRACINGC_CONFIG_H */

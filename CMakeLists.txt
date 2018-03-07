@@ -65,19 +65,13 @@ set_target_properties(opentracingc PROPERTIES
   C_VISIBILITY_INLINES hidden
   C_VISIBILITY_PRESET hidden)
 
-check_include_file("sys/time.h" have_sys_time_h)
-if(have_sys_time_h)
-  list(APPEND defs HAVE_SYS_TIME_H)
-endif()
-
-check_type_size("struct timespec" timespec)
-if(have_timespec)
-  list(APPEND defs OPENTRACINGC_USE_TIMESPEC)
-endif()
+check_include_file("sys/time.h" HAVE_SYS_TIME_H)
+check_type_size("struct timespec" OPENTRACINGC_USE_TIMESPEC)
+configure_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/opentracing-c/config.h.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/src/opentracing-c/config.h" @ONLY)
 
 foreach(lib opentracingc opentracingc-static)
-  target_compile_definitions(${lib} PUBLIC ${defs})
-
   target_include_directories(${lib} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
@@ -96,3 +90,87 @@ if(BUILD_TESTING)
 endif()
 
 generate_documentation()
+
+# Installation (https://github.com/forexample/package-example)
+
+# Layout. This works for all platforms:
+#   * <prefix>/lib/cmake/<PROJECT-NAME>
+#   * <prefix>/lib/
+#   * <prefix>/include/
+set(config_install_dir "lib/cmake/${PROJECT_NAME}")
+set(include_install_dir "include")
+
+set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
+
+# Configuration
+set(version_config "${generated_dir}/${PROJECT_NAME}ConfigVersion.cmake")
+set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
+set(TARGETS_EXPORT_NAME "${PROJECT_NAME}Targets")
+set(namespace "${PROJECT_NAME}::")
+
+# Include module with fuction 'write_basic_package_version_file'
+include(CMakePackageConfigHelpers)
+
+# Configure '<PROJECT-NAME>ConfigVersion.cmake'
+# Use:
+#   * PROJECT_VERSION
+write_basic_package_version_file(
+    "${version_config}" COMPATIBILITY SameMajorVersion
+)
+
+# Configure '<PROJECT-NAME>Config.cmake'
+# Use variables:
+#   * TARGETS_EXPORT_NAME
+#   * PROJECT_NAME
+configure_package_config_file(
+    "cmake/Config.cmake.in"
+    "${project_config}"
+    INSTALL_DESTINATION "${config_install_dir}"
+)
+
+# Targets:
+#   * <prefix>/lib/libopentracingc.so
+#   * <prefix>/lib/libopentracingc.a
+#   * header location after install: <prefix>/include/opentracing-c/tracer.h
+#   * headers can be included by C++ code `#include <opentracing-c/tracer.h>`
+install(
+    TARGETS opentracingc opentracingc-static
+    EXPORT "${TARGETS_EXPORT_NAME}"
+    LIBRARY DESTINATION "lib"
+    ARCHIVE DESTINATION "lib"
+    RUNTIME DESTINATION "bin"
+    INCLUDES DESTINATION "${include_install_dir}"
+)
+
+# Headers:
+#   * src/opentracing-c/tracer.h -> <prefix>/include/src/tracer.h
+install(
+    DIRECTORY "src/opentracing-c"
+    DESTINATION "${include_install_dir}"
+    FILES_MATCHING PATTERN "*.h"
+)
+
+# Generated headers:
+#   * ${CMAKE_CURRENT_BINARY_DIR}/.../opentracing-c/config.h ->
+#     <prefix>/include/opentracing-c/config.h
+install(
+    DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/src/opentracing-c"
+    DESTINATION "${include_install_dir}"
+    FILES_MATCHING PATTERN "*.h"
+)
+
+# Config
+#   * <prefix>/lib/cmake/opentracing-c/opentracing-cConfig.cmake
+#   * <prefix>/lib/cmake/opentracing-c/opentracing-cConfigVersion.cmake
+install(
+    FILES "${project_config}" "${version_config}"
+    DESTINATION "${config_install_dir}"
+)
+
+# Config
+#   * <prefix>/lib/cmake/Foo/FooTargets.cmake
+install(
+    EXPORT "${TARGETS_EXPORT_NAME}"
+    NAMESPACE "${namespace}"
+    DESTINATION "${config_install_dir}"
+)
