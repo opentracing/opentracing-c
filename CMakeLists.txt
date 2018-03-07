@@ -15,6 +15,8 @@ include(GenerateExportHeader)
 
 include(GenerateDocumentation)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 function(add_c_flag flags_var new_flag)
   string(MAKE_C_IDENTIFIER "have${new_flag}" new_flag_var)
   check_c_compiler_flag(${new_flag} ${new_flag_var})

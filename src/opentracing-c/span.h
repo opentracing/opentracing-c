@@ -98,14 +98,14 @@ typedef struct opentracing_span_reference {
     opentracing_span_context* referenced_context;
 } opentracing_span_reference;
 
-#define OPENTRACINGC_CHILD_OF(span_context)                \
-    {                                                      \
-        opentracing_span_reference_child_of, &span_context \
+#define OPENTRACINGC_CHILD_OF(span_context)                  \
+    {                                                        \
+        opentracing_span_reference_child_of, &(span_context) \
     }
 
-#define OPENTRACINGC_FOLLOWS_FROM(span_context)                \
-    {                                                          \
-        opentracing_span_reference_follows_from, &span_context \
+#define OPENTRACINGC_FOLLOWS_FROM(span_context)                  \
+    {                                                            \
+        opentracing_span_reference_follows_from, &(span_context) \
     }
 
 typedef struct opentracing_finish_span_options {
