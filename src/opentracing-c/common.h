@@ -3,6 +3,10 @@
 
 #include <time.h>
 
+#ifdef HAVE_SYS_TIME_H
+#include <sys/time.h>
+#endif /* HAVE_SYS_TIME_H */
+
 /** @file */
 
 #ifdef __cplusplus
@@ -12,16 +16,31 @@ extern "C" {
 /** Boolean type. */
 typedef enum { opentracing_true = 1, opentracing_false = 0 } opentracing_bool;
 
-/** Duration type to calculate precise intervals (should use CLOCK_MONOTIC). */
+#ifdef OPENTRACINGC_USE_TIMESPEC
+
+typedef struct timespec opentracing_time_value;
+
+#else
+
+typedef struct opentracing_time_value {
+    time_t tv_sec;
+    long int tv_nsec;
+} opentracing_time_value;
+
+#endif /* OPENTRACINGC_USE_TIMESPEC */
+
+/**
+ * Duration type to calculate precise intervals (should use monotonic clock).
+ */
 typedef struct opentracing_duration {
     /** Duration value. */
-    struct timespec value;
+    opentracing_time_value value;
 } opentracing_duration;
 
-/** Timestamp type to represent absolute time (should use CLOCK_REALTIME). */
+/** Timestamp type to represent absolute time (should use system clock). */
 typedef struct opentracing_timestamp {
     /** Timestamp value. */
-    struct timespec value;
+    opentracing_time_value value;
 } opentracing_timestamp;
 
 #ifdef __cplusplus

@@ -8,6 +8,7 @@ set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain.cmake"
 project(opentracing-c VERSION 0.0.1 LANGUAGES C)
 
 include(CheckCCompilerFlag)
+include(CheckTypeSize)
 include(CTest)
 
 include(GenerateDocumentation)
@@ -54,7 +55,19 @@ set_target_properties(opentracingc-static PROPERTIES OUTPUT_NAME opentracingc)
 
 add_library(opentracingc SHARED ${srcs})
 
+check_include_file("sys/time.h" have_sys_time_h)
+if(have_sys_time_h)
+  list(APPEND defs HAVE_SYS_TIME_H)
+endif()
+
+check_type_size("struct timespec" timespec)
+if(have_timespec)
+  list(APPEND defs OPENTRACINGC_USE_TIMESPEC)
+endif()
+
 foreach(lib opentracingc opentracingc-static)
+  target_compile_definitions(${lib} PUBLIC ${defs})
+
   target_include_directories(${lib} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
