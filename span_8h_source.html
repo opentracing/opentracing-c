@@ -131,14 +131,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="structopentracing__span__context.html">opentracing_span_context</a>* referenced_context;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;} <a class="code" href="structopentracing__span__reference.html">opentracing_span_reference</a>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#define OPENTRACINGC_CHILD_OF(span_context)                \</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">    {                                                      \</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">        opentracing_span_reference_child_of, &amp;span_context \</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#define OPENTRACINGC_CHILD_OF(span_context)                  \</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">    {                                                        \</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">        opentracing_span_reference_child_of, &amp;(span_context) \</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#define OPENTRACINGC_FOLLOWS_FROM(span_context)                \</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">    {                                                          \</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">        opentracing_span_reference_follows_from, &amp;span_context \</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#define OPENTRACINGC_FOLLOWS_FROM(span_context)                  \</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">    {                                                            \</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">        opentracing_span_reference_follows_from, &amp;(span_context) \</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">    }</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structopentracing__finish__span__options.html">  111</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a> {</div>
