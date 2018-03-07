@@ -1,5 +1,8 @@
 # opentracing-c
 
+[![Build Status](https://travis-ci.org/opentracing/opentracing-c.svg?branch=master)](https://travis-ci.org/opentracing/opentracing-c)
+[![codecov](https://codecov.io/gh/opentracing/opentracing-c/branch/master/graph/badge.svg)](https://codecov.io/gh/opentracing/opentracing-c)
+
 ANSI C implementation of the OpenTracing API http://opentracing.io.
 
 ## Required Reading
@@ -7,6 +10,11 @@ ANSI C implementation of the OpenTracing API http://opentracing.io.
 In order to understand the C platform API, one must first be familiar with the
 [OpenTracing project](http://opentracing.io) and
 [terminology](http://opentracing.io/documentation/pages/spec) more generally.
+
+## Doxygen
+
+API docs generated using Doxygen are hosted
+[here](opentracing.github.io/opentracing-c) on GitHub pages.
 
 ## Compile and install
 
