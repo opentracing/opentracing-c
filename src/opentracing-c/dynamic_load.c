@@ -19,23 +19,28 @@ opentracing_dynamically_load_tracing_library(const char* lib,
                                              char* error_buffer,
                                              int error_buffer_length)
 {
-    opentracing_dynamic_load_error_code (*make_tracer_factory)(
-        const char*, opentracing_tracer_factory, char*, int);
-    opentracing_dynamic_load_error_code return_code;
-    char* error;
-    int error_len;
-    int error_out_len;
-
-#define COPY_ERROR()                                          \
-    do {                                                      \
-        if (error != NULL) {                                  \
-            error_len = strlen(error);                        \
-            error_out_len = (error_len < error_buffer_length) \
-                                ? error_len                   \
-                                : error_buffer_length;        \
-            memcpy(error_buffer, error, error_out_len);       \
-        }                                                     \
+#define COPY_ERROR()                                                  \
+    do {                                                              \
+        if (error != NULL) {                                          \
+            error_len = strlen(error) + 1;                            \
+            if (error_len > error_buffer_length) {                    \
+                memcpy(error_buffer, error, error_buffer_length - 1); \
+                error_buffer[error_buffer_length - 1] = '\0';         \
+            }                                                         \
+            else {                                                    \
+                memcpy(error_buffer, error, error_len);               \
+            }                                                         \
+        }                                                             \
     } while (0)
+
+    const char* error;
+    int error_len;
+
+#ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS
+
+    opentracing_tracer_factory (*make_tracer_factory)(
+        const char*, opentracing_dynamic_load_error_code*, char*, int);
+    opentracing_dynamic_load_error_code return_code;
 
     assert(lib != NULL);
     assert(handle != NULL);
@@ -45,7 +50,6 @@ opentracing_dynamically_load_tracing_library(const char* lib,
     return_code = opentracing_dynamic_load_error_code_success;
     error = NULL;
     error_len = 0;
-    error_out_len = 0;
 
     handle->lib_handle = dlopen(lib, RTLD_NOW | RTLD_LOCAL);
     if (handle->lib_handle == NULL) {
@@ -63,10 +67,10 @@ opentracing_dynamically_load_tracing_library(const char* lib,
         goto cleanup;
     }
 
-    return_code = (*make_tracer_factory)(OPENTRACINGC_VERSION_STRING,
-                                         handle->factory,
-                                         error_buffer,
-                                         error_buffer_length);
+    handle->factory = (*make_tracer_factory)(OPENTRACINGC_VERSION_STRING,
+                                             &return_code,
+                                             error_buffer,
+                                             error_buffer_length);
     if (return_code != 0) {
         goto cleanup;
     }
@@ -86,6 +90,14 @@ cleanup:
         COPY_ERROR();
     }
     return return_code;
+
+#else
+
+    error = "Platform has no weak symbol support";
+    COPY_ERROR();
+    return opentracing_dynamic_load_error_code_not_supported;
+
+#endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 
 #undef COPY_ERROR
 }

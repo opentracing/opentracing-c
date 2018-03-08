@@ -41,17 +41,17 @@ typedef enum opentracing_dynamic_load_error_code {
  * dynamically loaded library. Users should prefer to use the function
  * dynamically_load_tracing_library() over calling this function directly.
  * @param opentracing_version Version of opentracing-c used by caller.
- * @param[out] tracer_factory Pointer to library's tracer factory function.
+ * @param[out] return_code Indicating success or failure.
  * @param[out] error_buffer Buffer for potential error message.
  * @param error_buffer_length Length of error_buffer.
- * @return opentracing_dynamic_load_error_code indicating success or failure.
+ * @return Pointer to library's tracer factory function, NULL on failure.
  * @see opentracing_dynamically_load_tracing_library()
  */
-__attribute((weak)) opentracing_dynamic_load_error_code
-opentracing_make_tracer_factory(const char* opentracing_version,
-                                opentracing_tracer_factory tracer_factory,
-                                char* error_buffer,
-                                int error_buffer_length);
+__attribute((weak)) opentracing_tracer_factory opentracing_make_tracer_factory(
+    const char* opentracing_version,
+    opentracing_dynamic_load_error_code* return_code,
+    char* error_buffer,
+    int error_buffer_length);
 
 #endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 

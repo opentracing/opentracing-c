@@ -1,8 +1,9 @@
 #include <assert.h>
-#include <opentracing-c/tracer.h>
 #include <string.h>
 
-int main()
+#include <opentracing-c/tracer.h>
+
+int main(void)
 {
     opentracing_tracer* tracer;
     opentracing_span* span;

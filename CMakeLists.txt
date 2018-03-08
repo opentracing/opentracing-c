@@ -82,15 +82,40 @@ foreach(lib opentracingc opentracingc-static)
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
     $<INSTALL_INTERFACE:include>)
   target_compile_options(${lib} PUBLIC ${flags})
+
+  if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
+    target_link_libraries(${lib} PUBLIC dl)
+  endif()
 endforeach()
 
 if(BUILD_TESTING)
-  target_compile_options(opentracingc-static PUBLIC ${coverage_flags})
-  add_executable(tracer_test "test/tracer_test.c")
-  target_link_libraries(tracer_test PUBLIC opentracingc-static)
-  add_test(tracer_test tracer_test)
+  set(test_src
+    "test/dynamic_load_test.c"
+    "test/tracer_test.c")
+
+  foreach(test_case_src ${test_src})
+    get_filename_component(test_component ${test_case_src} NAME_WE)
+    add_executable(${test_component} "${test_case_src}")
+    target_link_libraries(${test_component} PUBLIC opentracingc-static)
+    add_test(${test_component} ${test_component})
+    list(APPEND test_executables ${test_component})
+  endforeach()
+
+  if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
+    add_library(mock_tracing_lib SHARED "test/mock_tracing_lib.c")
+    target_link_libraries(mock_tracing_lib PUBLIC opentracingc)
+    set(lib_name $<TARGET_SONAME_FILE_NAME:mock_tracing_lib>)
+    file(GENERATE
+      OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/test/mock_tracing_lib_name.h"
+      CONTENT "#define DYNAMIC_LIB_NAME \"${lib_name}\"\n")
+    target_include_directories(dynamic_load_test PUBLIC
+      "${CMAKE_CURRENT_BINARY_DIR}/test")
+    target_link_libraries(dynamic_load_test PUBLIC mock_tracing_lib)
+  endif()
+
   if(OPENTRACINGC_COVERAGE)
-    setup_target_for_coverage(NAME tracer_test_coverage EXECUTABLE tracer_test)
+    target_compile_options(opentracingc-static PUBLIC ${coverage_flags})
+    setup_target_for_coverage(NAME unit_test_coverage EXECUTABLE ${test_executables})
   endif()
 endif()
 

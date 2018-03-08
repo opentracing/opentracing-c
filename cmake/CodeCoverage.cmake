@@ -71,9 +71,9 @@ endif()
 # the coverage generation will not complete.
 #
 # setup_target_for_coverage(
-#     NAME testrunner_coverage                    # New target name
-#     EXECUTABLE testrunner -j ${PROCESSOR_COUNT} # Executable in PROJECT_BINARY_DIR
-#     DEPENDENCIES testrunner                     # Dependencies to build first
+#     NAME testrunner_coverage              # New target name
+#     EXECUTABLE testrunner1 testrunner2    # Executable in PROJECT_BINARY_DIR
+#     DEPENDENCIES testrunner1 testrunner2  # Dependencies to build first
 # )
 function(setup_target_for_coverage)
   set(options NONE)
@@ -99,7 +99,7 @@ function(setup_target_for_coverage)
   add_custom_target(${Coverage_NAME}
 
     # Cleanup lcov
-    COMMAND  ${LCOV_INVOKE} --directory . --zerocounters
+    COMMAND ${LCOV_INVOKE} --directory . --zerocounters
 
     # Run tests
     ${exe_commands}
