@@ -17,6 +17,8 @@ extern "C" {
 #cmakedefine HAVE_SYS_TIME_H
 #cmakedefine OPENTRACINGC_USE_TIMESPEC
 
+#cmakedefine OPENTRACINGC_HAVE_WEAK_SYMBOLS
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -34,14 +34,12 @@ DisableFormat:   false
 ExperimentalAutoDetectBinPacking: false
 ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
 IncludeCategories:
-  - Regex:           '^<opentracing/config.h>'
+  - Regex:           '^<opentracing/config.h>$'
     Priority:        1
   - Regex:           '^<'
     Priority:        2
-  - Regex:           '^"'
-    Priority:        3
   - Regex:           '^<opentracingc/'
-    Priority:        4
+    Priority:        3
 IndentCaseLabels: false
 IndentWidth:     4
 IndentWrappedFunctionNames: false
