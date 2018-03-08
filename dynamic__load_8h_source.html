@@ -111,11 +111,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;__attribute((weak)) <a class="code" href="dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349f">opentracing_dynamic_load_error_code</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;opentracing_make_tracer_factory(const <span class="keywordtype">char</span>* opentracing_version,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                <a class="code" href="tracer__factory_8h.html#a02aee26b2257be090513519ad7b65f56">opentracing_tracer_factory</a> tracer_factory,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                <span class="keywordtype">char</span>* error_buffer,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                <span class="keywordtype">int</span> error_buffer_length);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;__attribute((weak)) <a class="code" href="tracer__factory_8h.html#a02aee26b2257be090513519ad7b65f56">opentracing_tracer_factory</a> opentracing_make_tracer_factory(</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    const <span class="keywordtype">char</span>* opentracing_version,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349f">opentracing_dynamic_load_error_code</a>* return_code,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">char</span>* error_buffer,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> error_buffer_length);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* OPENTRACINGC_HAVE_WEAK_SYMBOLS */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span></div>
