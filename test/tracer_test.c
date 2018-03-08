@@ -16,10 +16,6 @@ int main(void)
     assert(span->span_context(span) != NULL);
     assert(span->tracer(span) == tracer);
     value = (opentracing_value){opentracing_value_bool, {opentracing_true}};
-    assert(span->set_operation_name(span, "b"));
-    assert(span->set_tag(span, "test", &value));
-    assert(span->log_fields(span, NULL, 0));
-    assert(span->set_baggage_item(span, "key", "value"));
     assert(strlen(span->baggage_item(span, "key")) == 0);
 
     span->finish(span);
