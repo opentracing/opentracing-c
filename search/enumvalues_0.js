@@ -1,5 +1,9 @@
 var searchData=
 [
+  ['opentracing_5fdynamic_5fload_5ferror_5fcode_5ffailure',['opentracing_dynamic_load_error_code_failure',['../dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349fac078f5798576fa108ae87d0033887c6d',1,'dynamic_load.h']]],
+  ['opentracing_5fdynamic_5fload_5ferror_5fcode_5fincompatible_5flibrary_5fversions',['opentracing_dynamic_load_error_code_incompatible_library_versions',['../dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349fa33fcdf3e69c7d4217c1c1a6eb25d145d',1,'dynamic_load.h']]],
+  ['opentracing_5fdynamic_5fload_5ferror_5fcode_5fnot_5fsupported',['opentracing_dynamic_load_error_code_not_supported',['../dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349fac718872b93998e76f155c8ea8dae4476',1,'dynamic_load.h']]],
+  ['opentracing_5fdynamic_5fload_5ferror_5fcode_5fsuccess',['opentracing_dynamic_load_error_code_success',['../dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349fa59c21141b3f7a7008be263793342b210',1,'dynamic_load.h']]],
   ['opentracing_5fpropagation_5ferror_5fcode_5finvalid_5fcarrier',['opentracing_propagation_error_code_invalid_carrier',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da5069f91630e9c8c44953c03eba571b63',1,'propagation.h']]],
   ['opentracing_5fpropagation_5ferror_5fcode_5finvalid_5fspan_5fcontext',['opentracing_propagation_error_code_invalid_span_context',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6dae476586e10bbf73559c6b668b9543663',1,'propagation.h']]],
   ['opentracing_5fpropagation_5ferror_5fcode_5fspan_5fcontext_5fcorrupted',['opentracing_propagation_error_code_span_context_corrupted',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf',1,'propagation.h']]],

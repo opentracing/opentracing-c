@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['factory',['factory',['../structopentracing__library__handle.html#aef0f796683d91b97a7986c0275866ce0',1,'opentracing_library_handle']]],
   ['fields',['fields',['../structopentracing__log__record.html#a18fea2032173cbdb08e1dfff10136b2c',1,'opentracing_log_record']]],
   ['finish',['finish',['../structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775',1,'opentracing_span']]],
   ['finish_5ftime',['finish_time',['../structopentracing__finish__span__options.html#ac2527662b8e8399c1103f0ef20f0c5da',1,'opentracing_finish_span_options']]],

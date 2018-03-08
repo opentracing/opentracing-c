@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>opentracing-c: Data Structure Index</title>
+<title>opentracing-c: opentracing_library_handle Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,12 +62,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li class="current"><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -82,24 +81,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">Data Structure Index</div>  </div>
+<div class="title">opentracing_library_handle Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="qindex"><a class="qindex" href="#letter_N">N</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a></div>
-<table style="margin: 10px; white-space: nowrap;" align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
-<tr><td rowspan="2" valign="bottom"><a name="letter_n"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;n&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="structopentracing__duration.html">opentracing_duration</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__log__field.html">opentracing_log_field</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__start__span__options.html">opentracing_start_span_options</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__timestamp.html">opentracing_timestamp</a>&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__log__record.html">opentracing_log_record</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__tag.html">opentracing_tag</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="structnull__span.html">null_span</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__http__headers__reader.html">opentracing_http_headers_reader</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__value.html">opentracing_value</a>&#160;&#160;&#160;</td></tr>
-<tr><td rowspan="2" valign="bottom"><a name="letter_o"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;o&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="structopentracing__http__headers__writer.html">opentracing_http_headers_writer</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__span__context.html">opentracing_span_context</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__text__map__writer.html">opentracing_text_map_writer</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="structopentracing__library__handle.html">opentracing_library_handle</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__span__reference.html">opentracing_span_reference</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="structopentracing__time__value.html">opentracing_time_value</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="structopentracing__destructible.html">opentracing_destructible</a>&#160;&#160;&#160;</td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td></tr>
+
+<p>Handle for maintaining ownership of dynamically loaded shared library.  
+ <a href="structopentracing__library__handle.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dynamic__load_8h_source.html">opentracing-c/dynamic_load.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:aef0f796683d91b97a7986c0275866ce0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tracer__factory_8h.html#a02aee26b2257be090513519ad7b65f56">opentracing_tracer_factory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__library__handle.html#aef0f796683d91b97a7986c0275866ce0">factory</a></td></tr>
+<tr class="memdesc:aef0f796683d91b97a7986c0275866ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracer factory function.  <a href="#aef0f796683d91b97a7986c0275866ce0">More...</a><br/></td></tr>
+<tr class="separator:aef0f796683d91b97a7986c0275866ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15a036f75359b14651471fe8cdde028"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__library__handle.html#ab15a036f75359b14651471fe8cdde028">lib_handle</a></td></tr>
+<tr class="memdesc:ab15a036f75359b14651471fe8cdde028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw library handle.  <a href="#ab15a036f75359b14651471fe8cdde028">More...</a><br/></td></tr>
+<tr class="separator:ab15a036f75359b14651471fe8cdde028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<div class="qindex"><a class="qindex" href="#letter_N">N</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a></div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handle for maintaining ownership of dynamically loaded shared library. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="aef0f796683d91b97a7986c0275866ce0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tracer__factory_8h.html#a02aee26b2257be090513519ad7b65f56">opentracing_tracer_factory</a> opentracing_library_handle::factory</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tracer factory function. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab15a036f75359b14651471fe8cdde028"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* opentracing_library_handle::lib_handle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raw library handle. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>opentracing-c/<a class="el" href="dynamic__load_8h_source.html">dynamic_load.h</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

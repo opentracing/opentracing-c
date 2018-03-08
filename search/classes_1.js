@@ -5,6 +5,7 @@ var searchData=
   ['opentracing_5ffinish_5fspan_5foptions',['opentracing_finish_span_options',['../structopentracing__finish__span__options.html',1,'']]],
   ['opentracing_5fhttp_5fheaders_5freader',['opentracing_http_headers_reader',['../structopentracing__http__headers__reader.html',1,'']]],
   ['opentracing_5fhttp_5fheaders_5fwriter',['opentracing_http_headers_writer',['../structopentracing__http__headers__writer.html',1,'']]],
+  ['opentracing_5flibrary_5fhandle',['opentracing_library_handle',['../structopentracing__library__handle.html',1,'']]],
   ['opentracing_5flog_5ffield',['opentracing_log_field',['../structopentracing__log__field.html',1,'']]],
   ['opentracing_5flog_5frecord',['opentracing_log_record',['../structopentracing__log__record.html',1,'']]],
   ['opentracing_5fspan',['opentracing_span',['../structopentracing__span.html',1,'']]],
