@@ -169,11 +169,9 @@ typedef struct opentracing_span {
      * Sets or changes the operation name.
      * @param span Span instance.
      * @param operation_name New operation name.
-     * @return opentracing_true if successful, opentracing_false otherwise
-     *         (indicates out of memory).
      */
-    opentracing_bool (*set_operation_name)(struct opentracing_span* span,
-                                           const char* operation_name);
+    void (*set_operation_name)(struct opentracing_span* span,
+                               const char* operation_name);
 
     /**
      * Adds a tag to the span. If there is a pre-existing tag set for `key`,
@@ -184,25 +182,21 @@ typedef struct opentracing_span {
      * @param span Span instance.
      * @param key Tag key.
      * @param value Tag value.
-     * @return opentracing_true if successful, opentracing_false otherwise
-     *         (indicates out of memory).
      */
-    opentracing_bool (*set_tag)(struct opentracing_span* span,
-                                const char* key,
-                                const opentracing_value* value);
+    void (*set_tag)(struct opentracing_span* span,
+                    const char* key,
+                    const opentracing_value* value);
 
     /**
      * Record key:value logging data about a span.
      * @param span Span instance.
      * @param fields Array of log fields.
      * @param num_fields Number of log fields.
-     * @return opentracing_true if successful, opentracing_false otherwise
-     *         (indicates out of memory).
      * @see finish_with_options
      */
-    opentracing_bool (*log_fields)(struct opentracing_span* span,
-                                   const opentracing_log_field* fields,
-                                   int num_fields);
+    void (*log_fields)(struct opentracing_span* span,
+                       const opentracing_log_field* fields,
+                       int num_fields);
 
     /**
      * Sets a key:value pair on this span and its span context that also
@@ -220,12 +214,10 @@ typedef struct opentracing_span {
      * @param span Span instance.
      * @param key Baggage key.
      * @param value Baggage value.
-     * @return opentracing_true if successful, opentracing_false otherwise
-     *         (indicates out of memory).
      */
-    opentracing_bool (*set_baggage_item)(struct opentracing_span* span,
-                                         const char* key,
-                                         const char* value);
+    void (*set_baggage_item)(struct opentracing_span* span,
+                             const char* key,
+                             const char* value);
 
     /**
      * Gets the value for a baggage item given its key.

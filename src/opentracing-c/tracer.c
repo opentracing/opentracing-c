@@ -54,41 +54,38 @@ static opentracing_span_context* null_span_span_context(opentracing_span* span)
     return &((null_span*) span)->null_span_context;
 }
 
-static opentracing_bool null_span_set_operation_name(opentracing_span* span,
-                                                     const char* operation_name)
+static void null_span_set_operation_name(opentracing_span* span,
+                                         const char* operation_name)
 {
     (void) span;
     (void) operation_name;
-    return opentracing_true;
 }
 
-static opentracing_bool null_span_set_tag(opentracing_span* span,
-                                          const char* key,
-                                          const opentracing_value* value)
+static void null_span_set_tag(opentracing_span* span,
+                              const char* key,
+                              const opentracing_value* value)
 {
     (void) span;
     (void) key;
     (void) value;
-    return opentracing_true;
 }
 
-static opentracing_bool null_span_log_fields(
-    opentracing_span* span, const opentracing_log_field* fields, int num_fields)
+static void null_span_log_fields(opentracing_span* span,
+                                 const opentracing_log_field* fields,
+                                 int num_fields)
 {
     (void) span;
     (void) fields;
     (void) num_fields;
-    return opentracing_true;
 }
 
-static opentracing_bool null_span_set_baggage_item(opentracing_span* span,
-                                                   const char* key,
-                                                   const char* value)
+static void null_span_set_baggage_item(opentracing_span* span,
+                                       const char* key,
+                                       const char* value)
 {
     (void) span;
     (void) key;
     (void) value;
-    return opentracing_true;
 }
 
 static const char* null_span_baggage_item(const opentracing_span* span,
