@@ -41,8 +41,10 @@ int main(void)
     if (error_code !=
         opentracing_dynamic_load_error_code_incompatible_library_versions) {
         fprintf(stderr,
-                "Expected incompatible versions, instead error_code=%d\n",
-                error_code);
+                "Expected incompatible versions, instead error_code=%d, "
+                "message=\"%s\"\n",
+                error_code,
+                error);
     }
     assert(error_code ==
            opentracing_dynamic_load_error_code_incompatible_library_versions);
