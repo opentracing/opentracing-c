@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stdio.h>
 #include <string.h>
 
 #include <opentracing-c/dynamic_load.h>
@@ -37,6 +38,12 @@ int main(void)
 
     error_code = opentracing_dynamically_load_tracing_library(
         MOCK_TRACING_LIB_BAD_VERSION_NAME, &handle, error, sizeof(error));
+    if (error_code !=
+        opentracing_dynamic_load_error_code_incompatible_library_versions) {
+        fprintf(stderr,
+                "Expected incompatible versions, instead error_code=%d\n",
+                error_code);
+    }
     assert(error_code ==
            opentracing_dynamic_load_error_code_incompatible_library_versions);
     assert(handle.factory == NULL);
