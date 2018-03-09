@@ -142,10 +142,11 @@ static opentracing_span* null_tracer_start_span(opentracing_tracer* tracer,
     return tracer->start_span_with_options(tracer, operation_name, NULL);
 }
 
-static int null_tracer_inject(opentracing_tracer* tracer,
-                              opentracing_propagation_format format,
-                              void* carrier,
-                              const opentracing_span_context* span_context)
+static opentracing_propagation_error_code
+null_tracer_inject(opentracing_tracer* tracer,
+                   opentracing_propagation_format format,
+                   void* carrier,
+                   const opentracing_span_context* span_context)
 {
     (void) tracer;
     (void) format;
@@ -154,10 +155,11 @@ static int null_tracer_inject(opentracing_tracer* tracer,
     return 0;
 }
 
-static int null_tracer_extract(opentracing_tracer* tracer,
-                               opentracing_propagation_format format,
-                               void* carrier,
-                               opentracing_span_context** span_context)
+static opentracing_propagation_error_code
+null_tracer_extract(opentracing_tracer* tracer,
+                    opentracing_propagation_format format,
+                    void* carrier,
+                    opentracing_span_context** span_context)
 {
     (void) tracer;
     (void) format;
