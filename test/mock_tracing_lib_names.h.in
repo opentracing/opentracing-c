@@ -2,6 +2,9 @@
 #define MOCK_TRACING_LIB_NAMES_H
 
 #define MOCK_TRACING_LIB_NAME "$<TARGET_SONAME_FILE_NAME:mock_tracing_lib>"
-#define MOCK_TRACING_LIB_NO_HOOK_NAME "$<TARGET_SONAME_FILE_NAME:mock_tracing_lib_no_hook>"
+#define MOCK_TRACING_LIB_NO_HOOK_NAME \
+    "$<TARGET_SONAME_FILE_NAME:mock_tracing_lib_no_hook>"
+#define MOCK_TRACING_LIB_BAD_VERSION_NAME \
+    "$<TARGET_SONAME_FILE_NAME:mock_tracing_lib_bad_version>"
 
 #endif /* MOCK_TRACING_LIB_NAMES_H */

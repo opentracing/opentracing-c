@@ -110,6 +110,11 @@ if(BUILD_TESTING)
     add_library(mock_tracing_lib_no_hook SHARED "test/mock_tracing_lib.c")
     target_link_libraries(mock_tracing_lib_no_hook PUBLIC opentracingc)
 
+    add_library(mock_tracing_lib_bad_version SHARED "test/mock_tracing_lib.c")
+    target_compile_definitions(mock_tracing_lib_bad_version PRIVATE
+      BAD_VERSION DEFINE_HOOK)
+    target_link_libraries(mock_tracing_lib_bad_version PUBLIC opentracingc)
+
     file(GENERATE
       OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/test/mock_tracing_lib_names.h"
       INPUT "${CMAKE_CURRENT_SOURCE_DIR}/test/mock_tracing_lib_names.h.in")
