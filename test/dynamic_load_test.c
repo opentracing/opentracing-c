@@ -43,6 +43,12 @@ int main(void)
     assert(handle.lib_handle == NULL);
 
     error_code = opentracing_dynamically_load_tracing_library(
+        MOCK_TRACING_LIB_HOOK_RETURNS_NULL_NAME, &handle, error, sizeof(error));
+    assert(error_code == opentracing_dynamic_load_error_code_failure);
+    assert(handle.factory == NULL);
+    assert(handle.lib_handle == NULL);
+
+    error_code = opentracing_dynamically_load_tracing_library(
         MOCK_TRACING_LIB_NAME, &handle, error, sizeof(error));
     assert(error_code == opentracing_dynamic_load_error_code_success);
     assert(handle.factory != NULL);

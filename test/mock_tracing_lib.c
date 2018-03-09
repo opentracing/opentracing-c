@@ -43,8 +43,12 @@ opentracing_tracer_factory opentracing_make_tracer_factory(
         return NULL;
     }
 
+#ifdef RETURN_NULL_NO_ERROR
+    return NULL;
+#else
     *return_code = opentracing_dynamic_load_error_code_success;
     return &mock_tracer_factory;
+#endif /* RETURN_NULL_NO_ERROR */
 }
 
 #endif /* DEFINE_HOOK */
