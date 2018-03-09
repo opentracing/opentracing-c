@@ -55,7 +55,7 @@ function main() {
 
     if make all -j3; then
         if valgrind_check ./tracer_test && \
-           valgrind_check ./dynamic_load_test; then
+           (LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PWD" valgrind_check ./dynamic_load_test); then
             info "All tests compiled and passed"
         else
             error "Tests failed"
