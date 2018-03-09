@@ -3,6 +3,9 @@
 
 #include <opentracing-c/config.h>
 
+#include <opentracing-c/common.h>
+#include <opentracing-c/span.h>
+
 /** @file */
 
 #ifdef __cplusplus
@@ -70,11 +73,14 @@ typedef enum opentracing_propagation_format {
      * should be URL-escaped, etc.).
      */
     opentracing_propagation_format_http_headers,
-} opentracing_propagation_format;
 
-/**
- * @todo Custom format and custom carrier interface.
- */
+    /**
+     * Represents span contexts in a user-defined format. With it, the caller
+     * can encode/decode a opentracing_span_context for propagation as entries
+     * in a custom protocol.
+     */
+    opentracing_propagation_format_custom
+} opentracing_propagation_format;
 
 /**
  * The inject carrier for the opentracing_propagation_format_text_map.
@@ -86,8 +92,12 @@ typedef enum opentracing_propagation_format {
  *            opentracing_text_map_writer and opentracing_text_map_reader
  *            interfaces must agree on a prefix or other convention to
  *            distinguish their own key:value pairs.
+ * @extends opentracing_destructible
  */
 typedef struct opentracing_text_map_writer {
+    /** Base class member. */
+    opentracing_destructible base;
+
     /**
      * Set a key:value pair to the carrier. Multiple calls to set() for the
      * same key leads to undefined behavior.
@@ -109,8 +119,12 @@ typedef struct opentracing_text_map_writer {
  *            opentracing_text_map_writer and opentracing_text_map_reader
  *            interfaces must agree on a prefix or other convention to
  *            distinguish their own key:value pairs.
+ * @extends opentracing_destructible
  */
 typedef struct opentracing_text_map_reader {
+    /** Base class member. */
+    opentracing_destructible base;
+
     /**
      * Returns text map contents via repeated calls to the handler function.
      * If any call to handler returns a non-nil error, immediately returns that
@@ -118,30 +132,80 @@ typedef struct opentracing_text_map_reader {
      * cases and also allows implementations to hold locks while the map is
      * read.
      * @param handler Function to call for each key:value pair. It should accept
-     *                a key and a value as arguments, return zero on success,
-     *                and a non-zero propagation error code on failure.
-     * @return Zero on success, error code on failure.
+     *                a key and a value as arguments and return an error code
+     *                indicating success or failure.
+     * @return Error code indicating success or failure.
      */
-    int (*foreach_key)(int (*handler)(const char* key, const char* value));
+    opentracing_propagation_error_code (*foreach_key)(
+        opentracing_propagation_error_code (*handler)(const char* key,
+                                                      const char* value));
 } opentracing_text_map_reader;
 
 /**
  * HTTP headers writer.
- * @extends opentracing_http_headers_writer
+ * @extends opentracing_text_map_writer
  */
 typedef struct opentracing_http_headers_writer {
-    /** Base class. */
+    /** Base class member. */
     opentracing_text_map_writer writer;
 } opentracing_http_headers_writer;
 
 /**
  * HTTP headers reader.
- * @extends opentracing_http_headers_reader
+ * @extends opentracing_text_map_reader
  */
 typedef struct opentracing_http_headers_reader {
-    /** Base class. */
+    /** Base class member. */
     opentracing_text_map_reader reader;
 } opentracing_http_headers_reader;
+
+/* Forward declaration. */
+struct opentracing_tracer;
+
+/**
+ * extract() carrier for a custom format. With it, the caller can decode an
+ * opentracing_span_context from entries in a custom protocol.
+ * @extends opentracing_destructible
+ */
+typedef struct opentracing_custom_carrier_reader {
+    /** Base class member. */
+    opentracing_destructible base;
+
+    /**
+     * Extract a span context from a custom format.
+     * @param reader Reader instance.
+     * @param tracer Tracer instance.
+     * @param[out] span_context Span context pointer to return decoded span. Set
+     *                          to NULL on propagation failure or out of memory.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*extract)(
+        struct opentracing_custom_carrier_reader* reader,
+        const struct opentracing_tracer* tracer,
+        opentracing_span_context** span_context);
+} opentracing_custom_carrier_reader;
+
+/**
+ * inject() carrier for a custom format. With it, the caller can encode an
+ * opentracing_span_context for propagation as entries in a custom protocol.
+ * @extends opentracing_destructible
+ */
+typedef struct opentracing_custom_carrier_writer {
+    /** Base class member. */
+    opentracing_destructible base;
+
+    /**
+     * Inject a span context into a custom format.
+     * @param writer Writer instance.
+     * @param tracer Tracer instance.
+     * @param span_context Span context to encode.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*inject)(
+        struct opentracing_custom_carrier_writer* writer,
+        const struct opentracing_tracer* tracer,
+        const opentracing_span_context* span_context);
+} opentracing_custom_carrier_writer;
 
 #ifdef __cplusplus
 }

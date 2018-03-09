@@ -89,12 +89,13 @@ typedef struct opentracing_tracer {
      * @param format Propagation format.
      * @param carrier Opaque carrier.
      * @param span_context Span context to serialize to carrier.
-     * @return Zero on success, error code on propagation failure.
+     * @return Error code indicating success or failure.
      */
-    int (*inject)(struct opentracing_tracer* tracer,
-                  opentracing_propagation_format format,
-                  void* carrier,
-                  const opentracing_span_context* span_context);
+    opentracing_propagation_error_code (*inject)(
+        struct opentracing_tracer* tracer,
+        opentracing_propagation_format format,
+        void* carrier,
+        const opentracing_span_context* span_context);
 
     /**
      * Extract span context from carrier.
@@ -108,12 +109,13 @@ typedef struct opentracing_tracer {
      * @param[out] span_context Span context pointer to return decoded span.
      *                          Set to NULL on propagation failure or out of
      *                          memory.
-     * @return Zero on success, error code on propagation failure.
+     * @return Error code indicating success or failure.
      */
-    int (*extract)(struct opentracing_tracer* tracer,
-                   opentracing_propagation_format format,
-                   void* carrier,
-                   opentracing_span_context** span_context);
+    opentracing_propagation_error_code (*extract)(
+        struct opentracing_tracer* tracer,
+        opentracing_propagation_format format,
+        void* carrier,
+        opentracing_span_context** span_context);
 } opentracing_tracer;
 
 /**
