@@ -15,6 +15,7 @@ int main(void)
 
 #ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS
     opentracing_tracer* tracer;
+    tracer = NULL;
 #endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 
     memset(&handle, 0, sizeof(handle));
