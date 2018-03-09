@@ -17,6 +17,8 @@ opentracing_bool mock_tracer_factory(const char* config,
     return opentracing_true;
 }
 
+#ifdef DEFINE_HOOK
+
 opentracing_tracer_factory opentracing_make_tracer_factory(
     const char* opentracing_version,
     opentracing_dynamic_load_error_code* return_code,
@@ -38,3 +40,5 @@ opentracing_tracer_factory opentracing_make_tracer_factory(
     *return_code = opentracing_dynamic_load_error_code_success;
     return &mock_tracer_factory;
 }
+
+#endif /* DEFINE_HOOK */

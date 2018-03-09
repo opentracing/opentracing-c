@@ -34,11 +34,6 @@ typedef struct null_span {
     opentracing_tracer* tracer_ptr;
 } null_span;
 
-static void null_span_finish(opentracing_span* span)
-{
-    (void) span;
-}
-
 static void
 null_span_finish_with_options(opentracing_span* span,
                               const opentracing_finish_span_options* options)
@@ -46,6 +41,11 @@ null_span_finish_with_options(opentracing_span* span,
     (void) span;
     (void) options;
     (void) span;
+}
+
+static void null_span_finish(opentracing_span* span)
+{
+    span->finish_with_options(span, NULL);
 }
 
 static opentracing_span_context* null_span_span_context(opentracing_span* span)

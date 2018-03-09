@@ -4,7 +4,7 @@
 #include <opentracing-c/dynamic_load.h>
 
 #ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS
-#include "mock_tracing_lib_name.h"
+#include "mock_tracing_lib_names.h"
 #endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 
 int main(void)
@@ -30,7 +30,13 @@ int main(void)
     assert(handle.lib_handle == NULL);
 
     error_code = opentracing_dynamically_load_tracing_library(
-        DYNAMIC_LIB_NAME, &handle, error, sizeof(error));
+        MOCK_TRACING_LIB_NO_HOOK_NAME, &handle, error, sizeof(error));
+    assert(error_code == opentracing_dynamic_load_error_code_failure);
+    assert(handle.factory == NULL);
+    assert(handle.lib_handle == NULL);
+
+    error_code = opentracing_dynamically_load_tracing_library(
+        MOCK_TRACING_LIB_NAME, &handle, error, sizeof(error));
     assert(error_code == opentracing_dynamic_load_error_code_success);
     assert(handle.factory != NULL);
     assert(handle.lib_handle != NULL);

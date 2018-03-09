@@ -3,6 +3,11 @@
 
 #include <opentracing-c/tracer.h>
 
+static void null_destroy(opentracing_destructible* destructible)
+{
+    (void) destructible;
+}
+
 int main(void)
 {
     opentracing_tracer* tracer;
@@ -10,13 +15,19 @@ int main(void)
     opentracing_span_context* span_context;
     int return_code;
     opentracing_value value;
+    opentracing_tracer* global_tracer;
+    opentracing_tracer dummy_tracer;
+
     tracer = opentracing_global_tracer();
     span = tracer->start_span(tracer, "a");
     assert(span != NULL);
     assert(span->span_context(span) != NULL);
     assert(span->tracer(span) == tracer);
-    value = (opentracing_value){opentracing_value_bool, {opentracing_true}};
     assert(strlen(span->baggage_item(span, "key")) == 0);
+    span->set_baggage_item(span, "key", "value");
+    span->set_tag(span, "tag", &value);
+    span->set_operation_name(span, "operation");
+    span->log_fields(span, NULL, 0);
 
     span->finish(span);
     ((opentracing_destructible*) span)
@@ -32,5 +43,14 @@ int main(void)
         ->destroy((opentracing_destructible*) span_context);
 
     opentracing_init_global_tracer(opentracing_global_tracer());
+
+    global_tracer = opentracing_global_tracer();
+    memset(&dummy_tracer, 0, sizeof(dummy_tracer));
+    dummy_tracer.base.destroy = &null_destroy;
+    opentracing_init_global_tracer(&dummy_tracer);
+    assert(opentracing_global_tracer() == &dummy_tracer);
+    opentracing_init_global_tracer(global_tracer);
+    assert(opentracing_global_tracer() == global_tracer);
+
     return 0;
 }

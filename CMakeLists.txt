@@ -27,6 +27,7 @@ function(add_c_flag flags_var new_flag)
 endfunction()
 
 add_c_flag(flags "-Wc++-compat")
+add_c_flag(flags "-Werror")
 if("${CMAKE_C_COMPILER}" MATCHES "Clang")
   add_c_flag(flags "-Weverything")
 else()
@@ -103,14 +104,18 @@ if(BUILD_TESTING)
 
   if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
     add_library(mock_tracing_lib SHARED "test/mock_tracing_lib.c")
+    target_compile_definitions(mock_tracing_lib PRIVATE DEFINE_HOOK)
     target_link_libraries(mock_tracing_lib PUBLIC opentracingc)
-    set(lib_name $<TARGET_SONAME_FILE_NAME:mock_tracing_lib>)
+
+    add_library(mock_tracing_lib_no_hook SHARED "test/mock_tracing_lib.c")
+    target_link_libraries(mock_tracing_lib_no_hook PUBLIC opentracingc)
+
     file(GENERATE
-      OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/test/mock_tracing_lib_name.h"
-      CONTENT "#define DYNAMIC_LIB_NAME \"${lib_name}\"\n")
+      OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/test/mock_tracing_lib_names.h"
+      INPUT "${CMAKE_CURRENT_SOURCE_DIR}/test/mock_tracing_lib_names.h.in")
+
     target_include_directories(dynamic_load_test PUBLIC
-      "${CMAKE_CURRENT_BINARY_DIR}/test")
-    target_link_libraries(dynamic_load_test PUBLIC mock_tracing_lib)
+      "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/test")
   endif()
 
   if(OPENTRACINGC_COVERAGE)

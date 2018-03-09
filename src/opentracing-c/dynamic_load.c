@@ -72,6 +72,7 @@ opentracing_dynamically_load_tracing_library(const char* lib,
                                              error_buffer,
                                              error_buffer_length);
     if (return_code != 0) {
+        assert(error == NULL);
         goto cleanup;
     }
 
@@ -83,11 +84,11 @@ opentracing_dynamically_load_tracing_library(const char* lib,
 
 cleanup:
     if (return_code != opentracing_dynamic_load_error_code_success) {
+        COPY_ERROR();
         if (handle->lib_handle != NULL) {
             dlclose(handle->lib_handle);
             handle->lib_handle = NULL;
         }
-        COPY_ERROR();
     }
     return return_code;
 

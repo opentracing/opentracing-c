@@ -36,6 +36,10 @@ function working() {
     echo -e "${BLUE}$1${NO_COLOR}"
 }
 
+function valgrind_check() {
+    valgrind --error-exitcode=1 --track-origins=yes --leak-check=full $1
+}
+
 function main() {
     local project_dir
     project_dir=$(git rev-parse --show-toplevel)
@@ -50,8 +54,8 @@ function main() {
     cmake -DCMAKE_BUILD_TYPE=Debug ${prefix_arg} -DOPENTRACINGC_COVERAGE=${COVERAGE:OFF} ..
 
     if make all -j3; then
-        if valgrind --error-exitcode=1 --track-origins=yes \
-            --leak-check=full ./tracer_test; then
+        if valgrind_check ./tracer_test && \
+           valgrind_check ./dynamic_load_test; then
             info "All tests compiled and passed"
         else
             error "Tests failed"
