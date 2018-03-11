@@ -152,7 +152,7 @@ null_tracer_inject(opentracing_tracer* tracer,
     (void) format;
     (void) carrier;
     (void) span_context;
-    return 0;
+    return opentracing_propagation_error_code_success;
 }
 
 static opentracing_propagation_error_code
@@ -167,7 +167,7 @@ null_tracer_extract(opentracing_tracer* tracer,
     assert(span_context != NULL);
     *span_context = &null_span_singleton.null_span_context;
     **span_context = (opentracing_span_context) NULL_SPAN_CONTEXT_INIT;
-    return 0;
+    return opentracing_propagation_error_code_success;
 }
 
 #define NULL_TRACER_INIT                                               \
