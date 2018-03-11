@@ -108,47 +108,47 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a46d3d092915de4138912af2d32344fb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__destructible.html">opentracing_destructible</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a46d3d092915de4138912af2d32344fb3">base</a></td></tr>
 <tr class="memdesc:a46d3d092915de4138912af2d32344fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class member.  <a href="#a46d3d092915de4138912af2d32344fb3">More...</a><br/></td></tr>
 <tr class="separator:a46d3d092915de4138912af2d32344fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0774d26775084e42322f8acaa1ea7775"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775">finish</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td></tr>
-<tr class="memdesc:a0774d26775084e42322f8acaa1ea7775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the end timestamp and finalizes span state.  <a href="#a0774d26775084e42322f8acaa1ea7775">More...</a><br/></td></tr>
-<tr class="separator:a0774d26775084e42322f8acaa1ea7775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8003939f6ee1053b67bc3916de9099"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a2e8003939f6ee1053b67bc3916de9099">finish_with_options</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a> *options)</td></tr>
-<tr class="memdesc:a2e8003939f6ee1053b67bc3916de9099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like <a class="el" href="structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775" title="Sets the end timestamp and finalizes span state. ">finish()</a> but with explicit control over timestamps and log data.  <a href="#a2e8003939f6ee1053b67bc3916de9099">More...</a><br/></td></tr>
-<tr class="separator:a2e8003939f6ee1053b67bc3916de9099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae22872a3d49450d474abaa59aefbdc10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ae22872a3d49450d474abaa59aefbdc10">span_context</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td></tr>
-<tr class="memdesc:ae22872a3d49450d474abaa59aefbdc10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yields the <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> for this span.  <a href="#ae22872a3d49450d474abaa59aefbdc10">More...</a><br/></td></tr>
-<tr class="separator:ae22872a3d49450d474abaa59aefbdc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a344bce42343b40c60c4d8b2ebe7054ef"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a344bce42343b40c60c4d8b2ebe7054ef">set_operation_name</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *operation_name)</td></tr>
-<tr class="memdesc:a344bce42343b40c60c4d8b2ebe7054ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets or changes the operation name.  <a href="#a344bce42343b40c60c4d8b2ebe7054ef">More...</a><br/></td></tr>
-<tr class="separator:a344bce42343b40c60c4d8b2ebe7054ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad20a96367509a57b9255cc2b4f620c00"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ad20a96367509a57b9255cc2b4f620c00">set_tag</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const <a class="el" href="structopentracing__value.html">opentracing_value</a> *value)</td></tr>
-<tr class="memdesc:ad20a96367509a57b9255cc2b4f620c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a tag to the span.  <a href="#ad20a96367509a57b9255cc2b4f620c00">More...</a><br/></td></tr>
-<tr class="separator:ad20a96367509a57b9255cc2b4f620c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ccd7d43552db6abe44a97e7138f5132"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a1ccd7d43552db6abe44a97e7138f5132">log_fields</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__log__field.html">opentracing_log_field</a> *fields, int num_fields)</td></tr>
-<tr class="memdesc:a1ccd7d43552db6abe44a97e7138f5132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record key:value logging data about a span.  <a href="#a1ccd7d43552db6abe44a97e7138f5132">More...</a><br/></td></tr>
-<tr class="separator:a1ccd7d43552db6abe44a97e7138f5132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51869c036888ffecd110183a262acd92"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a51869c036888ffecd110183a262acd92">set_baggage_item</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const char *value)</td></tr>
-<tr class="memdesc:a51869c036888ffecd110183a262acd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a key:value pair on this span and its span context that also propagates to descendants of this span.  <a href="#a51869c036888ffecd110183a262acd92">More...</a><br/></td></tr>
-<tr class="separator:a51869c036888ffecd110183a262acd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adebd49e64cc4377554367c14f85f8c9c"><td class="memItemLeft" align="right" valign="top">const char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#adebd49e64cc4377554367c14f85f8c9c">baggage_item</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key)</td></tr>
-<tr class="memdesc:adebd49e64cc4377554367c14f85f8c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value for a baggage item given its key.  <a href="#adebd49e64cc4377554367c14f85f8c9c">More...</a><br/></td></tr>
-<tr class="separator:adebd49e64cc4377554367c14f85f8c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad07f0089eaba25d6a01c9be8ec00f1ca"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ad07f0089eaba25d6a01c9be8ec00f1ca">tracer</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td></tr>
-<tr class="memdesc:ad07f0089eaba25d6a01c9be8ec00f1ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the tracer that created this span.  <a href="#ad07f0089eaba25d6a01c9be8ec00f1ca">More...</a><br/></td></tr>
-<tr class="separator:ad07f0089eaba25d6a01c9be8ec00f1ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a1b649d4855ec4a8609ed3891a4ed5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a08a1b649d4855ec4a8609ed3891a4ed5">finish</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a08a1b649d4855ec4a8609ed3891a4ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the end timestamp and finalizes span state.  <a href="#a08a1b649d4855ec4a8609ed3891a4ed5">More...</a><br/></td></tr>
+<tr class="separator:a08a1b649d4855ec4a8609ed3891a4ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53be7cb86a74e293780d428fa081739"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#af53be7cb86a74e293780d428fa081739">finish_with_options</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a> *options) OPENTRACINGC_NONNULL(1)</td></tr>
+<tr class="memdesc:af53be7cb86a74e293780d428fa081739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like <a class="el" href="structopentracing__span.html#a08a1b649d4855ec4a8609ed3891a4ed5" title="Sets the end timestamp and finalizes span state. ">finish()</a> but with explicit control over timestamps and log data.  <a href="#af53be7cb86a74e293780d428fa081739">More...</a><br/></td></tr>
+<tr class="separator:af53be7cb86a74e293780d428fa081739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd99b9de8af6078d9b70ef3741f1f0b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#abd99b9de8af6078d9b70ef3741f1f0b1">span_context</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:abd99b9de8af6078d9b70ef3741f1f0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yields the <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> for this span.  <a href="#abd99b9de8af6078d9b70ef3741f1f0b1">More...</a><br/></td></tr>
+<tr class="separator:abd99b9de8af6078d9b70ef3741f1f0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01d77844406aab7157a734d7ee05edab"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a01d77844406aab7157a734d7ee05edab">set_operation_name</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *operation_name) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a01d77844406aab7157a734d7ee05edab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets or changes the operation name.  <a href="#a01d77844406aab7157a734d7ee05edab">More...</a><br/></td></tr>
+<tr class="separator:a01d77844406aab7157a734d7ee05edab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c849b24da972a6107fbe3462479de9a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a2c849b24da972a6107fbe3462479de9a">set_tag</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const <a class="el" href="structopentracing__value.html">opentracing_value</a> *value) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a2c849b24da972a6107fbe3462479de9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a tag to the span.  <a href="#a2c849b24da972a6107fbe3462479de9a">More...</a><br/></td></tr>
+<tr class="separator:a2c849b24da972a6107fbe3462479de9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96afd11f0a6ff139ac94e56feae174e6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a96afd11f0a6ff139ac94e56feae174e6">log_fields</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__log__field.html">opentracing_log_field</a> *fields, int num_fields) OPENTRACINGC_NONNULL(1)</td></tr>
+<tr class="memdesc:a96afd11f0a6ff139ac94e56feae174e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record key:value logging data about a span.  <a href="#a96afd11f0a6ff139ac94e56feae174e6">More...</a><br/></td></tr>
+<tr class="separator:a96afd11f0a6ff139ac94e56feae174e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00559bb133782d86471ef0c98824a335"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a00559bb133782d86471ef0c98824a335">set_baggage_item</a> )(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const char *value) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a00559bb133782d86471ef0c98824a335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a key:value pair on this span and its span context that also propagates to descendants of this span.  <a href="#a00559bb133782d86471ef0c98824a335">More...</a><br/></td></tr>
+<tr class="separator:a00559bb133782d86471ef0c98824a335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d14623a19e280333658b07113baf761"><td class="memItemLeft" align="right" valign="top">const char *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a3d14623a19e280333658b07113baf761">baggage_item</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a3d14623a19e280333658b07113baf761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value for a baggage item given its key.  <a href="#a3d14623a19e280333658b07113baf761">More...</a><br/></td></tr>
+<tr class="separator:a3d14623a19e280333658b07113baf761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ac4a1cd323b896d196416a742439ea"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ad8ac4a1cd323b896d196416a742439ea">tracer</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:ad8ac4a1cd323b896d196416a742439ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the tracer that created this span.  <a href="#ad8ac4a1cd323b896d196416a742439ea">More...</a><br/></td></tr>
+<tr class="separator:ad8ac4a1cd323b896d196416a742439ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
-<tr class="memitem:aa2b91020ebd02740f5c0e53de50a3624 inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible)</td></tr>
-<tr class="memdesc:aa2b91020ebd02740f5c0e53de50a3624 inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#aa2b91020ebd02740f5c0e53de50a3624">More...</a><br/></td></tr>
-<tr class="separator:aa2b91020ebd02740f5c0e53de50a3624 inherit pub_attribs_structopentracing__destructible"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a18aa94700235f753727ca5b0a8f73bcd">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a18aa94700235f753727ca5b0a8f73bcd">More...</a><br/></td></tr>
+<tr class="separator:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Span interface. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="adebd49e64cc4377554367c14f85f8c9c"></a>
+<a class="anchor" id="a3d14623a19e280333658b07113baf761"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char*(* opentracing_span::baggage_item)(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key)</td>
+          <td class="memname">const char*(* opentracing_span::baggage_item)(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -179,12 +179,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0774d26775084e42322f8acaa1ea7775"></a>
+<a class="anchor" id="a08a1b649d4855ec4a8609ed3891a4ed5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::finish)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td>
+          <td class="memname">void(* opentracing_span::finish)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -201,17 +201,17 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2e8003939f6ee1053b67bc3916de9099"></a>
+<a class="anchor" id="af53be7cb86a74e293780d428fa081739"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::finish_with_options)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a> *options)</td>
+          <td class="memname">void(* opentracing_span::finish_with_options)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__finish__span__options.html">opentracing_finish_span_options</a> *options) OPENTRACINGC_NONNULL(1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Like <a class="el" href="structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775" title="Sets the end timestamp and finalizes span state. ">finish()</a> but with explicit control over timestamps and log data. </p>
+<p>Like <a class="el" href="structopentracing__span.html#a08a1b649d4855ec4a8609ed3891a4ed5" title="Sets the end timestamp and finalizes span state. ">finish()</a> but with explicit control over timestamps and log data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">span</td><td>Span instance. </td></tr>
@@ -219,16 +219,16 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775" title="Sets the end timestamp and finalizes span state. ">finish</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#a08a1b649d4855ec4a8609ed3891a4ed5" title="Sets the end timestamp and finalizes span state. ">finish</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1ccd7d43552db6abe44a97e7138f5132"></a>
+<a class="anchor" id="a96afd11f0a6ff139ac94e56feae174e6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::log_fields)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__log__field.html">opentracing_log_field</a> *fields, int num_fields)</td>
+          <td class="memname">void(* opentracing_span::log_fields)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const <a class="el" href="structopentracing__log__field.html">opentracing_log_field</a> *fields, int num_fields) OPENTRACINGC_NONNULL(1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -242,23 +242,23 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#a2e8003939f6ee1053b67bc3916de9099" title="Like finish() but with explicit control over timestamps and log data. ">finish_with_options</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#af53be7cb86a74e293780d428fa081739" title="Like finish() but with explicit control over timestamps and log data. ">finish_with_options</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a51869c036888ffecd110183a262acd92"></a>
+<a class="anchor" id="a00559bb133782d86471ef0c98824a335"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::set_baggage_item)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const char *value)</td>
+          <td class="memname">void(* opentracing_span::set_baggage_item)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const char *value) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Sets a key:value pair on this span and its span context that also propagates to descendants of this span. </p>
-<p><a class="el" href="structopentracing__span.html#a51869c036888ffecd110183a262acd92" title="Sets a key:value pair on this span and its span context that also propagates to descendants of this s...">set_baggage_item()</a> enables powerful functionality given a full-stack opentracing integration (e.g. arbitrary application data from a mobile app can make it, transparently, all the way into the depths of a storage system), and with it some powerful costs: use this feature with care. </p>
-<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="structopentracing__span.html#a51869c036888ffecd110183a262acd92" title="Sets a key:value pair on this span and its span context that also propagates to descendants of this s...">set_baggage_item()</a> will only propagate baggage items to future causal descendants of the associated span. </dd>
+<p><a class="el" href="structopentracing__span.html#a00559bb133782d86471ef0c98824a335" title="Sets a key:value pair on this span and its span context that also propagates to descendants of this s...">set_baggage_item()</a> enables powerful functionality given a full-stack opentracing integration (e.g. arbitrary application data from a mobile app can make it, transparently, all the way into the depths of a storage system), and with it some powerful costs: use this feature with care. </p>
+<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="structopentracing__span.html#a00559bb133782d86471ef0c98824a335" title="Sets a key:value pair on this span and its span context that also propagates to descendants of this s...">set_baggage_item()</a> will only propagate baggage items to future causal descendants of the associated span. </dd>
 <dd>
 Use this thoughtfully and with care. Every key and value is copied into every local and remote child of the associated span, and that can add up to a lot of network and CPU overhead. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -272,12 +272,12 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
 
 </div>
 </div>
-<a class="anchor" id="a344bce42343b40c60c4d8b2ebe7054ef"></a>
+<a class="anchor" id="a01d77844406aab7157a734d7ee05edab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::set_operation_name)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *operation_name)</td>
+          <td class="memname">void(* opentracing_span::set_operation_name)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *operation_name) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -293,12 +293,12 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
 
 </div>
 </div>
-<a class="anchor" id="ad20a96367509a57b9255cc2b4f620c00"></a>
+<a class="anchor" id="a2c849b24da972a6107fbe3462479de9a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span::set_tag)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const <a class="el" href="structopentracing__value.html">opentracing_value</a> *value)</td>
+          <td class="memname">void(* opentracing_span::set_tag)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span, const char *key, const <a class="el" href="structopentracing__value.html">opentracing_value</a> *value) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,12 +316,12 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
 
 </div>
 </div>
-<a class="anchor" id="ae22872a3d49450d474abaa59aefbdc10"></a>
+<a class="anchor" id="abd99b9de8af6078d9b70ef3741f1f0b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structopentracing__span__context.html">opentracing_span_context</a>*(* opentracing_span::span_context)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td>
+          <td class="memname"><a class="el" href="structopentracing__span__context.html">opentracing_span_context</a>*(* opentracing_span::span_context)(struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -335,16 +335,16 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Span context associated with this span. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#a0774d26775084e42322f8acaa1ea7775" title="Sets the end timestamp and finalizes span state. ">finish</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#a08a1b649d4855ec4a8609ed3891a4ed5" title="Sets the end timestamp and finalizes span state. ">finish</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad07f0089eaba25d6a01c9be8ec00f1ca"></a>
+<a class="anchor" id="ad8ac4a1cd323b896d196416a742439ea"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>*(* opentracing_span::tracer)(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span)</td>
+          <td class="memname">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a>*(* opentracing_span::tracer)(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td>
         </tr>
       </table>
 </div><div class="memdoc">
