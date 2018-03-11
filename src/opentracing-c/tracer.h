@@ -69,7 +69,8 @@ typedef struct opentracing_tracer {
      * @return Span pointer on success, NULL otherwise.
      */
     opentracing_span* (*start_span)(struct opentracing_tracer* tracer,
-                                    const char* operation_name);
+                                    const char* operation_name)
+        OPENTRACINGC_NONNULL();
 
     /**
      * Start a new span with provided options.
@@ -81,7 +82,8 @@ typedef struct opentracing_tracer {
     opentracing_span* (*start_span_with_options)(
         struct opentracing_tracer* tracer,
         const char* operation_name,
-        const opentracing_start_span_options* options);
+        const opentracing_start_span_options* options) OPENTRACINGC_NONNULL(1,
+                                                                            2);
 
     /**
      * Inject span context into carrier.
@@ -95,7 +97,7 @@ typedef struct opentracing_tracer {
         struct opentracing_tracer* tracer,
         opentracing_propagation_format format,
         void* carrier,
-        const opentracing_span_context* span_context);
+        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL();
 
     /**
      * Extract span context from carrier.
@@ -115,7 +117,7 @@ typedef struct opentracing_tracer {
         struct opentracing_tracer* tracer,
         opentracing_propagation_format format,
         void* carrier,
-        opentracing_span_context** span_context);
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL();
 } opentracing_tracer;
 
 /**
@@ -133,7 +135,8 @@ OPENTRACINGC_EXPORT opentracing_tracer* opentracing_global_tracer(void);
  * @see opentracing_global_tracer()
  */
 OPENTRACINGC_EXPORT void
-opentracing_init_global_tracer(opentracing_tracer* tracer);
+opentracing_init_global_tracer(opentracing_tracer* tracer)
+    OPENTRACINGC_NONNULL();
 
 #ifdef __cplusplus
 }

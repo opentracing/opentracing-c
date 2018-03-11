@@ -13,7 +13,7 @@ include(CheckTypeSize)
 include(CTest)
 include(GenerateExportHeader)
 
-include(CheckHaveWeakSymbols)
+include(CheckAttributes)
 include(GenerateDocumentation)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -71,7 +71,8 @@ set_target_properties(opentracingc PROPERTIES
 
 check_include_file("sys/time.h" HAVE_SYS_TIME_H)
 check_type_size("struct timespec" OPENTRACINGC_USE_TIMESPEC)
-check_have_weak_symbols()
+
+check_attributes()
 
 configure_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/src/opentracing-c/config.h.in"

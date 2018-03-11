@@ -144,7 +144,7 @@ typedef struct opentracing_span {
      * @param span Span instance.
      * @see context
      */
-    void (*finish)(struct opentracing_span* span);
+    void (*finish)(struct opentracing_span* span) OPENTRACINGC_NONNULL();
 
     /**
      * Like finish() but with explicit control over timestamps and log data.
@@ -153,7 +153,8 @@ typedef struct opentracing_span {
      * @see finish
      */
     void (*finish_with_options)(struct opentracing_span* span,
-                                const opentracing_finish_span_options* options);
+                                const opentracing_finish_span_options* options)
+        OPENTRACINGC_NONNULL(1);
 
     /**
      * Yields the opentracing_span_context for this span. Note that the
@@ -163,7 +164,8 @@ typedef struct opentracing_span {
      * @return Span context associated with this span.
      * @see finish
      */
-    opentracing_span_context* (*span_context)(struct opentracing_span* span);
+    opentracing_span_context* (*span_context)(struct opentracing_span* span)
+        OPENTRACINGC_NONNULL();
 
     /**
      * Sets or changes the operation name.
@@ -171,7 +173,8 @@ typedef struct opentracing_span {
      * @param operation_name New operation name.
      */
     void (*set_operation_name)(struct opentracing_span* span,
-                               const char* operation_name);
+                               const char* operation_name)
+        OPENTRACINGC_NONNULL();
 
     /**
      * Adds a tag to the span. If there is a pre-existing tag set for `key`,
@@ -185,7 +188,7 @@ typedef struct opentracing_span {
      */
     void (*set_tag)(struct opentracing_span* span,
                     const char* key,
-                    const opentracing_value* value);
+                    const opentracing_value* value) OPENTRACINGC_NONNULL();
 
     /**
      * Record key:value logging data about a span.
@@ -197,7 +200,7 @@ typedef struct opentracing_span {
      */
     void (*log_fields)(struct opentracing_span* span,
                        const opentracing_log_field* fields,
-                       int num_fields);
+                       int num_fields) OPENTRACINGC_NONNULL(1);
 
     /**
      * Sets a key:value pair on this span and its span context that also
@@ -218,7 +221,7 @@ typedef struct opentracing_span {
      */
     void (*set_baggage_item)(struct opentracing_span* span,
                              const char* key,
-                             const char* value);
+                             const char* value) OPENTRACINGC_NONNULL();
 
     /**
      * Gets the value for a baggage item given its key.
@@ -228,14 +231,15 @@ typedef struct opentracing_span {
      *         empty string.
      */
     const char* (*baggage_item)(const struct opentracing_span* span,
-                                const char* key);
+                                const char* key) OPENTRACINGC_NONNULL();
 
     /**
      * Provides access to the tracer that created this span.
      * @param span Span instance.
      * @return Tracer instance that created this span.
      */
-    struct opentracing_tracer* (*tracer)(const struct opentracing_span* span);
+    struct opentracing_tracer* (*tracer)(const struct opentracing_span* span)
+        OPENTRACINGC_NONNULL();
 } opentracing_span;
 
 #ifdef __cplusplus

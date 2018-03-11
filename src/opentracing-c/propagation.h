@@ -101,12 +101,15 @@ typedef struct opentracing_text_map_writer {
     /**
      * Set a key:value pair to the carrier. Multiple calls to set() for the
      * same key leads to undefined behavior.
-     * @param key String key
-     * @param value String value
+     * @param writer Writer instance.
+     * @param key String key.
+     * @param value String value.
      * @return opentracing_propagation_error_code indicating success or failure.
      */
-    opentracing_propagation_error_code (*set)(const char* key,
-                                              const char* value);
+    opentracing_propagation_error_code (*set)(
+        struct opentracing_text_map_writer* writer,
+        const char* key,
+        const char* value) OPENTRACINGC_NONNULL(1);
 } opentracing_text_map_writer;
 
 /**
@@ -131,14 +134,17 @@ typedef struct opentracing_text_map_reader {
      * error. The "foreach" callback pattern reduces unnecessary copying in some
      * cases and also allows implementations to hold locks while the map is
      * read.
+     * @param reader Reader instance.
      * @param handler Function to call for each key:value pair. It should accept
      *                a key and a value as arguments and return an error code
      *                indicating success or failure.
      * @return Error code indicating success or failure.
      */
     opentracing_propagation_error_code (*foreach_key)(
+        struct opentracing_text_map_reader* reader,
         opentracing_propagation_error_code (*handler)(const char* key,
-                                                      const char* value));
+                                                      const char* value))
+        OPENTRACINGC_NONNULL();
 } opentracing_text_map_reader;
 
 /**
@@ -182,7 +188,7 @@ typedef struct opentracing_custom_carrier_reader {
     opentracing_propagation_error_code (*extract)(
         struct opentracing_custom_carrier_reader* reader,
         const struct opentracing_tracer* tracer,
-        opentracing_span_context** span_context);
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL();
 } opentracing_custom_carrier_reader;
 
 /**
@@ -204,7 +210,7 @@ typedef struct opentracing_custom_carrier_writer {
     opentracing_propagation_error_code (*inject)(
         struct opentracing_custom_carrier_writer* writer,
         const struct opentracing_tracer* tracer,
-        const opentracing_span_context* span_context);
+        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL();
 } opentracing_custom_carrier_writer;
 
 #ifdef __cplusplus

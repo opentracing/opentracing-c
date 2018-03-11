@@ -47,11 +47,11 @@ typedef enum opentracing_dynamic_load_error_code {
  * @return Pointer to library's tracer factory function, NULL on failure.
  * @see opentracing_dynamically_load_tracing_library()
  */
-__attribute((weak)) opentracing_tracer_factory opentracing_make_tracer_factory(
+opentracing_tracer_factory opentracing_make_tracer_factory(
     const char* opentracing_version,
     opentracing_dynamic_load_error_code* return_code,
     char* error_buffer,
-    int error_buffer_length);
+    int error_buffer_length) OPENTRACINGC_WEAK;
 
 #endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 
@@ -72,7 +72,8 @@ typedef struct opentracing_library_handle {
  * also destroyed.
  * @param handle Library handle to destroy.
  */
-void opentracing_library_handle_destroy(opentracing_library_handle* handle);
+void opentracing_library_handle_destroy(opentracing_library_handle* handle)
+    OPENTRACINGC_NONNULL();
 
 /**
  * Dynamically loads a tracing library and returns a handle that can be used
@@ -90,7 +91,8 @@ opentracing_dynamic_load_error_code
 opentracing_dynamically_load_tracing_library(const char* lib,
                                              opentracing_library_handle* handle,
                                              char* error_buffer,
-                                             int error_buffer_length);
+                                             int error_buffer_length)
+    OPENTRACINGC_NONNULL(1, 2);
 
 #ifdef __cplusplus
 }

@@ -18,7 +18,8 @@ typedef struct opentracing_destructible {
      * Destructor to clean up any resources allocated to the instance.
      * @param destructible Destructible instance.
      */
-    void (*destroy)(struct opentracing_destructible* destructible);
+    void (*destroy)(struct opentracing_destructible* destructible)
+        OPENTRACINGC_NONNULL();
 } opentracing_destructible;
 
 #ifdef __cplusplus
