@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,12 +114,12 @@ Data Fields</h2></td></tr>
 <tr class="memitem:ad016a6243da5d22a2178c49239177732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#ad016a6243da5d22a2178c49239177732">start_span_with_options</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, const char *operation_name, const <a class="el" href="structopentracing__start__span__options.html">opentracing_start_span_options</a> *options)</td></tr>
 <tr class="memdesc:ad016a6243da5d22a2178c49239177732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a new span with provided options.  <a href="#ad016a6243da5d22a2178c49239177732">More...</a><br/></td></tr>
 <tr class="separator:ad016a6243da5d22a2178c49239177732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97df9ace8a404b8b9e16dd8f51b3eca2"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a97df9ace8a404b8b9e16dd8f51b3eca2">inject</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context)</td></tr>
-<tr class="memdesc:a97df9ace8a404b8b9e16dd8f51b3eca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into carrier.  <a href="#a97df9ace8a404b8b9e16dd8f51b3eca2">More...</a><br/></td></tr>
-<tr class="separator:a97df9ace8a404b8b9e16dd8f51b3eca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78d4f587e2e3bf5f1671d7b44e099f7e"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a78d4f587e2e3bf5f1671d7b44e099f7e">extract</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context)</td></tr>
-<tr class="memdesc:a78d4f587e2e3bf5f1671d7b44e099f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#a78d4f587e2e3bf5f1671d7b44e099f7e">More...</a><br/></td></tr>
-<tr class="separator:a78d4f587e2e3bf5f1671d7b44e099f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce0088768e832d891f57177b2593d84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a9ce0088768e832d891f57177b2593d84">inject</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context)</td></tr>
+<tr class="memdesc:a9ce0088768e832d891f57177b2593d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into carrier.  <a href="#a9ce0088768e832d891f57177b2593d84">More...</a><br/></td></tr>
+<tr class="separator:a9ce0088768e832d891f57177b2593d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6cd5a483b5cd0326da8a9f955286603"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#aa6cd5a483b5cd0326da8a9f955286603">extract</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context)</td></tr>
+<tr class="memdesc:aa6cd5a483b5cd0326da8a9f955286603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#aa6cd5a483b5cd0326da8a9f955286603">More...</a><br/></td></tr>
+<tr class="separator:aa6cd5a483b5cd0326da8a9f955286603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
 <tr class="memitem:aa2b91020ebd02740f5c0e53de50a3624 inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#aa2b91020ebd02740f5c0e53de50a3624">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible)</td></tr>
 <tr class="memdesc:aa2b91020ebd02740f5c0e53de50a3624 inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#aa2b91020ebd02740f5c0e53de50a3624">More...</a><br/></td></tr>
@@ -143,12 +142,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a78d4f587e2e3bf5f1671d7b44e099f7e"></a>
+<a class="anchor" id="aa6cd5a483b5cd0326da8a9f955286603"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int(* opentracing_tracer::extract)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context)</td>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -164,16 +163,16 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Zero on success, error code on propagation failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a97df9ace8a404b8b9e16dd8f51b3eca2"></a>
+<a class="anchor" id="a9ce0088768e832d891f57177b2593d84"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int(* opentracing_tracer::inject)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context)</td>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> format, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -188,7 +187,7 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Zero on success, error code on propagation failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
 
 </div>
 </div>

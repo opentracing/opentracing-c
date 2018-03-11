@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,9 +99,15 @@ Inheritance diagram for opentracing_destructible:</div>
  <div class="center">
   <img src="structopentracing__destructible.png" usemap="#opentracing_destructible_map" alt=""/>
   <map id="opentracing_destructible_map" name="opentracing_destructible_map">
-<area href="structopentracing__span.html" title="Span interface. " alt="opentracing_span" shape="rect" coords="0,56,160,80"/>
-<area href="structopentracing__span__context.html" title="Span context interface. " alt="opentracing_span_context" shape="rect" coords="170,56,330,80"/>
-<area href="structopentracing__tracer.html" title="Tracer interface. " alt="opentracing_tracer" shape="rect" coords="340,56,500,80"/>
+<area href="structopentracing__custom__carrier__reader.html" title="extract() carrier for a custom format. " alt="opentracing_custom_carrier_reader" shape="rect" coords="0,56,216,80"/>
+<area href="structopentracing__custom__carrier__writer.html" title="inject() carrier for a custom format. " alt="opentracing_custom_carrier_writer" shape="rect" coords="226,56,442,80"/>
+<area href="structopentracing__span.html" title="Span interface. " alt="opentracing_span" shape="rect" coords="452,56,668,80"/>
+<area href="structopentracing__span__context.html" title="Span context interface. " alt="opentracing_span_context" shape="rect" coords="678,56,894,80"/>
+<area href="structopentracing__text__map__reader.html" title="The extract() carrier for the opentracing_propagation_format_text_map with it, the caller can decode ..." alt="opentracing_text_map_reader" shape="rect" coords="904,56,1120,80"/>
+<area href="structopentracing__text__map__writer.html" title="The inject carrier for the opentracing_propagation_format_text_map. " alt="opentracing_text_map_writer" shape="rect" coords="1130,56,1346,80"/>
+<area href="structopentracing__tracer.html" title="Tracer interface. " alt="opentracing_tracer" shape="rect" coords="1356,56,1572,80"/>
+<area href="structopentracing__http__headers__reader.html" title="HTTP headers reader. " alt="opentracing_http_headers_reader" shape="rect" coords="904,112,1120,136"/>
+<area href="structopentracing__http__headers__writer.html" title="HTTP headers writer. " alt="opentracing_http_headers_writer" shape="rect" coords="1130,112,1346,136"/>
 </map>
  </div></div>
 <table class="memberdecls">

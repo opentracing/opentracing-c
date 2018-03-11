@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['opentracing_5fcustom_5fcarrier_5freader',['opentracing_custom_carrier_reader',['../structopentracing__custom__carrier__reader.html',1,'']]],
+  ['opentracing_5fcustom_5fcarrier_5fwriter',['opentracing_custom_carrier_writer',['../structopentracing__custom__carrier__writer.html',1,'']]],
   ['opentracing_5fdestructible',['opentracing_destructible',['../structopentracing__destructible.html',1,'']]],
   ['opentracing_5fduration',['opentracing_duration',['../structopentracing__duration.html',1,'']]],
   ['opentracing_5ffinish_5fspan_5foptions',['opentracing_finish_span_options',['../structopentracing__finish__span__options.html',1,'']]],

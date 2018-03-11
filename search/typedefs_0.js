@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['opentracing_5fcustom_5fcarrier_5freader',['opentracing_custom_carrier_reader',['../propagation_8h.html#a3d0a163bff29c11dad6f182e13f3978a',1,'propagation.h']]],
+  ['opentracing_5fcustom_5fcarrier_5fwriter',['opentracing_custom_carrier_writer',['../propagation_8h.html#ad63b9f32f963e0e5206bbc378210bccd',1,'propagation.h']]],
   ['opentracing_5fdestructible',['opentracing_destructible',['../destructible_8h.html#a12e9cf4de04709416e13e87af108c31a',1,'destructible.h']]],
   ['opentracing_5fduration',['opentracing_duration',['../common_8h.html#a542a213c72d1bcc1837e3367b7da869c',1,'common.h']]],
   ['opentracing_5fdynamic_5fload_5ferror_5fcode',['opentracing_dynamic_load_error_code',['../dynamic__load_8h.html#ab4d93dd938f16c8626868f548703f365',1,'dynamic_load.h']]],

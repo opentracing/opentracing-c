@@ -1,6 +1,8 @@
 var searchData=
 [
   ['opentracing_5fbool',['opentracing_bool',['../common_8h.html#acf6fc93ce79fc62aa05384dfcb5c3e81',1,'common.h']]],
+  ['opentracing_5fcustom_5fcarrier_5freader',['opentracing_custom_carrier_reader',['../structopentracing__custom__carrier__reader.html',1,'opentracing_custom_carrier_reader'],['../propagation_8h.html#a3d0a163bff29c11dad6f182e13f3978a',1,'opentracing_custom_carrier_reader():&#160;propagation.h']]],
+  ['opentracing_5fcustom_5fcarrier_5fwriter',['opentracing_custom_carrier_writer',['../structopentracing__custom__carrier__writer.html',1,'opentracing_custom_carrier_writer'],['../propagation_8h.html#ad63b9f32f963e0e5206bbc378210bccd',1,'opentracing_custom_carrier_writer():&#160;propagation.h']]],
   ['opentracing_5fdestructible',['opentracing_destructible',['../structopentracing__destructible.html',1,'opentracing_destructible'],['../destructible_8h.html#a12e9cf4de04709416e13e87af108c31a',1,'opentracing_destructible():&#160;destructible.h']]],
   ['opentracing_5fduration',['opentracing_duration',['../structopentracing__duration.html',1,'opentracing_duration'],['../common_8h.html#a542a213c72d1bcc1837e3367b7da869c',1,'opentracing_duration():&#160;common.h']]],
   ['opentracing_5fdynamic_5fload_5ferror_5fcode',['opentracing_dynamic_load_error_code',['../dynamic__load_8h.html#a6603ba6e9b39481542415a7487de349f',1,'opentracing_dynamic_load_error_code():&#160;dynamic_load.h'],['../dynamic__load_8h.html#ab4d93dd938f16c8626868f548703f365',1,'opentracing_dynamic_load_error_code():&#160;dynamic_load.h']]],
@@ -27,6 +29,7 @@ var searchData=
   ['opentracing_5fpropagation_5ferror_5fcode_5funsupported_5fformat',['opentracing_propagation_error_code_unsupported_format',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252',1,'propagation.h']]],
   ['opentracing_5fpropagation_5fformat',['opentracing_propagation_format',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2',1,'opentracing_propagation_format():&#160;propagation.h'],['../propagation_8h.html#ac6d56a7ef1fa304dcd3a6ee5de9dc9f1',1,'opentracing_propagation_format():&#160;propagation.h']]],
   ['opentracing_5fpropagation_5fformat_5fbinary',['opentracing_propagation_format_binary',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a2221b2ce10f4752001be9d0e57af8ac8',1,'propagation.h']]],
+  ['opentracing_5fpropagation_5fformat_5fcustom',['opentracing_propagation_format_custom',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a4d968ddb72903560e25a0dace8796fd8',1,'propagation.h']]],
   ['opentracing_5fpropagation_5fformat_5fhttp_5fheaders',['opentracing_propagation_format_http_headers',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a7463ade30b41f5ad9743cd04bfc35818',1,'propagation.h']]],
   ['opentracing_5fpropagation_5fformat_5ftext_5fmap',['opentracing_propagation_format_text_map',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a054b56dfd9f7ca828a08409ad372bc0f',1,'propagation.h']]],
   ['opentracing_5fspan',['opentracing_span',['../structopentracing__span.html',1,'opentracing_span'],['../span_8h.html#aab67a5f4abbbe5c25978baf98601ec4c',1,'opentracing_span():&#160;span.h']]],

@@ -14,8 +14,7 @@ var indexSectionsWithContent =
   4: "bdefiklnrstuvw",
   5: "o",
   6: "o",
-  7: "o",
-  8: "t"
+  7: "o"
 };
 
 var indexSectionNames =
@@ -27,8 +26,7 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "enums",
-  7: "enumvalues",
-  8: "pages"
+  7: "enumvalues"
 };
 
 function convertToId(search)

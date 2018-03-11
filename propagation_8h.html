@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,6 +93,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="config_8h_source.html">opentracing-c/config.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="common_8h_source.html">opentracing-c/common.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="span_8h_source.html">opentracing-c/span.h</a>&gt;</code><br/>
 </div>
 <p><a href="propagation_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -110,6 +111,12 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__http__headers__reader.html">opentracing_http_headers_reader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP headers reader.  <a href="structopentracing__http__headers__reader.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structopentracing__custom__carrier__reader.html#a777c198b807353b825c2b94df3a82cce" title="Extract a span context from a custom format. ">extract()</a> carrier for a custom format.  <a href="structopentracing__custom__carrier__reader.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structopentracing__custom__carrier__writer.html#aba0ba1c27c33901fabec6ad1dafde579" title="Inject a span context into a custom format. ">inject()</a> carrier for a custom format.  <a href="structopentracing__custom__carrier__writer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -141,6 +148,14 @@ typedef struct <br class="typebreak"/>
 <a class="el" href="structopentracing__http__headers__reader.html">opentracing_http_headers_reader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="propagation_8h.html#aa14ac4d9550fc43d038f5674c62d0a48">opentracing_http_headers_reader</a></td></tr>
 <tr class="memdesc:aa14ac4d9550fc43d038f5674c62d0a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP headers reader. <br/></td></tr>
 <tr class="separator:aa14ac4d9550fc43d038f5674c62d0a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d0a163bff29c11dad6f182e13f3978a"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="propagation_8h.html#a3d0a163bff29c11dad6f182e13f3978a">opentracing_custom_carrier_reader</a></td></tr>
+<tr class="memdesc:a3d0a163bff29c11dad6f182e13f3978a"><td class="mdescLeft">&#160;</td><td class="mdescRight">extract() carrier for a custom format.  <a href="#a3d0a163bff29c11dad6f182e13f3978a">More...</a><br/></td></tr>
+<tr class="separator:a3d0a163bff29c11dad6f182e13f3978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad63b9f32f963e0e5206bbc378210bccd"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="propagation_8h.html#ad63b9f32f963e0e5206bbc378210bccd">opentracing_custom_carrier_writer</a></td></tr>
+<tr class="memdesc:ad63b9f32f963e0e5206bbc378210bccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">inject() carrier for a custom format.  <a href="#ad63b9f32f963e0e5206bbc378210bccd">More...</a><br/></td></tr>
+<tr class="separator:ad63b9f32f963e0e5206bbc378210bccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -158,12 +173,43 @@ Enumerations</h2></td></tr>
 <tr class="separator:a74c0b0681ff7eb490421ea8cb6316b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f9a7b404329e9993a3414f9ed5aad2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">opentracing_propagation_format</a> { <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a2221b2ce10f4752001be9d0e57af8ac8">opentracing_propagation_format_binary</a> = 1, 
 <a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a054b56dfd9f7ca828a08409ad372bc0f">opentracing_propagation_format_text_map</a>, 
-<a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a7463ade30b41f5ad9743cd04bfc35818">opentracing_propagation_format_http_headers</a>
+<a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a7463ade30b41f5ad9743cd04bfc35818">opentracing_propagation_format_http_headers</a>, 
+<a class="el" href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a4d968ddb72903560e25a0dace8796fd8">opentracing_propagation_format_custom</a>
  }</td></tr>
 <tr class="memdesc:ae2f9a7b404329e9993a3414f9ed5aad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagation formats.  <a href="propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2">More...</a><br/></td></tr>
 <tr class="separator:ae2f9a7b404329e9993a3414f9ed5aad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a3d0a163bff29c11dad6f182e13f3978a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a>  <a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>extract() carrier for a custom format. </p>
+<p>With it, the caller can decode an <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> from entries in a custom protocol. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad63b9f32f963e0e5206bbc378210bccd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a>  <a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inject() carrier for a custom format. </p>
+<p>With it, the caller can encode an <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> for propagation as entries in a custom protocol. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0fefa31b8e046b5d386d2cc4699d6075"></a>
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +250,6 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The inject carrier for the opentracing_propagation_format_text_map. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Custom format and custom carrier interface. </dd></dl>
 <p>With it, the caller can encode a span context for propagation as entries in a map of strings. </p>
 <dl class="section attention"><dt>Attention</dt><dd>The backing store for the <a class="el" href="structopentracing__text__map__writer.html" title="The inject carrier for the opentracing_propagation_format_text_map. ">opentracing_text_map_writer</a> may contain data unrelated to span context. As such, inject() and extract() implementations that call the <a class="el" href="structopentracing__text__map__writer.html" title="The inject carrier for the opentracing_propagation_format_text_map. ">opentracing_text_map_writer</a> and <a class="el" href="structopentracing__text__map__reader.html" title="The extract() carrier for the opentracing_propagation_format_text_map with it, the caller can decode ...">opentracing_text_map_reader</a> interfaces must agree on a prefix or other convention to distinguish their own key:value pairs. </dd></dl>
 
@@ -267,6 +312,10 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ae2f9a7b404329e9993a3414f9ed5aad2a7463ade30b41f5ad9743cd04bfc35818"></a>opentracing_propagation_format_http_headers</em>&#160;</td><td class="fielddoc">
 <p>Represents span contexts as HTTP header string pairs. </p>
 <p>Unlike opentracing_propagation_format_text_map, the opentracing_propagation_format_http_headers requires that the keys and values be valid as HTTP headers as-is (i.e., character casing may be unstable and special characters are disallowed in keys, values should be URL-escaped, etc.). </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae2f9a7b404329e9993a3414f9ed5aad2a4d968ddb72903560e25a0dace8796fd8"></a>opentracing_propagation_format_custom</em>&#160;</td><td class="fielddoc">
+<p>Represents span contexts in a user-defined format. </p>
+<p>With it, the caller can encode/decode a <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> for propagation as entries in a custom protocol. </p>
 </td></tr>
 </table>
 
