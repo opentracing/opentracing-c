@@ -41,7 +41,7 @@ typedef struct opentracing_value {
         int64_t int64_value;
         /** Storage for 64 bit unsigned integer value. */
         uint64_t uint64_value;
-        /** Storage for string value. */
+        /** Storage for string value. Must be freed when no longer in use. */
         char* string_value;
     } value;
 } opentracing_value;

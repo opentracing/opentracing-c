@@ -214,7 +214,7 @@ install(
 )
 
 # Config
-#   * <prefix>/lib/cmake/Foo/FooTargets.cmake
+#   * <prefix>/lib/cmake/opentracing-c/opentracing-cTargets.cmake
 install(
     EXPORT "${TARGETS_EXPORT_NAME}"
     NAMESPACE "${namespace}"

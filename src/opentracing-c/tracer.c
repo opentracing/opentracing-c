@@ -97,10 +97,10 @@ static const char* null_span_baggage_item(const opentracing_span* span,
     return empty_str;
 }
 
-static opentracing_tracer* null_span_tracer(opentracing_span* span)
+static opentracing_tracer* null_span_tracer(const opentracing_span* span)
 {
     assert(span != NULL);
-    return ((null_span*) span)->tracer_ptr;
+    return ((const null_span*) span)->tracer_ptr;
 }
 
 #define NULL_SPAN_INIT                   \

@@ -40,7 +40,7 @@ typedef struct opentracing_span_context {
  * Log field to represent key-value pair for a log.
  */
 typedef struct opentracing_log_field {
-    /** Key string. */
+    /** Key string. Owner of log field must free upon log field destruction. */
     char* key;
     /** Value representation. */
     opentracing_value value;
@@ -180,8 +180,8 @@ typedef struct opentracing_span {
      * level. If a tracing system does not know how to handle a particular
      * value type, it may ignore the tag, but shall not panic.
      * @param span Span instance.
-     * @param key Tag key.
-     * @param value Tag value.
+     * @param key Tag key. Value copied into new allocated string.
+     * @param value Tag value. Value copied into opentracing_value.
      */
     void (*set_tag)(struct opentracing_span* span,
                     const char* key,
@@ -190,7 +190,8 @@ typedef struct opentracing_span {
     /**
      * Record key:value logging data about a span.
      * @param span Span instance.
-     * @param fields Array of log fields.
+     * @param fields Array of log fields. Values must be copied from argument.
+     *               Caller must free fields when finished using them.
      * @param num_fields Number of log fields.
      * @see finish_with_options
      */
@@ -234,7 +235,7 @@ typedef struct opentracing_span {
      * @param span Span instance.
      * @return Tracer instance that created this span.
      */
-    struct opentracing_tracer* (*tracer)(struct opentracing_span* span);
+    struct opentracing_tracer* (*tracer)(const struct opentracing_span* span);
 } opentracing_span;
 
 #ifdef __cplusplus

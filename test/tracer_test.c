@@ -8,6 +8,16 @@ static void null_destroy(opentracing_destructible* destructible)
     (void) destructible;
 }
 
+static opentracing_bool callback(void* arg, const char* key, const char* value)
+{
+    (void) key;
+    (void) value;
+    assert(arg != NULL);
+    int* counter = (int*) arg;
+    counter++;
+    return opentracing_true;
+}
+
 int main(void)
 {
     opentracing_tracer* tracer;
@@ -17,11 +27,17 @@ int main(void)
     opentracing_value value;
     opentracing_tracer* global_tracer;
     opentracing_tracer dummy_tracer;
+    int counter;
 
     tracer = opentracing_global_tracer();
     span = tracer->start_span(tracer, "a");
     assert(span != NULL);
-    assert(span->span_context(span) != NULL);
+    span_context = span->span_context(span);
+    assert(span_context != NULL);
+    counter = 0;
+    span_context->foreach_baggage_item(
+        span_context, &callback, (void*) &counter);
+    assert(counter == 0);
     assert(span->tracer(span) == tracer);
     assert(strlen(span->baggage_item(span, "key")) == 0);
     span->set_baggage_item(span, "key", "value");
