@@ -108,9 +108,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aaaca677de8c1d10d1f5911fe6a68a836"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__destructible.html">opentracing_destructible</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span__context.html#aaaca677de8c1d10d1f5911fe6a68a836">base</a></td></tr>
 <tr class="memdesc:aaaca677de8c1d10d1f5911fe6a68a836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class member.  <a href="#aaaca677de8c1d10d1f5911fe6a68a836">More...</a><br/></td></tr>
 <tr class="separator:aaaca677de8c1d10d1f5911fe6a68a836"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab4c200828c06b0dcf5a1f0082dc9461"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span__context.html#aab4c200828c06b0dcf5a1f0082dc9461">foreach_baggage_item</a> )(struct <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context, <a class="el" href="common_8h.html#acf6fc93ce79fc62aa05384dfcb5c3e81">opentracing_bool</a>(*f)(void *, const char *, const char *), void *arg)</td></tr>
-<tr class="memdesc:aab4c200828c06b0dcf5a1f0082dc9461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each baggage item in the span context.  <a href="#aab4c200828c06b0dcf5a1f0082dc9461">More...</a><br/></td></tr>
-<tr class="separator:aab4c200828c06b0dcf5a1f0082dc9461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d3896ca33255f4f85ceb66b3bb0168"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span__context.html#ab0d3896ca33255f4f85ceb66b3bb0168">foreach_baggage_item</a> )(struct <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context, <a class="el" href="common_8h.html#acf6fc93ce79fc62aa05384dfcb5c3e81">opentracing_bool</a>(*f)(void *arg, const char *key, const char *value), void *arg)</td></tr>
+<tr class="memdesc:ab0d3896ca33255f4f85ceb66b3bb0168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each baggage item in the span context.  <a href="#ab0d3896ca33255f4f85ceb66b3bb0168">More...</a><br/></td></tr>
+<tr class="separator:ab0d3896ca33255f4f85ceb66b3bb0168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
 <tr class="memitem:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a18aa94700235f753727ca5b0a8f73bcd">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL()</td></tr>
 <tr class="memdesc:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a18aa94700235f753727ca5b0a8f73bcd">More...</a><br/></td></tr>
@@ -134,12 +134,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aab4c200828c06b0dcf5a1f0082dc9461"></a>
+<a class="anchor" id="ab0d3896ca33255f4f85ceb66b3bb0168"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* opentracing_span_context::foreach_baggage_item)(struct <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context, <a class="el" href="common_8h.html#acf6fc93ce79fc62aa05384dfcb5c3e81">opentracing_bool</a>(*f)(void *,const char *,const char *), void *arg)</td>
+          <td class="memname">void(* opentracing_span_context::foreach_baggage_item)(struct <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context, <a class="el" href="common_8h.html#acf6fc93ce79fc62aa05384dfcb5c3e81">opentracing_bool</a>(*f)(void *arg,const char *key,const char *value), void *arg)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -149,7 +149,7 @@ Data Fields</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">span_context</td><td>Span context instance. </td></tr>
-    <tr><td class="paramname">f</td><td>Callback function. </td></tr>
+    <tr><td class="paramname">f</td><td>Callback function. Takes a user-defined argument, the baggage key, and the baggage value. </td></tr>
     <tr><td class="paramname">arg</td><td>Argument to pass to callback function. </td></tr>
   </table>
   </dd>
