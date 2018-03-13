@@ -26,13 +26,14 @@ typedef struct opentracing_span_context {
      * function returns opentracing_false, it will not be called again, and
      * foreach_baggage_item will return immediately.
      * @param span_context Span context instance.
-     * @param f Callback function.
+     * @param f Callback function. Takes a user-defined argument,
+     *          the baggage key, and the baggage value.
      * @param arg Argument to pass to callback function.
      */
     void (*foreach_baggage_item)(struct opentracing_span_context* span_context,
-                                 opentracing_bool (*f)(void*,
-                                                       const char*,
-                                                       const char*),
+                                 opentracing_bool (*f)(void* arg,
+                                                       const char* key,
+                                                       const char* value),
                                  void* arg);
 } opentracing_span_context;
 
