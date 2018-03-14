@@ -106,7 +106,11 @@ other causal reference.
             ...
         }
         ...
+        /* Finishing the span operation. */
         span->finish(span);
+        ...
+        /* Freeing the span. */
+        span->destroy((opentracing_destructible*) span);
         ...
     }
 ```
@@ -166,18 +170,17 @@ other causal reference.
     ...
 
     custom_carrier_writer writer;
-    int error_code;
-    char error_message[OPENTRACINGC_ERROR_LEN];
+    int return_code;
     if (!custom_carrier_writer_init(&writer)) {
         return;
     }
     return_code = tracer->inject(tracer,
-                        span->context,
-                        (opentracing_text_map_writer*) carrier);
+                                 opentracing_propagation_format_binary,
+                                 (opentracing_text_map_writer*) carrier,
+                                 &span->context);
     if (return_code != 0) {
         /* Injection failed, log an error message. */
-        opentracing_error_str(return_code, error_message);
-        fprintf(stderr, "Injection failed: %s\n");
+        fprintf(stderr, "Injection failed, return code = %d\n", return_code);
         return;
     }
 ```
