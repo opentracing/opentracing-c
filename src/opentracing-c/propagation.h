@@ -46,7 +46,14 @@ typedef enum opentracing_propagation_error_code {
      * Occurs when the carrier passed to extract() is of the expected type but
      * is corrupted.
      */
-    opentracing_propagation_error_code_span_context_corrupted = -5
+    opentracing_propagation_error_code_span_context_corrupted = -5,
+
+    /**
+     * Occurs when a propagation function encounters an unknown exception. This
+     * can represent an out-of-memory error, or any other error not covered by
+     * the other error codes.
+     */
+    opentracing_propagation_error_code_unknown = -6
 } opentracing_propagation_error_code;
 
 /**
