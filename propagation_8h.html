@@ -166,7 +166,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6dae476586e10bbf73559c6b668b9543663">opentracing_propagation_error_code_invalid_span_context</a> = -3, 
 <br/>
 &#160;&#160;<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da5069f91630e9c8c44953c03eba571b63">opentracing_propagation_error_code_invalid_carrier</a> = -4, 
-<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf">opentracing_propagation_error_code_span_context_corrupted</a> = -5
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf">opentracing_propagation_error_code_span_context_corrupted</a> = -5, 
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6dae02245370bc2a34d54092dae388da18c">opentracing_propagation_error_code_unknown</a> = -6
 <br/>
  }</td></tr>
 <tr class="memdesc:a74c0b0681ff7eb490421ea8cb6316b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes for errors occurring in span context propagation.  <a href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">More...</a><br/></td></tr>
@@ -285,6 +286,10 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6da394e91e2f9632926e2f6d761b828dbdf"></a>opentracing_propagation_error_code_span_context_corrupted</em>&#160;</td><td class="fielddoc">
 <p>Occurs when the carrier passed to extract() is of the expected type but is corrupted. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a74c0b0681ff7eb490421ea8cb6316b6dae02245370bc2a34d54092dae388da18c"></a>opentracing_propagation_error_code_unknown</em>&#160;</td><td class="fielddoc">
+<p>Occurs when a propagation function encounters an unknown exception. </p>
+<p>This can represent an out-of-memory error, or any other error not covered by the other error codes. </p>
 </td></tr>
 </table>
 
