@@ -10,6 +10,7 @@ project(opentracing-c VERSION 0.0.1)
 include(CheckCCompilerFlag)
 include(CheckIncludeFile)
 include(CheckTypeSize)
+include(CMakeDependentOption)
 include(CTest)
 include(GenerateExportHeader)
 
@@ -81,14 +82,26 @@ configure_file(
 foreach(lib opentracingc opentracingc-static)
   target_include_directories(${lib} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
-    $<INSTALL_INTERFACE:include>)
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>)
   target_compile_options(${lib} PUBLIC ${flags})
 
   if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
     target_link_libraries(${lib} PUBLIC dl)
   endif()
 endforeach()
+
+option(OPENTRACINGC_LINT "Run clang-tidy on source files" ON)
+find_program(CLANG_TIDY_PATH "clang-tidy")
+cmake_dependent_option(
+    OPENTRACINGC_LINT
+    "Enable running clang-tidy on sources during compilation"
+    ON
+    "CLANG_TIDY_PATH"
+    OFF)
+if(OPENTRACINGC_LINT)
+    set_target_properties(opentracingc PROPERTIES
+      C_CLANG_TIDY "${CLANG_TIDY_PATH}")
+endif()
 
 if(BUILD_TESTING)
   set(test_src

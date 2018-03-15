@@ -1,4 +1,4 @@
-Checks:          '*,-llvm-header-guard'
+Checks:          '*,-llvm-header-guard,-clang-diagnostic-unused-command-line-argument'
 HeaderFilterRegex: '.*'
 AnalyzeTemporaryDtors: false
 CheckOptions:

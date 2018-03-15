@@ -21,7 +21,7 @@ opentracing_dynamically_load_tracing_library(const char* lib,
 {
 #define COPY_ERROR()                                                  \
     do {                                                              \
-        if (error != NULL) {                                          \
+        if (error != NULL && error_buffer != NULL) {                  \
             error_len = strlen(error) + 1;                            \
             if (error_len > error_buffer_length) {                    \
                 memcpy(error_buffer, error, error_buffer_length - 1); \
@@ -49,7 +49,6 @@ opentracing_dynamically_load_tracing_library(const char* lib,
     make_tracer_factory = NULL;
     return_code = opentracing_dynamic_load_error_code_success;
     error = NULL;
-    error_len = 0;
 
     handle->lib_handle = dlopen(lib, RTLD_NOW | RTLD_LOCAL);
     if (handle->lib_handle == NULL) {

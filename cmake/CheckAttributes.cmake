@@ -4,6 +4,7 @@ endif()
 set(__CHECK_ATTRIBUTES 1)
 
 function(__check_specific_attribute specific_attribute var)
+  set(tmp_dir "${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/CMakeTmp")
   try_compile(have_${specific_attribute}_attribute
     "${tmp_dir}/${specific_attribute}_attribute_test"
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/specific_attribute_test.c"
