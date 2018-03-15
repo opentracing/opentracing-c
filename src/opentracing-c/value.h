@@ -2,9 +2,7 @@
 #define OPENTRACINGC_VALUE_H
 
 #include <opentracing-c/config.h>
-
 #include <stdint.h>
-
 #include <opentracing-c/common.h>
 
 /** @file */
