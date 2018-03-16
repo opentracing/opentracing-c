@@ -103,19 +103,28 @@ static opentracing_tracer* null_span_tracer(const opentracing_span* span)
     return ((const null_span*) span)->tracer_ptr;
 }
 
-#define NULL_SPAN_INIT                   \
-    {                                    \
-        {NULL_DESTRUCTIBLE_INIT,         \
-         &null_span_finish,              \
-         &null_span_finish_with_options, \
-         &null_span_span_context,        \
-         &null_span_set_operation_name,  \
-         &null_span_set_tag,             \
-         &null_span_log_fields,          \
-         &null_span_set_baggage_item,    \
-         &null_span_baggage_item,        \
-         &null_span_tracer},             \
-            NULL_SPAN_CONTEXT_INIT, NULL \
+static int null_span_magic(const opentracing_span* span)
+{
+    (void) span;
+    return 0;
+}
+
+#define NULL_SPAN_INIT                      \
+    {                                       \
+        {                                   \
+            NULL_DESTRUCTIBLE_INIT,         \
+            &null_span_finish,              \
+            &null_span_finish_with_options, \
+            &null_span_span_context,        \
+            &null_span_set_operation_name,  \
+            &null_span_set_tag,             \
+            &null_span_log_fields,          \
+            &null_span_set_baggage_item,    \
+            &null_span_baggage_item,        \
+            &null_span_tracer,              \
+            &null_span_magic,               \
+        },                                  \
+            NULL_SPAN_CONTEXT_INIT, NULL    \
     }
 
 static null_span null_span_singleton = NULL_SPAN_INIT;

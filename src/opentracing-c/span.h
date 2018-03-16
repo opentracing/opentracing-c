@@ -241,6 +241,16 @@ typedef struct opentracing_span {
      */
     struct opentracing_tracer* (*tracer)(const struct opentracing_span* span)
         OPENTRACINGC_NONNULL();
+
+    /**
+     * Get magic number used to uniquely identify tracing vendor span type.
+     * Necessary to cast span to vendor's type. This number must reflect an
+     * ABI-compatible struct, so it must be adjusted any time members are
+     * changed in the vendor span struct.
+     * @param span Span instance.
+     * @return Magic number of the span implementation.
+     */
+    int (*magic)(const struct opentracing_span* span) OPENTRACINGC_NONNULL();
 } opentracing_span;
 
 #ifdef __cplusplus
