@@ -135,6 +135,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:ad8ac4a1cd323b896d196416a742439ea"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ad8ac4a1cd323b896d196416a742439ea">tracer</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td></tr>
 <tr class="memdesc:ad8ac4a1cd323b896d196416a742439ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the tracer that created this span.  <a href="#ad8ac4a1cd323b896d196416a742439ea">More...</a><br/></td></tr>
 <tr class="separator:ad8ac4a1cd323b896d196416a742439ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35732ba1a86fe33653b3dea89f0f291a"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a35732ba1a86fe33653b3dea89f0f291a">magic</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td></tr>
+<tr class="memdesc:a35732ba1a86fe33653b3dea89f0f291a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get magic number used to uniquely identify tracing vendor span type.  <a href="#a35732ba1a86fe33653b3dea89f0f291a">More...</a><br/></td></tr>
+<tr class="separator:a35732ba1a86fe33653b3dea89f0f291a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
 <tr class="memitem:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a18aa94700235f753727ca5b0a8f73bcd">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL()</td></tr>
 <tr class="memdesc:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a18aa94700235f753727ca5b0a8f73bcd">More...</a><br/></td></tr>
@@ -243,6 +246,28 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structopentracing__span.html#af53be7cb86a74e293780d428fa081739" title="Like finish() but with explicit control over timestamps and log data. ">finish_with_options</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a35732ba1a86fe33653b3dea89f0f291a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* opentracing_span::magic)(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get magic number used to uniquely identify tracing vendor span type. </p>
+<p>Necessary to cast span to vendor's type. This number must reflect an ABI-compatible struct, so it must be adjusted any time members are changed in the vendor span struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">span</td><td>Span instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Magic number of the span implementation. </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['reader',['reader',['../structopentracing__http__headers__reader.html#a106d7d520beb19c22405201ecaa7805e',1,'opentracing_http_headers_reader']]],
-  ['references',['references',['../structopentracing__start__span__options.html#af1d37d0f352228fa0b5c97245e9066a8',1,'opentracing_start_span_options']]]
+  ['num_5ffields',['num_fields',['../structopentracing__log__record.html#adb5225aa211ce58d2f6d9fdc624a4d5c',1,'opentracing_log_record']]],
+  ['num_5flog_5frecords',['num_log_records',['../structopentracing__finish__span__options.html#ae790790970a9c9293c294f582b7694e2',1,'opentracing_finish_span_options']]],
+  ['num_5freferences',['num_references',['../structopentracing__start__span__options.html#a27f45b2755e507ba35601383e1823603',1,'opentracing_start_span_options']]],
+  ['num_5ftags',['num_tags',['../structopentracing__start__span__options.html#ae0f421da575ca59ae6f556f668fe1de7',1,'opentracing_start_span_options']]]
 ];
