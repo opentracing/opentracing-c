@@ -243,14 +243,31 @@ typedef struct opentracing_span {
         OPENTRACINGC_NONNULL();
 
     /**
-     * Get magic number used to uniquely identify tracing vendor span type.
-     * Necessary to cast span to vendor's type. This number must reflect an
-     * ABI-compatible struct, so it must be adjusted any time members are
-     * changed in the vendor span struct.
-     * @param span Span instance.
-     * @return Magic number of the span implementation.
+     * Unique data used to identify tracing vendor span type. Necessary for
+     * tracer to cast span to vendor's type during extract().
+     * @see extract()
+     *
+     * Below is a sample of a potential tracer creating a new span with a unique
+     * type descriptor.
+     * @code{.c}
+     *     static const char* custom_span_identifier = "example_vendor";
+     *     typedef struct custom_span {
+     *          opentracing_span base;
+     *          ...
+     *     } custom_span;
+     *     custom_span span;
+     *     ((opentracing_span*) &span)->type_descriptor =
+     *         custom_span_identifier;
+     *     ((opentracing_span*) &span)->type_descriptor_length =
+     *         strlen(custom_span_identifier) + 1;
+     * @endcode
      */
-    int (*magic)(const struct opentracing_span* span) OPENTRACINGC_NONNULL();
+    const void* type_descriptor;
+
+    /**
+     * Number of bytes the type descriptor occupies in memory.
+     */
+    unsigned int type_descriptor_length;
 } opentracing_span;
 
 #ifdef __cplusplus
