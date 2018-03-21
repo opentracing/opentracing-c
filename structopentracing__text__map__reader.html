@@ -109,13 +109,13 @@ Data Fields</h2></td></tr>
 <tr class="memitem:acb54b20643bbd4b119db0528ce12e618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__destructible.html">opentracing_destructible</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__text__map__reader.html#acb54b20643bbd4b119db0528ce12e618">base</a></td></tr>
 <tr class="memdesc:acb54b20643bbd4b119db0528ce12e618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class member.  <a href="#acb54b20643bbd4b119db0528ce12e618">More...</a><br/></td></tr>
 <tr class="separator:acb54b20643bbd4b119db0528ce12e618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a554801f379ccb6c0e3fd799a16826f2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__text__map__reader.html#a554801f379ccb6c0e3fd799a16826f2b">foreach_key</a> )(struct <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *reader, <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*handler)(const char *key, const char *value)) OPENTRACINGC_NONNULL()</td></tr>
-<tr class="memdesc:a554801f379ccb6c0e3fd799a16826f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns text map contents via repeated calls to the handler function.  <a href="#a554801f379ccb6c0e3fd799a16826f2b">More...</a><br/></td></tr>
-<tr class="separator:a554801f379ccb6c0e3fd799a16826f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117a46fd3c9d42ab48d0ccd713648ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__text__map__reader.html#a117a46fd3c9d42ab48d0ccd713648ea0">foreach_key</a> )(struct <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *reader, <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*handler)(const char *key, const char *value)) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a117a46fd3c9d42ab48d0ccd713648ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns text map contents via repeated calls to the handler function.  <a href="#a117a46fd3c9d42ab48d0ccd713648ea0">More...</a><br/></td></tr>
+<tr class="separator:a117a46fd3c9d42ab48d0ccd713648ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
-<tr class="memitem:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a18aa94700235f753727ca5b0a8f73bcd">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL()</td></tr>
-<tr class="memdesc:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a18aa94700235f753727ca5b0a8f73bcd">More...</a><br/></td></tr>
-<tr class="separator:a18aa94700235f753727ca5b0a8f73bcd inherit pub_attribs_structopentracing__destructible"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5783e9c27c817f72688a87de658bb924 inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a5783e9c27c817f72688a87de658bb924">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a5783e9c27c817f72688a87de658bb924 inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a5783e9c27c817f72688a87de658bb924">More...</a><br/></td></tr>
+<tr class="separator:a5783e9c27c817f72688a87de658bb924 inherit pub_attribs_structopentracing__destructible"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The extract() carrier for the opentracing_propagation_format_text_map with it, the caller can decode a propagated span context as entries in a map of strings. </p>
@@ -135,12 +135,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a554801f379ccb6c0e3fd799a16826f2b"></a>
+<a class="anchor" id="a117a46fd3c9d42ab48d0ccd713648ea0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_text_map_reader::foreach_key)(struct <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *reader, <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*handler)(const char *key,const char *value)) OPENTRACINGC_NONNULL()</td>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_text_map_reader::foreach_key)(struct <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *reader, <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*handler)(const char *key, const char *value)) OPENTRACINGC_NONNULL_ALL</td>
         </tr>
       </table>
 </div><div class="memdoc">
