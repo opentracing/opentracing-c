@@ -24,12 +24,26 @@ extern "C" {
 #define OPENTRACINGC_WEAK @OPENTRACINGC_ATTRIBUTE@((weak))
 #endif /* OPENTRACINGC_HAVE_WEAK_SYMBOLS */
 
+/* Ignoring warnings because nonnull is just to help us maintain quality code.
+ */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wvariadic-macros"
+
 #ifdef OPENTRACINGC_HAVE_NONNULL_ATTRIBUTE
+
 #define OPENTRACINGC_NONNULL(...) \
     @OPENTRACINGC_ATTRIBUTE@((nonnull(__VA_ARGS__)))
+
+#define OPENTRACINGC_NONNULL_ALL @OPENTRACINGC_ATTRIBUTE@((nonnull))
+
 #else
+
 #define OPENTRACINGC_NONNULL(...)
+#define OPENTRACINGC_NONNULL_ALL
+
 #endif /* OPENTRACINGC_HAVE_NONNULL_ATTRIBUTE */
+
+#pragma GCC diagnostic pop
 
 #ifdef __cplusplus
 }

@@ -149,9 +149,8 @@ typedef struct opentracing_text_map_reader {
      */
     opentracing_propagation_error_code (*foreach_key)(
         struct opentracing_text_map_reader* reader,
-        opentracing_propagation_error_code (*handler)(const char* key,
-                                                      const char* value))
-        OPENTRACINGC_NONNULL();
+        opentracing_propagation_error_code (*handler)(
+            const char* key, const char* value)) OPENTRACINGC_NONNULL_ALL;
 } opentracing_text_map_reader;
 
 /**
@@ -195,7 +194,7 @@ typedef struct opentracing_custom_carrier_reader {
     opentracing_propagation_error_code (*extract)(
         struct opentracing_custom_carrier_reader* reader,
         const struct opentracing_tracer* tracer,
-        opentracing_span_context** span_context) OPENTRACINGC_NONNULL();
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL_ALL;
 } opentracing_custom_carrier_reader;
 
 /**
@@ -217,7 +216,7 @@ typedef struct opentracing_custom_carrier_writer {
     opentracing_propagation_error_code (*inject)(
         struct opentracing_custom_carrier_writer* writer,
         const struct opentracing_tracer* tracer,
-        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL();
+        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL_ALL;
 } opentracing_custom_carrier_writer;
 
 #ifdef __cplusplus

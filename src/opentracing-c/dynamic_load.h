@@ -72,8 +72,7 @@ typedef struct opentracing_library_handle {
  * also destroyed.
  * @param handle Library handle to destroy.
  */
-void opentracing_library_handle_destroy(opentracing_library_handle* handle)
-    OPENTRACINGC_NONNULL();
+void opentracing_library_handle_destroy(opentracing_library_handle* handle);
 
 /**
  * Dynamically loads a tracing library and returns a handle that can be used

@@ -29,6 +29,7 @@ endfunction()
 
 add_c_flag(flags "-Wc++-compat")
 add_c_flag(flags "-Werror")
+add_c_flag(flags "-pedantic")
 if("${CMAKE_C_COMPILER}" MATCHES "Clang")
   add_c_flag(flags "-Weverything")
 else()
@@ -83,7 +84,7 @@ foreach(lib opentracingc opentracingc-static)
   target_include_directories(${lib} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>)
-  target_compile_options(${lib} PUBLIC ${flags})
+  target_compile_options(${lib} PRIVATE ${flags})
 
   if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
     target_link_libraries(${lib} PUBLIC dl)
@@ -144,7 +145,7 @@ if(BUILD_TESTING)
   endif()
 
   if(OPENTRACINGC_COVERAGE)
-    target_compile_options(opentracingc-static PUBLIC ${coverage_flags})
+    target_compile_options(opentracingc-static PRIVATE ${coverage_flags})
     setup_target_for_coverage(NAME unit_test_coverage EXECUTABLE ${test_executables})
   endif()
 endif()

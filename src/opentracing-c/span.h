@@ -145,7 +145,7 @@ typedef struct opentracing_span {
      * @param span Span instance.
      * @see context
      */
-    void (*finish)(struct opentracing_span* span) OPENTRACINGC_NONNULL();
+    void (*finish)(struct opentracing_span* span) OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Like finish() but with explicit control over timestamps and log data.
@@ -166,7 +166,7 @@ typedef struct opentracing_span {
      * @see finish
      */
     opentracing_span_context* (*span_context)(struct opentracing_span* span)
-        OPENTRACINGC_NONNULL();
+        OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Sets or changes the operation name.
@@ -175,7 +175,7 @@ typedef struct opentracing_span {
      */
     void (*set_operation_name)(struct opentracing_span* span,
                                const char* operation_name)
-        OPENTRACINGC_NONNULL();
+        OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Adds a tag to the span. If there is a pre-existing tag set for `key`,
@@ -189,7 +189,7 @@ typedef struct opentracing_span {
      */
     void (*set_tag)(struct opentracing_span* span,
                     const char* key,
-                    const opentracing_value* value) OPENTRACINGC_NONNULL();
+                    const opentracing_value* value) OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Record key:value logging data about a span.
@@ -222,7 +222,7 @@ typedef struct opentracing_span {
      */
     void (*set_baggage_item)(struct opentracing_span* span,
                              const char* key,
-                             const char* value) OPENTRACINGC_NONNULL();
+                             const char* value) OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Gets the value for a baggage item given its key.
@@ -232,7 +232,7 @@ typedef struct opentracing_span {
      *         empty string.
      */
     const char* (*baggage_item)(const struct opentracing_span* span,
-                                const char* key) OPENTRACINGC_NONNULL();
+                                const char* key) OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Provides access to the tracer that created this span.
@@ -240,7 +240,7 @@ typedef struct opentracing_span {
      * @return Tracer instance that created this span.
      */
     struct opentracing_tracer* (*tracer)(const struct opentracing_span* span)
-        OPENTRACINGC_NONNULL();
+        OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Unique data used to identify tracing vendor span type. Necessary for

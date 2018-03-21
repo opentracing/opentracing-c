@@ -6,8 +6,12 @@
 
 void opentracing_library_handle_destroy(opentracing_library_handle* handle)
 {
-    assert(handle != NULL);
-    assert(handle->lib_handle != NULL);
+    if (handle == NULL) {
+        return;
+    }
+    if (handle->lib_handle == NULL) {
+        return;
+    }
     handle->factory = NULL;
     dlclose(handle->lib_handle);
     handle->lib_handle = NULL;
@@ -35,6 +39,7 @@ opentracing_dynamically_load_tracing_library(const char* lib,
 
     const char* error;
     int error_len;
+    int flags;
 
 #ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS
 
@@ -50,7 +55,8 @@ opentracing_dynamically_load_tracing_library(const char* lib,
     return_code = opentracing_dynamic_load_error_code_success;
     error = NULL;
 
-    handle->lib_handle = dlopen(lib, RTLD_NOW | RTLD_LOCAL);
+    flags = ((unsigned) RTLD_NOW) | ((unsigned) RTLD_LOCAL);
+    handle->lib_handle = dlopen(lib, flags);
     if (handle->lib_handle == NULL) {
         error = dlerror();
         return_code = opentracing_dynamic_load_error_code_failure;

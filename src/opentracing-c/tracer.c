@@ -23,14 +23,11 @@ static void null_foreach_baggage_item(opentracing_span_context* span_context,
     (void) arg;
 }
 
-#define NULL_SPAN_CONTEXT_INIT                             \
-    {                                                      \
-        NULL_DESTRUCTIBLE_INIT, &null_foreach_baggage_item \
-    }
+static opentracing_span_context null_span_context_singleton = {
+    NULL_DESTRUCTIBLE_INIT, &null_foreach_baggage_item};
 
 typedef struct null_span {
     opentracing_span base;
-    opentracing_span_context null_span_context;
     opentracing_tracer* tracer_ptr;
 } null_span;
 
@@ -50,8 +47,8 @@ static void null_span_finish(opentracing_span* span)
 
 static opentracing_span_context* null_span_span_context(opentracing_span* span)
 {
-    assert(span != NULL);
-    return &((null_span*) span)->null_span_context;
+    (void) span;
+    return &null_span_context_singleton;
 }
 
 static void null_span_set_operation_name(opentracing_span* span,
@@ -88,12 +85,13 @@ static void null_span_set_baggage_item(opentracing_span* span,
     (void) value;
 }
 
+static const char* empty_str = "";
+
 static const char* null_span_baggage_item(const opentracing_span* span,
                                           const char* key)
 {
     (void) span;
     (void) key;
-    static const char* empty_str = "";
     return empty_str;
 }
 
@@ -117,7 +115,7 @@ static opentracing_tracer* null_span_tracer(const opentracing_span* span)
          &null_span_tracer,              \
          NULL,                           \
          0},                             \
-            NULL_SPAN_CONTEXT_INIT, NULL \
+            NULL                         \
     }
 
 static null_span null_span_singleton = NULL_SPAN_INIT;
@@ -127,10 +125,10 @@ static opentracing_span* null_tracer_start_span_with_options(
     const char* operation_name,
     const opentracing_start_span_options* options)
 {
+    null_span* span;
     (void) tracer;
     (void) operation_name;
     (void) options;
-    null_span* span;
     span = &null_span_singleton;
     if (span->tracer_ptr != tracer) {
         span->tracer_ptr = tracer;
@@ -167,8 +165,7 @@ null_tracer_extract(opentracing_tracer* tracer,
     (void) format;
     (void) carrier;
     assert(span_context != NULL);
-    *span_context = &null_span_singleton.null_span_context;
-    **span_context = (opentracing_span_context) NULL_SPAN_CONTEXT_INIT;
+    *span_context = &null_span_context_singleton;
     return opentracing_propagation_error_code_success;
 }
 

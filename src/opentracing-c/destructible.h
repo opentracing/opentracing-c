@@ -19,7 +19,7 @@ typedef struct opentracing_destructible {
      * @param destructible Destructible instance.
      */
     void (*destroy)(struct opentracing_destructible* destructible)
-        OPENTRACINGC_NONNULL();
+        OPENTRACINGC_NONNULL_ALL;
 } opentracing_destructible;
 
 #ifdef __cplusplus
