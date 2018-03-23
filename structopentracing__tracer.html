@@ -108,6 +108,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a3ca012962abcd39cbccedd8fa8e4ac19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__destructible.html">opentracing_destructible</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a3ca012962abcd39cbccedd8fa8e4ac19">base</a></td></tr>
 <tr class="memdesc:a3ca012962abcd39cbccedd8fa8e4ac19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class member.  <a href="#a3ca012962abcd39cbccedd8fa8e4ac19">More...</a><br/></td></tr>
 <tr class="separator:a3ca012962abcd39cbccedd8fa8e4ac19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76edfdaa1c5238ea1fe626ee513d7e7d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a76edfdaa1c5238ea1fe626ee513d7e7d">close</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a76edfdaa1c5238ea1fe626ee513d7e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the tracer.  <a href="#a76edfdaa1c5238ea1fe626ee513d7e7d">More...</a><br/></td></tr>
+<tr class="separator:a76edfdaa1c5238ea1fe626ee513d7e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2e475301e2805d67c3ca74b6960578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#add2e475301e2805d67c3ca74b6960578">start_span</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, const char *operation_name) OPENTRACINGC_NONNULL_ALL</td></tr>
 <tr class="memdesc:add2e475301e2805d67c3ca74b6960578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equivalent to calling start_span_with_options with options as NULL.  <a href="#add2e475301e2805d67c3ca74b6960578">More...</a><br/></td></tr>
 <tr class="separator:add2e475301e2805d67c3ca74b6960578"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +143,28 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Base class member. </p>
+
+</div>
+</div>
+<a class="anchor" id="a76edfdaa1c5238ea1fe626ee513d7e7d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* opentracing_tracer::close)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Close the tracer. </p>
+<p>This may do nothing, flush pending spans, or whatever else a tracing implementation decides close should mean. If not called before the destruction of the tracer, the tracer must perform the equivalent of close upon destruction. </p>
+<dl class="section attention"><dt>Attention</dt><dd>The main distinction between close and destroy is whether or not the tracer is in a valid state after the call. Upon destruction, subsequent use of a tracer may result in undefined behavior (i.e. members may be set to NULL causing deference of NULL member). However, after close, the tracer must not remain in an undefined state.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

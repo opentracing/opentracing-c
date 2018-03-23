@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   1: "no",
   2: "cdpstv",
   3: "o",
-  4: "bdefiklnrstuvw",
+  4: "bcdefiklnrstuvw",
   5: "o",
   6: "o",
   7: "o"
