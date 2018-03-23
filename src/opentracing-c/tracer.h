@@ -63,6 +63,22 @@ typedef struct opentracing_tracer {
     opentracing_destructible base;
 
     /**
+     * Close the tracer. This may do nothing, flush pending spans, or whatever
+     * else a tracing implementation decides close should mean. If not called
+     * before the destruction of the tracer, the tracer must perform the
+     * equivalent of close upon destruction.
+     * @attention The main distinction between close and destroy is whether or
+     *            not the tracer is in a valid state after the call.
+     *            Upon destruction, subsequent use of a tracer may result in
+     *            undefined behavior (i.e. members may be set to NULL causing
+     *            deference of NULL member). However, after close, the tracer
+     *            must not remain in an undefined state.
+     *
+     * @param tracer Tracer instance.
+     */
+    void (*close)(struct opentracing_tracer* tracer) OPENTRACINGC_NONNULL_ALL;
+
+    /**
      * Equivalent to calling start_span_with_options with options as NULL.
      * @param tracer Tracer instance.
      * @param operation_name Name of operation associated with span.

@@ -71,5 +71,7 @@ int main(void)
     opentracing_init_global_tracer(global_tracer);
     assert(opentracing_global_tracer() == global_tracer);
 
+    global_tracer->close(global_tracer);
+
     return 0;
 }

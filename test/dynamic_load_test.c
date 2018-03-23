@@ -13,6 +13,8 @@ int main(void)
     char error[256];
     opentracing_dynamic_load_error_code error_code;
 
+    opentracing_library_handle_destroy(NULL);
+
 #ifdef OPENTRACINGC_HAVE_WEAK_SYMBOLS
     opentracing_tracer* tracer;
     tracer = NULL;
@@ -20,6 +22,7 @@ int main(void)
 
     memset(&handle, 0, sizeof(handle));
     memset(&error, 0, sizeof(error));
+    opentracing_library_handle_destroy(&handle);
 
     error_code = opentracing_dynamically_load_tracing_library(
         "libdoesnotexist.so", &handle, error, sizeof(error));

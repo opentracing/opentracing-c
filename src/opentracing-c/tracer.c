@@ -120,6 +120,11 @@ static opentracing_tracer* null_span_tracer(const opentracing_span* span)
 
 static null_span null_span_singleton = NULL_SPAN_INIT;
 
+static void null_tracer_close(opentracing_tracer* tracer)
+{
+    (void) tracer;
+}
+
 static opentracing_span* null_tracer_start_span_with_options(
     opentracing_tracer* tracer,
     const char* operation_name,
@@ -169,11 +174,11 @@ null_tracer_extract(opentracing_tracer* tracer,
     return opentracing_propagation_error_code_success;
 }
 
-#define NULL_TRACER_INIT                                               \
-    {                                                                  \
-        NULL_DESTRUCTIBLE_INIT, &null_tracer_start_span,               \
-            &null_tracer_start_span_with_options, &null_tracer_inject, \
-            &null_tracer_extract                                       \
+#define NULL_TRACER_INIT                                                     \
+    {                                                                        \
+        NULL_DESTRUCTIBLE_INIT, &null_tracer_close, &null_tracer_start_span, \
+            &null_tracer_start_span_with_options, &null_tracer_inject,       \
+            &null_tracer_extract                                             \
     }
 
 static opentracing_tracer null_tracer_singleton = NULL_TRACER_INIT;
