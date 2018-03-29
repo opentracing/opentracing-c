@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['null_5fspan',['null_span',['../structnull__span.html',1,'']]]
+  ['noop_5fspan',['noop_span',['../structnoop__span.html',1,'']]]
 ];
