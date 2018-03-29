@@ -2,17 +2,17 @@
 
 #include <assert.h>
 
-static void null_destroy(opentracing_destructible* destructible)
+static void noop_destroy(opentracing_destructible* destructible)
 {
     (void) destructible;
 }
 
-#define NULL_DESTRUCTIBLE_INIT \
+#define NOOP_DESTRUCTIBLE_INIT \
     {                          \
-        &null_destroy          \
+        &noop_destroy          \
     }
 
-static void null_foreach_baggage_item(opentracing_span_context* span_context,
+static void noop_foreach_baggage_item(opentracing_span_context* span_context,
                                       opentracing_bool (*f)(void*,
                                                             const char*,
                                                             const char*),
@@ -23,16 +23,16 @@ static void null_foreach_baggage_item(opentracing_span_context* span_context,
     (void) arg;
 }
 
-static opentracing_span_context null_span_context_singleton = {
-    NULL_DESTRUCTIBLE_INIT, &null_foreach_baggage_item};
+static opentracing_span_context noop_span_context_singleton = {
+    NOOP_DESTRUCTIBLE_INIT, &noop_foreach_baggage_item};
 
-typedef struct null_span {
+typedef struct noop_span {
     opentracing_span base;
     opentracing_tracer* tracer_ptr;
-} null_span;
+} noop_span;
 
 static void
-null_span_finish_with_options(opentracing_span* span,
+noop_span_finish_with_options(opentracing_span* span,
                               const opentracing_finish_span_options* options)
 {
     (void) span;
@@ -40,25 +40,25 @@ null_span_finish_with_options(opentracing_span* span,
     (void) span;
 }
 
-static void null_span_finish(opentracing_span* span)
+static void noop_span_finish(opentracing_span* span)
 {
     span->finish_with_options(span, NULL);
 }
 
-static opentracing_span_context* null_span_span_context(opentracing_span* span)
+static opentracing_span_context* noop_span_span_context(opentracing_span* span)
 {
     (void) span;
-    return &null_span_context_singleton;
+    return &noop_span_context_singleton;
 }
 
-static void null_span_set_operation_name(opentracing_span* span,
+static void noop_span_set_operation_name(opentracing_span* span,
                                          const char* operation_name)
 {
     (void) span;
     (void) operation_name;
 }
 
-static void null_span_set_tag(opentracing_span* span,
+static void noop_span_set_tag(opentracing_span* span,
                               const char* key,
                               const opentracing_value* value)
 {
@@ -67,7 +67,7 @@ static void null_span_set_tag(opentracing_span* span,
     (void) value;
 }
 
-static void null_span_log_fields(opentracing_span* span,
+static void noop_span_log_fields(opentracing_span* span,
                                  const opentracing_log_field* fields,
                                  int num_fields)
 {
@@ -76,7 +76,7 @@ static void null_span_log_fields(opentracing_span* span,
     (void) num_fields;
 }
 
-static void null_span_set_baggage_item(opentracing_span* span,
+static void noop_span_set_baggage_item(opentracing_span* span,
                                        const char* key,
                                        const char* value)
 {
@@ -87,7 +87,7 @@ static void null_span_set_baggage_item(opentracing_span* span,
 
 static const char* empty_str = "";
 
-static const char* null_span_baggage_item(const opentracing_span* span,
+static const char* noop_span_baggage_item(const opentracing_span* span,
                                           const char* key)
 {
     (void) span;
@@ -95,60 +95,60 @@ static const char* null_span_baggage_item(const opentracing_span* span,
     return empty_str;
 }
 
-static opentracing_tracer* null_span_tracer(const opentracing_span* span)
+static opentracing_tracer* noop_span_tracer(const opentracing_span* span)
 {
     assert(span != NULL);
-    return ((const null_span*) span)->tracer_ptr;
+    return ((const noop_span*) span)->tracer_ptr;
 }
 
-#define NULL_SPAN_INIT                   \
+#define NOOP_SPAN_INIT                   \
     {                                    \
-        {NULL_DESTRUCTIBLE_INIT,         \
-         &null_span_finish,              \
-         &null_span_finish_with_options, \
-         &null_span_span_context,        \
-         &null_span_set_operation_name,  \
-         &null_span_set_tag,             \
-         &null_span_log_fields,          \
-         &null_span_set_baggage_item,    \
-         &null_span_baggage_item,        \
-         &null_span_tracer,              \
+        {NOOP_DESTRUCTIBLE_INIT,         \
+         &noop_span_finish,              \
+         &noop_span_finish_with_options, \
+         &noop_span_span_context,        \
+         &noop_span_set_operation_name,  \
+         &noop_span_set_tag,             \
+         &noop_span_log_fields,          \
+         &noop_span_set_baggage_item,    \
+         &noop_span_baggage_item,        \
+         &noop_span_tracer,              \
          NULL,                           \
          0},                             \
             NULL                         \
     }
 
-static null_span null_span_singleton = NULL_SPAN_INIT;
+static noop_span noop_span_singleton = NOOP_SPAN_INIT;
 
-static void null_tracer_close(opentracing_tracer* tracer)
+static void noop_tracer_close(opentracing_tracer* tracer)
 {
     (void) tracer;
 }
 
-static opentracing_span* null_tracer_start_span_with_options(
+static opentracing_span* noop_tracer_start_span_with_options(
     opentracing_tracer* tracer,
     const char* operation_name,
     const opentracing_start_span_options* options)
 {
-    null_span* span;
+    noop_span* span;
     (void) tracer;
     (void) operation_name;
     (void) options;
-    span = &null_span_singleton;
+    span = &noop_span_singleton;
     if (span->tracer_ptr != tracer) {
         span->tracer_ptr = tracer;
     }
     return (opentracing_span*) span;
 }
 
-static opentracing_span* null_tracer_start_span(opentracing_tracer* tracer,
+static opentracing_span* noop_tracer_start_span(opentracing_tracer* tracer,
                                                 const char* operation_name)
 {
     return tracer->start_span_with_options(tracer, operation_name, NULL);
 }
 
 static opentracing_propagation_error_code
-null_tracer_inject(opentracing_tracer* tracer,
+noop_tracer_inject(opentracing_tracer* tracer,
                    opentracing_propagation_format format,
                    void* carrier,
                    const opentracing_span_context* span_context)
@@ -161,7 +161,7 @@ null_tracer_inject(opentracing_tracer* tracer,
 }
 
 static opentracing_propagation_error_code
-null_tracer_extract(opentracing_tracer* tracer,
+noop_tracer_extract(opentracing_tracer* tracer,
                     opentracing_propagation_format format,
                     void* carrier,
                     opentracing_span_context** span_context)
@@ -170,19 +170,19 @@ null_tracer_extract(opentracing_tracer* tracer,
     (void) format;
     (void) carrier;
     assert(span_context != NULL);
-    *span_context = &null_span_context_singleton;
+    *span_context = &noop_span_context_singleton;
     return opentracing_propagation_error_code_success;
 }
 
-#define NULL_TRACER_INIT                                                     \
+#define NOOP_TRACER_INIT                                                     \
     {                                                                        \
-        NULL_DESTRUCTIBLE_INIT, &null_tracer_close, &null_tracer_start_span, \
-            &null_tracer_start_span_with_options, &null_tracer_inject,       \
-            &null_tracer_extract                                             \
+        NOOP_DESTRUCTIBLE_INIT, &noop_tracer_close, &noop_tracer_start_span, \
+            &noop_tracer_start_span_with_options, &noop_tracer_inject,       \
+            &noop_tracer_extract                                             \
     }
 
-static opentracing_tracer null_tracer_singleton = NULL_TRACER_INIT;
-static opentracing_tracer* global_tracer = &null_tracer_singleton;
+static opentracing_tracer noop_tracer_singleton = NOOP_TRACER_INIT;
+static opentracing_tracer* global_tracer = &noop_tracer_singleton;
 
 opentracing_tracer* opentracing_global_tracer(void)
 {
