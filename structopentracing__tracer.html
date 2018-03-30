@@ -117,13 +117,33 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a0b967cb527cc2f8e4297c40a159efa34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a0b967cb527cc2f8e4297c40a159efa34">start_span_with_options</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, const char *operation_name, const <a class="el" href="structopentracing__start__span__options.html">opentracing_start_span_options</a> *options) OPENTRACINGC_NONNULL(1</td></tr>
 <tr class="memdesc:a0b967cb527cc2f8e4297c40a159efa34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a new span with provided options.  <a href="#a0b967cb527cc2f8e4297c40a159efa34">More...</a><br/></td></tr>
 <tr class="separator:a0b967cb527cc2f8e4297c40a159efa34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ca5c2ba08107d98d7dbaf000ee6a628"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a> <br class="typebreak"/>
-*(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a1ca5c2ba08107d98d7dbaf000ee6a628">inject</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
-<tr class="memdesc:a1ca5c2ba08107d98d7dbaf000ee6a628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into carrier.  <a href="#a1ca5c2ba08107d98d7dbaf000ee6a628">More...</a><br/></td></tr>
-<tr class="separator:a1ca5c2ba08107d98d7dbaf000ee6a628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acff97f925c951061ca7f6a946bee6ee1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#acff97f925c951061ca7f6a946bee6ee1">extract</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
-<tr class="memdesc:acff97f925c951061ca7f6a946bee6ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#acff97f925c951061ca7f6a946bee6ee1">More...</a><br/></td></tr>
-<tr class="separator:acff97f925c951061ca7f6a946bee6ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92877e9bd3986e8db0e11cece75eb6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structopentracing__span.html">opentracing_span</a> <br class="typebreak"/>
+*(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#af92877e9bd3986e8db0e11cece75eb6e">inject_text_map</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__text__map__writer.html">opentracing_text_map_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:af92877e9bd3986e8db0e11cece75eb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into text map carrier.  <a href="#af92877e9bd3986e8db0e11cece75eb6e">More...</a><br/></td></tr>
+<tr class="separator:af92877e9bd3986e8db0e11cece75eb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af8e28e6809a7f84df9ab771598e25b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a7af8e28e6809a7f84df9ab771598e25b">inject_http_headers</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__http__headers__writer.html">opentracing_http_headers_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a7af8e28e6809a7f84df9ab771598e25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into HTTP headers carrier.  <a href="#a7af8e28e6809a7f84df9ab771598e25b">More...</a><br/></td></tr>
+<tr class="separator:a7af8e28e6809a7f84df9ab771598e25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4337258218c2d7124864637771d3d539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a4337258218c2d7124864637771d3d539">inject_binary</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, int(*callback)(void *, const char *, size_t), void *arg, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL(1</td></tr>
+<tr class="memdesc:a4337258218c2d7124864637771d3d539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into binary carrier.  <a href="#a4337258218c2d7124864637771d3d539">More...</a><br/></td></tr>
+<tr class="separator:a4337258218c2d7124864637771d3d539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d873f11b27a983902599084862acf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*) <br class="typebreak"/>
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a53d873f11b27a983902599084862acf0">inject_custom</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a53d873f11b27a983902599084862acf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject span context into custom carrier.  <a href="#a53d873f11b27a983902599084862acf0">More...</a><br/></td></tr>
+<tr class="separator:a53d873f11b27a983902599084862acf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0dcc2e2820e28acbd3831bbd965f0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a4f0dcc2e2820e28acbd3831bbd965f0b">extract_text_map</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a4f0dcc2e2820e28acbd3831bbd965f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#a4f0dcc2e2820e28acbd3831bbd965f0b">More...</a><br/></td></tr>
+<tr class="separator:a4f0dcc2e2820e28acbd3831bbd965f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaee1555fca15be44a7bcc4475d524e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#afaee1555fca15be44a7bcc4475d524e5">extract_http_headers</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__http__headers__reader.html">opentracing_http_headers_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:afaee1555fca15be44a7bcc4475d524e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#afaee1555fca15be44a7bcc4475d524e5">More...</a><br/></td></tr>
+<tr class="separator:afaee1555fca15be44a7bcc4475d524e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a900b07ee4b3f2082762a9f66528d7589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a900b07ee4b3f2082762a9f66528d7589">extract_binary</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, int(*callback)(void *, char *, size_t), void *arg, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL(1</td></tr>
+<tr class="memdesc:a900b07ee4b3f2082762a9f66528d7589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#a900b07ee4b3f2082762a9f66528d7589">More...</a><br/></td></tr>
+<tr class="separator:a900b07ee4b3f2082762a9f66528d7589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a216ad85d1956808d1ae7e3ed352138f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*) <br class="typebreak"/>
+<a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__tracer.html#a216ad85d1956808d1ae7e3ed352138f8">extract_custom</a> )(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td></tr>
+<tr class="memdesc:a216ad85d1956808d1ae7e3ed352138f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract span context from carrier.  <a href="#a216ad85d1956808d1ae7e3ed352138f8">More...</a><br/></td></tr>
+<tr class="separator:a216ad85d1956808d1ae7e3ed352138f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
 <tr class="memitem:a5783e9c27c817f72688a87de658bb924 inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a5783e9c27c817f72688a87de658bb924">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL_ALL</td></tr>
 <tr class="memdesc:a5783e9c27c817f72688a87de658bb924 inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="#a5783e9c27c817f72688a87de658bb924">More...</a><br/></td></tr>
@@ -168,22 +188,23 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acff97f925c951061ca7f6a946bee6ee1"></a>
+<a class="anchor" id="a900b07ee4b3f2082762a9f66528d7589"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, void *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract_binary)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, int(*callback)(void *, char *, size_t), void *arg, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL(1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Extract span context from carrier. </p>
-<dl class="section attention"><dt>Attention</dt><dd>If the tracer cannot allocate a span, it should return zero and set span_context to NULL. Callers should note that a return value of zero does not mean the span_context is not NULL. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the tracer cannot allocate a span, it should return the opentracing_propagation_error_code_unknown error code and set span_context to NULL. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">carrier</td><td>Opaque carrier. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">callback</td><td>Binary carrier callback. Passed user-defined argument, data buffer, and data buffer length. May be called multiple times to provide data from binary stream. Must return number of bytes read, with a negative number indicating an error, and zero indicating end of stream. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">arg</td><td>Binary carrier callback argument. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">span_context</td><td>Span context pointer to return decoded span. Set to NULL on propagation failure or out of memory. </td></tr>
   </table>
   </dd>
@@ -192,21 +213,163 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1ca5c2ba08107d98d7dbaf000ee6a628"></a>
+<a class="anchor" id="a216ad85d1956808d1ae7e3ed352138f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structopentracing__span.html">opentracing_span</a>*(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, void *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract_custom)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__custom__carrier__reader.html">opentracing_custom_carrier_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inject span context into carrier. </p>
+<p>Extract span context from carrier. </p>
+<dl class="section note"><dt>Note</dt><dd>If the tracer cannot allocate a span, it should return the opentracing_propagation_error_code_unknown error code and set span_context to NULL. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">carrier</td><td>Custom carrier. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_context</td><td>Span context pointer to return decoded span. Set to NULL on propagation failure or out of memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afaee1555fca15be44a7bcc4475d524e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract_http_headers)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__http__headers__reader.html">opentracing_http_headers_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract span context from carrier. </p>
+<dl class="section note"><dt>Note</dt><dd>If the tracer cannot allocate a span, it should return the opentracing_propagation_error_code_unknown error code and set span_context to NULL. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">carrier</td><td>HTTP headers carrier. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_context</td><td>Span context pointer to return decoded span. Set to NULL on propagation failure or out of memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f0dcc2e2820e28acbd3831bbd965f0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::extract_text_map)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__text__map__reader.html">opentracing_text_map_reader</a> *carrier, <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> **span_context) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract span context from carrier. </p>
+<dl class="section note"><dt>Note</dt><dd>If the tracer cannot allocate a span, it should return the opentracing_propagation_error_code_unknown error code and set span_context to NULL. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">carrier</td><td>Text map carrier. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_context</td><td>Span context pointer to return decoded span. Set to NULL on propagation failure or out of memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4337258218c2d7124864637771d3d539"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject_binary)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, int(*callback)(void *, const char *, size_t), void *arg, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL(1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject span context into binary carrier. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
-    <tr><td class="paramname">carrier</td><td>Opaque carrier. </td></tr>
+    <tr><td class="paramname">callback</td><td>Binary carrier callback. Passed a user-defined argument, the binary data chunk, and the length of the binary data chunk. May be called multiple times in a row to write entire span context. Return non-zero to indicate write error. </td></tr>
+    <tr><td class="paramname">arg</td><td>Binary carrier callback argument. </td></tr>
+    <tr><td class="paramname">span_context</td><td>Span context to serialize to carrier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a53d873f11b27a983902599084862acf0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject_custom)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__custom__carrier__writer.html">opentracing_custom_carrier_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject span context into custom carrier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramname">carrier</td><td>Custom carrier. </td></tr>
+    <tr><td class="paramname">span_context</td><td>Span context to serialize to carrier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7af8e28e6809a7f84df9ab771598e25b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject_http_headers)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__http__headers__writer.html">opentracing_http_headers_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject span context into HTTP headers carrier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramname">carrier</td><td>HTTP headers carrier. </td></tr>
+    <tr><td class="paramname">span_context</td><td>Span context to serialize to carrier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code indicating success or failure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af92877e9bd3986e8db0e11cece75eb6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structopentracing__span.html">opentracing_span</a>*(*) <a class="el" href="propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6d">opentracing_propagation_error_code</a>(* opentracing_tracer::inject_text_map)(struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *tracer, <a class="el" href="structopentracing__text__map__writer.html">opentracing_text_map_writer</a> *carrier, const <a class="el" href="structopentracing__span__context.html">opentracing_span_context</a> *span_context) OPENTRACINGC_NONNULL_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject span context into text map carrier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tracer</td><td>Tracer instance. </td></tr>
+    <tr><td class="paramname">carrier</td><td>Text map carrier. </td></tr>
     <tr><td class="paramname">span_context</td><td>Span context to serialize to carrier. </td></tr>
   </table>
   </dd>
