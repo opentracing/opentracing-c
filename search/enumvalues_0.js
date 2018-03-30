@@ -10,11 +10,6 @@ var searchData=
   ['opentracing_5fpropagation_5ferror_5fcode_5fspan_5fcontext_5fnot_5ffound',['opentracing_propagation_error_code_span_context_not_found',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da9be48f24cc628d9632ead4f6faab7328',1,'propagation.h']]],
   ['opentracing_5fpropagation_5ferror_5fcode_5fsuccess',['opentracing_propagation_error_code_success',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6da014f95af4a92f0c7eb8356195551c3ba',1,'propagation.h']]],
   ['opentracing_5fpropagation_5ferror_5fcode_5funknown',['opentracing_propagation_error_code_unknown',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6dae02245370bc2a34d54092dae388da18c',1,'propagation.h']]],
-  ['opentracing_5fpropagation_5ferror_5fcode_5funsupported_5fformat',['opentracing_propagation_error_code_unsupported_format',['../propagation_8h.html#a74c0b0681ff7eb490421ea8cb6316b6daefd434ab313b25428cfce02b2bbd7252',1,'propagation.h']]],
-  ['opentracing_5fpropagation_5fformat_5fbinary',['opentracing_propagation_format_binary',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a2221b2ce10f4752001be9d0e57af8ac8',1,'propagation.h']]],
-  ['opentracing_5fpropagation_5fformat_5fcustom',['opentracing_propagation_format_custom',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a4d968ddb72903560e25a0dace8796fd8',1,'propagation.h']]],
-  ['opentracing_5fpropagation_5fformat_5fhttp_5fheaders',['opentracing_propagation_format_http_headers',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a7463ade30b41f5ad9743cd04bfc35818',1,'propagation.h']]],
-  ['opentracing_5fpropagation_5fformat_5ftext_5fmap',['opentracing_propagation_format_text_map',['../propagation_8h.html#ae2f9a7b404329e9993a3414f9ed5aad2a054b56dfd9f7ca828a08409ad372bc0f',1,'propagation.h']]],
   ['opentracing_5fspan_5freference_5fchild_5fof',['opentracing_span_reference_child_of',['../span_8h.html#a2b133c4701195951fc24316c4adf27f2a13e67be3bea82826e046b9ca24f51c3b',1,'span.h']]],
   ['opentracing_5fspan_5freference_5ffollows_5ffrom',['opentracing_span_reference_follows_from',['../span_8h.html#a2b133c4701195951fc24316c4adf27f2a9c958de70b9361c27d5fde2b85de1bbc',1,'span.h']]]
 ];
