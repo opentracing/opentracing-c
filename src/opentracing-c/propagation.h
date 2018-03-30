@@ -18,12 +18,6 @@ typedef enum opentracing_propagation_error_code {
     opentracing_propagation_error_code_success = 0,
 
     /**
-     * Occurs when the format passed to inject() or extract() is not
-     * recognized by the tracer implementation.
-     */
-    opentracing_propagation_error_code_unsupported_format = -1,
-
-    /**
      * Occurs when the carrier passed to extract() is valid and uncorrupted
      * but has insufficient information to extract a span context.
      */
@@ -55,39 +49,6 @@ typedef enum opentracing_propagation_error_code {
      */
     opentracing_propagation_error_code_unknown = -6
 } opentracing_propagation_error_code;
-
-/**
- * Propagation formats.
- */
-typedef enum opentracing_propagation_format {
-    /** Represents span contexts as opaque binary data. */
-    opentracing_propagation_format_binary = 1,
-
-    /**
-     * Represents span contexts as key:value string pairs. Unlike
-     * opentracing_propagation_format_http_headers, the
-     * opentracing_propagation_format_text_map format does not restrict
-     * the key or value character sets in any way.
-     */
-    opentracing_propagation_format_text_map,
-
-    /**
-     * Represents span contexts as HTTP header string pairs. Unlike
-     * opentracing_propagation_format_text_map, the
-     * opentracing_propagation_format_http_headers requires that the
-     * keys and values be valid as HTTP headers as-is (i.e., character casing
-     * may be unstable and special characters are disallowed in keys, values
-     * should be URL-escaped, etc.).
-     */
-    opentracing_propagation_format_http_headers,
-
-    /**
-     * Represents span contexts in a user-defined format. With it, the caller
-     * can encode/decode a opentracing_span_context for propagation as entries
-     * in a custom protocol.
-     */
-    opentracing_propagation_format_custom
-} opentracing_propagation_format;
 
 /**
  * The inject carrier for the opentracing_propagation_format_text_map.

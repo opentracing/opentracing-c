@@ -149,12 +149,10 @@ static opentracing_span* noop_tracer_start_span(opentracing_tracer* tracer,
 
 static opentracing_propagation_error_code
 noop_tracer_inject(opentracing_tracer* tracer,
-                   opentracing_propagation_format format,
                    void* carrier,
                    const opentracing_span_context* span_context)
 {
     (void) tracer;
-    (void) format;
     (void) carrier;
     (void) span_context;
     return opentracing_propagation_error_code_success;
@@ -162,12 +160,10 @@ noop_tracer_inject(opentracing_tracer* tracer,
 
 static opentracing_propagation_error_code
 noop_tracer_extract(opentracing_tracer* tracer,
-                    opentracing_propagation_format format,
                     void* carrier,
                     opentracing_span_context** span_context)
 {
     (void) tracer;
-    (void) format;
     (void) carrier;
     assert(span_context != NULL);
     *span_context = &noop_span_context_singleton;

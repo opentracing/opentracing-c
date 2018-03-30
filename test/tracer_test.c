@@ -50,14 +50,10 @@ int main(void)
         ->destroy((opentracing_destructible*) span);
 
     char carrier;
-    return_code = tracer->extract(
-        tracer, opentracing_propagation_format_binary, &carrier, &span_context);
+    return_code = tracer->extract(tracer, &carrier, &span_context);
     assert(return_code == 0);
     assert(span_context != NULL);
-    return_code = tracer->inject(tracer,
-                                 opentracing_propagation_format_text_map,
-                                 &carrier,
-                                 span_context);
+    return_code = tracer->inject(tracer, &carrier, span_context);
     ((opentracing_destructible*) span_context)
         ->destroy((opentracing_destructible*) span_context);
 
