@@ -174,9 +174,9 @@ other causal reference.
     if (!custom_carrier_writer_init(&writer)) {
         return;
     }
-    return_code = tracer->inject(tracer,
-                                 (opentracing_text_map_writer*) carrier,
-                                 &span->context);
+    return_code = tracer->inject_text_map(tracer,
+                                          (opentracing_text_map_writer*) carrier,
+                                          &span->context);
     if (return_code != 0) {
         /* Injection failed, log an error message. */
         fprintf(stderr, "Injection failed, return code = %d\n", return_code);
