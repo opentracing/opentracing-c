@@ -120,7 +120,7 @@ typedef struct opentracing_text_map_reader {
  */
 typedef struct opentracing_http_headers_writer {
     /** Base class member. */
-    opentracing_text_map_writer writer;
+    opentracing_text_map_writer base;
 } opentracing_http_headers_writer;
 
 /**
@@ -129,7 +129,7 @@ typedef struct opentracing_http_headers_writer {
  */
 typedef struct opentracing_http_headers_reader {
     /** Base class member. */
-    opentracing_text_map_reader reader;
+    opentracing_text_map_reader base;
 } opentracing_http_headers_reader;
 
 /* Forward declaration. */

@@ -147,34 +147,80 @@ static opentracing_span* noop_tracer_start_span(opentracing_tracer* tracer,
     return tracer->start_span_with_options(tracer, operation_name, NULL);
 }
 
+#define INJECT(writer_type)                                \
+    static opentracing_propagation_error_code              \
+        noop_tracer_inject_##writer_type(                  \
+            opentracing_tracer* tracer,                    \
+            opentracing_##writer_type##_writer* carrier,   \
+            const opentracing_span_context* span_context)  \
+    {                                                      \
+        (void) tracer;                                     \
+        (void) carrier;                                    \
+        (void) span_context;                               \
+        return opentracing_propagation_error_code_success; \
+    }
+
+INJECT(text_map)
+INJECT(http_headers)
+INJECT(custom_carrier)
+
+#undef INJECT
+
 static opentracing_propagation_error_code
-noop_tracer_inject(opentracing_tracer* tracer,
-                   void* carrier,
-                   const opentracing_span_context* span_context)
+noop_tracer_inject_binary(opentracing_tracer* tracer,
+                          int (*callback)(void*, const char*, size_t),
+                          void* arg,
+                          const opentracing_span_context* span_context)
 {
     (void) tracer;
-    (void) carrier;
+    (void) callback;
+    (void) arg;
     (void) span_context;
     return opentracing_propagation_error_code_success;
 }
 
+#define EXTRACT(reader_type)                               \
+    static opentracing_propagation_error_code              \
+        noop_tracer_extract_##reader_type(                 \
+            opentracing_tracer* tracer,                    \
+            opentracing_##reader_type##_reader* carrier,   \
+            opentracing_span_context** span_context)       \
+    {                                                      \
+        (void) tracer;                                     \
+        (void) carrier;                                    \
+        assert(span_context != NULL);                      \
+        *span_context = &noop_span_context_singleton;      \
+        return opentracing_propagation_error_code_success; \
+    }
+
+EXTRACT(text_map)
+EXTRACT(http_headers)
+EXTRACT(custom_carrier)
+
+#undef EXTRACT
+
 static opentracing_propagation_error_code
-noop_tracer_extract(opentracing_tracer* tracer,
-                    void* carrier,
-                    opentracing_span_context** span_context)
+noop_tracer_extract_binary(opentracing_tracer* tracer,
+                           int (*callback)(void*, char*, size_t),
+                           void* arg,
+                           opentracing_span_context** span_context)
 {
     (void) tracer;
-    (void) carrier;
+    (void) callback;
+    (void) arg;
     assert(span_context != NULL);
     *span_context = &noop_span_context_singleton;
     return opentracing_propagation_error_code_success;
 }
 
-#define NOOP_TRACER_INIT                                                     \
-    {                                                                        \
-        NOOP_DESTRUCTIBLE_INIT, &noop_tracer_close, &noop_tracer_start_span, \
-            &noop_tracer_start_span_with_options, &noop_tracer_inject,       \
-            &noop_tracer_extract                                             \
+#define NOOP_TRACER_INIT                                                      \
+    {                                                                         \
+        NOOP_DESTRUCTIBLE_INIT, &noop_tracer_close, &noop_tracer_start_span,  \
+            &noop_tracer_start_span_with_options,                             \
+            &noop_tracer_inject_text_map, &noop_tracer_inject_http_headers,   \
+            &noop_tracer_inject_binary, &noop_tracer_inject_custom_carrier,   \
+            &noop_tracer_extract_text_map, &noop_tracer_extract_http_headers, \
+            &noop_tracer_extract_binary, &noop_tracer_extract_custom_carrier  \
     }
 
 static opentracing_tracer noop_tracer_singleton = NOOP_TRACER_INIT;

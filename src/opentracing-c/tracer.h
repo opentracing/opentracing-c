@@ -102,33 +102,132 @@ typedef struct opentracing_tracer {
                                                                             2);
 
     /**
-     * Inject span context into carrier.
+     * Inject span context into text map carrier.
      * @param tracer Tracer instance.
-     * @param carrier Opaque carrier.
+     * @param carrier Text map carrier.
      * @param span_context Span context to serialize to carrier.
      * @return Error code indicating success or failure.
      */
-    opentracing_propagation_error_code (*inject)(
+    opentracing_propagation_error_code (*inject_text_map)(
         struct opentracing_tracer* tracer,
-        void* carrier,
+        opentracing_text_map_writer* carrier,
+        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL_ALL;
+
+    /**
+     * Inject span context into HTTP headers carrier.
+     * @param tracer Tracer instance.
+     * @param carrier HTTP headers carrier.
+     * @param span_context Span context to serialize to carrier.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*inject_http_headers)(
+        struct opentracing_tracer* tracer,
+        opentracing_http_headers_writer* carrier,
+        const opentracing_span_context* span_context) OPENTRACINGC_NONNULL_ALL;
+
+    /**
+     * Inject span context into binary carrier.
+     * @param tracer Tracer instance.
+     * @param callback Binary carrier callback. Passed a user-defined argument,
+     *                 the binary data chunk, and the length of the binary data
+     *                 chunk. May be called multiple times in a row to write
+     *                 entire span context. Return non-zero to indicate write
+     *                 error.
+     * @param arg Binary carrier callback argument.
+     * @param span_context Span context to serialize to carrier.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*inject_binary)(
+        struct opentracing_tracer* tracer,
+        int (*callback)(void*, const char*, size_t),
+        void* arg,
+        const opentracing_span_context* span_context)
+        OPENTRACINGC_NONNULL(1, 2, 4);
+
+    /**
+     * Inject span context into custom carrier.
+     * @param tracer Tracer instance.
+     * @param carrier Custom carrier.
+     * @param span_context Span context to serialize to carrier.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*inject_custom)(
+        struct opentracing_tracer* tracer,
+        opentracing_custom_carrier_writer* carrier,
         const opentracing_span_context* span_context) OPENTRACINGC_NONNULL_ALL;
 
     /**
      * Extract span context from carrier.
-     * @attention If the tracer cannot allocate a span, it should return zero
-     *            and set span_context to NULL. Callers should note that a
-     *            return value of zero does not mean the span_context is not
-     *            NULL.
+     * @note If the tracer cannot allocate a span, it should return the
+     *       opentracing_propagation_error_code_unknown error code and set
+     *       span_context to NULL.
      * @param tracer Tracer instance.
-     * @param carrier Opaque carrier.
+     * @param carrier Text map carrier.
      * @param[out] span_context Span context pointer to return decoded span.
      *                          Set to NULL on propagation failure or out of
      *                          memory.
      * @return Error code indicating success or failure.
      */
-    opentracing_propagation_error_code (*extract)(
+    opentracing_propagation_error_code (*extract_text_map)(
         struct opentracing_tracer* tracer,
-        void* carrier,
+        opentracing_text_map_reader* carrier,
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL_ALL;
+
+    /**
+     * Extract span context from carrier.
+     * @note If the tracer cannot allocate a span, it should return the
+     *       opentracing_propagation_error_code_unknown error code and set
+     *       span_context to NULL.
+     * @param tracer Tracer instance.
+     * @param carrier HTTP headers carrier.
+     * @param[out] span_context Span context pointer to return decoded span.
+     *                          Set to NULL on propagation failure or out of
+     *                          memory.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*extract_http_headers)(
+        struct opentracing_tracer* tracer,
+        opentracing_http_headers_reader* carrier,
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL_ALL;
+
+    /**
+     * Extract span context from carrier.
+     * @note If the tracer cannot allocate a span, it should return the
+     *       opentracing_propagation_error_code_unknown error code and set
+     *       span_context to NULL.
+     * @param tracer Tracer instance.
+     * @param callback Binary carrier callback. Passed user-defined argument,
+     *                 data buffer, and data buffer length. May be called
+     *                 multiple times to provide data from binary stream. Must
+     *                 return number of bytes read, with a negative number
+     *                 indicating an error, and zero indicating end of stream.
+     * @param arg Binary carrier callback argument.
+     * @param[out] span_context Span context pointer to return decoded span.
+     *                          Set to NULL on propagation failure or out of
+     *                          memory.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*extract_binary)(
+        struct opentracing_tracer* tracer,
+        int (*callback)(void*, char*, size_t),
+        void* arg,
+        opentracing_span_context** span_context) OPENTRACINGC_NONNULL(1, 2, 4);
+
+    /**
+     * Extract span context from carrier.
+     * @note If the tracer cannot allocate a span, it should return the
+     *       opentracing_propagation_error_code_unknown error code and set
+     *       span_context to NULL.
+     * @param tracer Tracer instance.
+     * @param carrier Custom carrier.
+     * @param[out] span_context Span context pointer to return decoded span.
+     *                          Set to NULL on propagation failure or out of
+     *                          memory.
+     * @return Error code indicating success or failure.
+     */
+    opentracing_propagation_error_code (*extract_custom)(
+        struct opentracing_tracer* tracer,
+        opentracing_custom_carrier_reader* carrier,
         opentracing_span_context** span_context) OPENTRACINGC_NONNULL_ALL;
 } opentracing_tracer;
 
