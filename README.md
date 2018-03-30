@@ -175,7 +175,6 @@ other causal reference.
         return;
     }
     return_code = tracer->inject(tracer,
-                                 opentracing_propagation_format_binary,
                                  (opentracing_text_map_writer*) carrier,
                                  &span->context);
     if (return_code != 0) {
