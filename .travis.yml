@@ -1,0 +1,138 @@
+language: c
+sudo: false
+dist: trusty
+addons:
+  apt:
+    packages: &1
+    - lcov
+    - valgrind
+    - doxygen
+matrix:
+  include:
+  - os: linux
+    addons:
+      apt:
+        packages:
+        - *1
+        - g++-4.8
+    env:
+    - MATRIX_EVAL="CC=gcc-4.8 && CXX=g++-4.8"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-4.9
+    env:
+    - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-5
+    env:
+    - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-6
+    env:
+    - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-7
+    env:
+    - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise-3.6
+        packages:
+        - *1
+        - clang-3.6
+    env:
+    - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise-3.7
+        packages:
+        - *1
+        - clang-3.7
+    env:
+    - MATRIX_EVAL="CC=clang-3.7 && CXX=clang++-3.7"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise-3.8
+        packages:
+        - *1
+        - clang-3.8
+    env:
+    - MATRIX_EVAL="CC=clang-3.8 && CXX=clang++-3.8"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-4.0
+        packages:
+        - *1
+        - clang-4.0
+    env:
+    - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - llvm-toolchain-trusty-5.0
+        packages:
+        - *1
+        - clang-5.0
+    env:
+    - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - $HOME/install
+before_install:
+- eval "${MATRIX_EVAL}"
+- ./scripts/install-deps.sh "$HOME/install"
+script:
+- ./scripts/build.sh "$HOME/install"
+after_success:
+- ./scripts/upload-coverage.sh
+- ./scripts/generate-doc.sh && touch build/doc/Debug/html/.nojekyll
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: build/doc/Debug/html
+env:
+  global:
+  - LANG="en_US.UTF-8"
+  - PATH="$HOME/install/bin:$PATH"
+  - COVERAGE="ON"
+  - secure: q3+0SB5x621Eh5AFUioR4c9QZONvNYRp4Du0yoVOe2Uc5TLL3VOZjStwIvhQf72aFl3/epH+DifoUJ1L2O8bbo323RZgsvwmJ6iABUwHqrga9AI9/OyIBIAvh1bqnI/8iUDrG1vcRhNx/q1PHoHSWETTyRujPNoQXuj29TveNLYkyWNuqsTyvDMaL9aqVFU2cmS2iaPIWpD5WblvyUa4e3rhonYW76SvdpCV50IYz+OUnl0SEvbdikXTP0I5YJEcHWKzia7QOSeAwbphLP2AIMe1uDvxAW+bK1pfomnqdFybvg/Fq2n4q4AHAkNL3/BTKKFSpjqFRFTiruccHrcKQzm4Gi+YzzQn+iI8sIQYQcM3He82Vmu69pg59az6y7/sJQboDVjd6xRbXBWzL9iv/bBv/PIfUCYiU8/OKmZjZUJ3xkrzBGNnKr0RtrVNt6jPkzoEPwITwN2DVWddthojD7OIYbk6H+YP9jX1sCPHORzHombff6KO2VUJo66CNCeBYJSkRqVrqCH1GleFUypeIhvG8fVbIoWytontq02aULfSXl7YLIn8ZRo3zNGKdOSZRZDh9Vz10N6tsGPvCFM27jWWxG6DSXWIXrP+dQZqiuPYQ5jeSvKsCquKGiDNfN0aJBfn6jywla2wvf0abJy7L+To+0NIMHI3TbT70rTXlvs=

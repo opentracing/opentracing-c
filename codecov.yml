@@ -1,0 +1,4 @@
+fixes:
+  - "build/::"
+ignore:
+  - "^test/.*$"
