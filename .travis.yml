@@ -120,16 +120,8 @@ script:
 - ./scripts/build.sh "$HOME/install"
 after_success:
 - ./scripts/upload-coverage.sh
-- ./scripts/generate-doc.sh && touch build/doc/Debug/html/.nojekyll
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: build/doc/Debug/html
 env:
   global:
   - LANG="en_US.UTF-8"
   - PATH="$HOME/install/bin:$PATH"
   - COVERAGE="ON"
-  - secure: UhmYtDcHIlRMN3UbUD1RbFQrEAiH6kln9dt6r1JvhyvS+k8XY1HZpLGA2AbVPo8WYY1ej4VT2jWlYdRetf9P24R9sU2Eya4YCIRWvesm4OgfofLfoKGQdCZZPbd2K/BzD3mPPH9fV59bj/KKCAIP3+iVXWvhEeonTDa98KJfarqWV3AO3Tsb9gyQ13+fhXpszibaKSn3ThpEjljhObr2curWowk0jrr8KqA/MPrZ7wDYGgnFRUO+jDOVbhQZdNGZglWuv5QF7K1O7+xASNrNAcVQmCTh1HAR6PU7xML9eQPmYGDlMTIgCRAWhp00D8eEgvq0xb/R/3gYgb80d2eJhB9tjdFdOaX2b5v7GpGF7zg2e2tqfO9mZTLyrArbt78kDAUAVllGkaWsAFWfiq6VPvvQGpvYMcANerFULRiWafNATzK0sJez39TwQBE/QzktkM2TpONsyKG163QCk2XPnVahbtzqs11crRuMPetUquq0WffqVBpaNlxa0rPvnx5OasvCmuj4UmjdHJZieGWKHnsKJXnkYyRyNEbOPl8ydMGF1vTfPFJYVeqqZ15V52BrpohVRgCEXRpBs3p+0DBG+FieFfQ+SiwO+PPR9q5mpvSQoJ7Rr8M505Ljelxcdm/5xuj7f+rRM0mKjV08vR0NprJCtmzFq/uoj42D+5rESbI=
