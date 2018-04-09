@@ -1,8 +1,3 @@
-#include "existing_span.h"
-#include <string.h>
-
-// tag::existing-span-snippet[]
-
 void xyz(opentracing_span* parent_span)
 {
     opentracing_tracer* tracer;
@@ -29,5 +24,3 @@ void xyz(opentracing_span* parent_span)
     ((opentracing_destructible*) span)
         ->destroy((opentracing_destructible*) span);
 }
-
-// end::existing-span-snippet[]

@@ -1,7 +1,6 @@
-#include "extract.h"
 #include "text_map_iterator.h"
-
 #include <assert.h>
+#include <stdio.h>
 
 typedef struct text_map_reader {
     /* Base class instance. */
@@ -66,5 +65,19 @@ static void text_map_reader_init(text_map_reader* reader, const text_map* map)
 void extract(const text_map* map)
 {
     text_map_reader reader;
+    opentracing_tracer* tracer;
+    opentracing_span_context* span_context;
+    opentracing_propagation_error_code return_code;
+
     text_map_reader_init(&reader, map);
+    tracer = opentracing_global_tracer();
+    span_context = NULL;
+    return_code = tracer->extract_text_map(
+        tracer, (opentracing_text_map_reader*) &reader, &span_context);
+    if (return_code != opentracing_propagation_error_code_success) {
+        fprintf(stderr,
+                "Failed to extract span context, error code = %d\n",
+                return_code);
+        return;
+    }
 }
