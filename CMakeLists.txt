@@ -150,6 +150,20 @@ if(BUILD_TESTING)
   endif()
 endif()
 
+option(OPENTRACINGC_BUILD_EXAMPLES "Build opentracing-c examples" ON)
+if(OPENTRACINGC_BUILD_EXAMPLES)
+  add_executable(example
+    examples/main.c
+    examples/tracing_impl.c
+    examples/new_span.c
+    examples/existing_span.c
+    examples/inject.c
+    examples/text_map.c)
+  target_include_directories(example PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/examples>)
+  target_link_libraries(example opentracingc)
+endif()
+
 generate_documentation()
 
 # Installation (https://github.com/forexample/package-example)
