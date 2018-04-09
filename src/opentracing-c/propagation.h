@@ -106,12 +106,15 @@ typedef struct opentracing_text_map_reader {
      * @param handler Function to call for each key:value pair. It should accept
      *                a key and a value as arguments and return an error code
      *                indicating success or failure.
+     * @param arg User-defined context argument.
      * @return Error code indicating success or failure.
      */
     opentracing_propagation_error_code (*foreach_key)(
         struct opentracing_text_map_reader* reader,
-        opentracing_propagation_error_code (*handler)(
-            const char* key, const char* value)) OPENTRACINGC_NONNULL_ALL;
+        opentracing_propagation_error_code (*handler)(void* arg,
+                                                      const char* key,
+                                                      const char* value),
+        void* arg) OPENTRACINGC_NONNULL(1, 2);
 } opentracing_text_map_reader;
 
 /**
