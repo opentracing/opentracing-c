@@ -153,12 +153,21 @@ endif()
 option(OPENTRACINGC_BUILD_EXAMPLES "Build opentracing-c examples" ON)
 if(OPENTRACINGC_BUILD_EXAMPLES)
   add_executable(example
-    examples/main.c
-    examples/tracing_impl.c
-    examples/new_span.c
     examples/existing_span.c
+    examples/existing_span.h
+    examples/extract.c
+    examples/extract.h
     examples/inject.c
-    examples/text_map.c)
+    examples/inject.h
+    examples/main.c
+    examples/new_span.c
+    examples/new_span.h
+    examples/text_map.c
+    examples/text_map.h
+    examples/text_map_iterator.c
+    examples/text_map_iterator.h
+    examples/tracing_impl.c
+    examples/tracing_impl.h)
   target_include_directories(example PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/examples>)
   target_link_libraries(example opentracingc)

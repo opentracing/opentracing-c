@@ -1,4 +1,6 @@
 #include "new_span.h"
+
+// tag::new-span-snippet[]
 #include <stdlib.h>
 #include <opentracing-c/tracer.h>
 
@@ -18,3 +20,4 @@ void abc(void)
     ((opentracing_destructible*) span)
         ->destroy((opentracing_destructible*) span);
 }
+// end::new-span-snippet[]

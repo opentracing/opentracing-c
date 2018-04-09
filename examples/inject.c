@@ -5,6 +5,8 @@
 
 #include "text_map.h"
 
+// tag::inject-snippet[]
+
 typedef struct text_map_writer {
     /* Base class instance. */
     opentracing_text_map_writer base;
@@ -64,3 +66,5 @@ void inject(void)
         return;
     }
 }
+
+// end::inject-snippet[]

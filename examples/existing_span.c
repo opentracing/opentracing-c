@@ -1,14 +1,17 @@
 #include "existing_span.h"
 #include <string.h>
 
+// tag::existing-span-snippet[]
+
 void xyz(opentracing_span* parent_span)
 {
     opentracing_tracer* tracer;
     opentracing_span* span;
     opentracing_start_span_options options = {0};
     opentracing_span_reference refs[1];
-    opentracing_span_context* parent_context =
-        parent_span->span_context(parent_span);
+    opentracing_span_context* parent_context;
+
+    parent_context = parent_span->span_context(parent_span);
     /* ... */
     tracer = opentracing_global_tracer();
     memset(&options, 0, sizeof(options));
@@ -26,3 +29,5 @@ void xyz(opentracing_span* parent_span)
     ((opentracing_destructible*) span)
         ->destroy((opentracing_destructible*) span);
 }
+
+// end::existing-span-snippet[]

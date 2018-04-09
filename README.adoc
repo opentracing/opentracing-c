@@ -8,13 +8,13 @@ ANSI C implementation of the OpenTracing API http://opentracing.io.
 == Required Reading
 
 In order to understand the C platform API, one must first be familiar with the
-[OpenTracing project](http://opentracing.io) and
-[terminology](http://opentracing.io/documentation/pages/spec) more generally.
+http://opentracing.io[OpenTracing project] and
+http://opentracing.io/documentation/pages/spec[terminology] more generally.
 
 == Doxygen
 
 API docs generated using Doxygen are hosted
-[here](opentracing.github.io/opentracing-c) on GitHub pages.
+https://opentracing.github.io/opentracing-c[here] on GitHub pages.
 
 == Compile and install
 
@@ -63,28 +63,27 @@ other causal reference.
 
 [source,c]
 ----
-include::{sourcedir}/new_span.c[]
+include::{sourcedir}/new_span.c[tag=new-span-snippet]
 ----
 
 ==== Creating a (child) span given an existing (parent) span
 
 [source,c]
 ----
-include::{sourcedir}/existing_span.c[]
+include::{sourcedir}/existing_span.c[tag=existing-span-snippet]
 ----
 
 ==== Inject span context into an opentracing_text_map_writer
 
 [source,c]
 ----
-include::{sourcedir}/inject.c[]
+include::{sourcedir}/text_map.h[tag=text-map-snippet]
+include::{sourcedir}/inject.c[tag=inject-snippet]
 ----
 
 ==== Extract span context from an opentracing_text_map_reader
 
 ```c
-    /* See text_map struct and more of its functions above. */
-
     /* Opaque iterator to iterate through entries in text_map. */
     typedef struct text_map_iterator text_map_iterator;
 
