@@ -50,7 +50,7 @@ call
 
 [source,c]
 ----
-include::{sourcedir}/main.c[]
+@main_snippet@
 ----
 
 === Non-singleton initialization
