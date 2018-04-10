@@ -19,7 +19,7 @@ var searchData=
   ['opentracing_5ftext_5fmap_5fwriter',['opentracing_text_map_writer',['../propagation_8h.html#a765edcdf64a1b0129e2155e00ea03257',1,'propagation.h']]],
   ['opentracing_5ftimestamp',['opentracing_timestamp',['../common_8h.html#ab3f67970c5f6eca7631386c218be0c23',1,'common.h']]],
   ['opentracing_5ftracer',['opentracing_tracer',['../tracer_8h.html#ac0265eb09e5199d1ec4498c5909acc66',1,'tracer.h']]],
-  ['opentracing_5ftracer_5ffactory',['opentracing_tracer_factory',['../tracer__factory_8h.html#a02aee26b2257be090513519ad7b65f56',1,'tracer_factory.h']]],
+  ['opentracing_5ftracer_5ffactory',['opentracing_tracer_factory',['../tracer__factory_8h.html#aaea6ca6decbcd39acdffbe2ae49481bc',1,'tracer_factory.h']]],
   ['opentracing_5fvalue',['opentracing_value',['../value_8h.html#a8630d9e5f11794303d05cbe8346c8f6d',1,'value.h']]],
   ['opentracing_5fvalue_5ftype',['opentracing_value_type',['../value_8h.html#a8d556b77a43adb7401f166422a93752a',1,'value.h']]]
 ];

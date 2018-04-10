@@ -1,0 +1,6 @@
+<map id="opentracing_library_handle" name="opentracing_library_handle">
+<area shape="rect" id="node2" href="$structopentracing__tracer.html" title="Tracer interface. " alt="" coords="149,92,282,117"/>
+<area shape="rect" id="node4" href="$structopentracing__span.html" title="Span interface. " alt="" coords="320,212,447,237"/>
+<area shape="rect" id="node3" href="$structopentracing__destructible.html" title="Destructible interface. " alt="" coords="316,5,483,31"/>
+<area shape="rect" id="node5" href="$structopentracing__span__context.html" title="Span context interface. " alt="" coords="486,92,664,117"/>
+</map>

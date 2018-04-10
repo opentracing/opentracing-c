@@ -1,0 +1,11 @@
+<map id="opentracing_destructible" name="opentracing_destructible">
+<area shape="rect" id="node2" href="$structopentracing__custom__carrier__reader.html" title="extract() carrier for a custom format. " alt="" coords="238,5,380,44"/>
+<area shape="rect" id="node3" href="$structopentracing__custom__carrier__writer.html" title="inject() carrier for a custom format. " alt="" coords="238,68,380,107"/>
+<area shape="rect" id="node4" href="$structopentracing__span.html" title="Span interface. " alt="" coords="245,131,372,156"/>
+<area shape="rect" id="node5" href="$structopentracing__span__context.html" title="Span context interface. " alt="" coords="220,180,398,205"/>
+<area shape="rect" id="node6" href="$structopentracing__text__map__reader.html" title="The extract() carrier for the opentracing_propagation_format_text_map with it, the caller can decode ..." alt="" coords="232,229,385,268"/>
+<area shape="rect" id="node8" href="$structopentracing__text__map__writer.html" title="The inject carrier for the opentracing_propagation_format_text_map. " alt="" coords="232,292,385,331"/>
+<area shape="rect" id="node10" href="$structopentracing__tracer.html" title="Tracer interface. " alt="" coords="243,355,375,380"/>
+<area shape="rect" id="node7" href="$structopentracing__http__headers__reader.html" title="HTTP headers reader. " alt="" coords="446,229,622,268"/>
+<area shape="rect" id="node9" href="$structopentracing__http__headers__writer.html" title="HTTP headers writer. " alt="" coords="446,292,622,331"/>
+</map>

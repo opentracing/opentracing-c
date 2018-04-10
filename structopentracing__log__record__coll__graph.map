@@ -1,0 +1,6 @@
+<map id="opentracing_log_record" name="opentracing_log_record">
+<area shape="rect" id="node2" href="$structopentracing__log__field.html" title="Log field to represent key&#45;value pair for a log. " alt="" coords="5,92,153,117"/>
+<area shape="rect" id="node3" href="$structopentracing__value.html" title="Tagged union that can represent a number of value types. " alt="" coords="14,5,145,31"/>
+<area shape="rect" id="node4" href="$structopentracing__timestamp.html" title="Timestamp type to represent absolute time (should use system clock). " alt="" coords="178,92,338,117"/>
+<area shape="rect" id="node5" href="$structopentracing__time__value.html" title="opentracing_time_value" alt="" coords="177,5,340,31"/>
+</map>

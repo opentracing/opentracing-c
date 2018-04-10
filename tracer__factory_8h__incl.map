@@ -1,0 +1,10 @@
+<map id="opentracing&#45;c/tracer_factory.h" name="opentracing&#45;c/tracer_factory.h">
+<area shape="rect" id="node2" href="$config_8h.html" title="opentracing&#45;c/config.h" alt="" coords="327,459,480,484"/>
+<area shape="rect" id="node4" href="$common_8h.html" title="opentracing&#45;c/common.h" alt="" coords="23,385,191,411"/>
+<area shape="rect" id="node6" href="$tracer_8h.html" title="opentracing&#45;c/tracer.h" alt="" coords="271,92,421,117"/>
+<area shape="rect" id="node3" href="$visibility_8h_source.html" title="opentracing&#45;c/visibility.h" alt="" coords="96,532,258,557"/>
+<area shape="rect" id="node7" href="$propagation_8h.html" title="opentracing&#45;c/propagation.h" alt="" coords="318,165,505,191"/>
+<area shape="rect" id="node8" href="$span_8h.html" title="opentracing&#45;c/span.h" alt="" coords="273,239,419,264"/>
+<area shape="rect" id="node9" href="$destructible_8h.html" title="opentracing&#45;c/destructible.h" alt="" coords="383,312,568,337"/>
+<area shape="rect" id="node10" href="$value_8h.html" title="opentracing&#45;c/value.h" alt="" coords="160,312,309,337"/>
+</map>

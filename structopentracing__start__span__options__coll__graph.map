@@ -1,0 +1,10 @@
+<map id="opentracing_start_span_options" name="opentracing_start_span_options">
+<area shape="rect" id="node2" href="$structopentracing__timestamp.html" title="Timestamp type to represent absolute time (should use system clock). " alt="" coords="612,5,772,31"/>
+<area shape="rect" id="node3" href="$structopentracing__time__value.html" title="opentracing_time_value" alt="" coords="260,31,423,56"/>
+<area shape="rect" id="node7" href="$structopentracing__duration.html" title="Duration type to calculate precise intervals (should use monotonic clock). " alt="" coords="618,55,765,80"/>
+<area shape="rect" id="node4" href="$structopentracing__span__reference.html" title="opentracing_span_reference" alt="" coords="596,104,787,129"/>
+<area shape="rect" id="node5" href="$structopentracing__span__context.html" title="Span context interface. " alt="" coords="253,104,430,129"/>
+<area shape="rect" id="node6" href="$structopentracing__destructible.html" title="Destructible interface. " alt="" coords="5,105,172,131"/>
+<area shape="rect" id="node8" href="$structopentracing__tag.html" title="Simple tag representation. " alt="" coords="633,153,750,179"/>
+<area shape="rect" id="node9" href="$structopentracing__value.html" title="Tagged union that can represent a number of value types. " alt="" coords="276,153,407,179"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="noop_span" name="noop_span">
+<area shape="rect" id="node2" href="$structopentracing__tracer.html" title="Tracer interface. " alt="" coords="73,92,206,117"/>
+<area shape="rect" id="node4" href="$structopentracing__span.html" title="Span interface. " alt="" coords="177,205,305,231"/>
+<area shape="rect" id="node3" href="$structopentracing__destructible.html" title="Destructible interface. " alt="" coords="240,5,407,31"/>
+<area shape="rect" id="node5" href="$structopentracing__span__context.html" title="Span context interface. " alt="" coords="411,92,589,117"/>
+</map>

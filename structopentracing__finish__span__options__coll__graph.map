@@ -1,0 +1,8 @@
+<map id="opentracing_finish_span_options" name="opentracing_finish_span_options">
+<area shape="rect" id="node2" href="$structopentracing__duration.html" title="Duration type to calculate precise intervals (should use monotonic clock). " alt="" coords="5,141,152,167"/>
+<area shape="rect" id="node3" href="$structopentracing__time__value.html" title="opentracing_time_value" alt="" coords="44,5,207,31"/>
+<area shape="rect" id="node7" href="$structopentracing__timestamp.html" title="Timestamp type to represent absolute time (should use system clock). " alt="" coords="116,92,276,117"/>
+<area shape="rect" id="node4" href="$structopentracing__log__record.html" title="Log record can be used to describe events that occur in the lifetime of a span. " alt="" coords="170,191,331,216"/>
+<area shape="rect" id="node5" href="$structopentracing__log__field.html" title="Log field to represent key&#45;value pair for a log. " alt="" coords="301,92,449,117"/>
+<area shape="rect" id="node6" href="$structopentracing__value.html" title="Tagged union that can represent a number of value types. " alt="" coords="309,5,440,31"/>
+</map>

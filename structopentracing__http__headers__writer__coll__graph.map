@@ -1,0 +1,4 @@
+<map id="opentracing_http_headers_writer" name="opentracing_http_headers_writer">
+<area shape="rect" id="node2" href="$structopentracing__text__map__writer.html" title="The inject carrier for the opentracing_propagation_format_text_map. " alt="" coords="17,92,170,131"/>
+<area shape="rect" id="node3" href="$structopentracing__destructible.html" title="Destructible interface. " alt="" coords="10,5,177,31"/>
+</map>
