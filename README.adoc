@@ -1,0 +1,288 @@
+= opentracing-c
+
+image:https://travis-ci.org/opentracing/opentracing-c.svg?branch=master["Build Status", link="https://travis-ci.org/opentracing/opentracing-c"]
+image:https://codecov.io/gh/opentracing/opentracing-c/branch/master/graph/badge.svg["Coverage", link="https://codecov.io/gh/opentracing/opentracing-c"]
+
+ANSI C implementation of the OpenTracing API http://opentracing.io.
+
+== Required Reading
+
+In order to understand the C platform API, one must first be familiar with the
+http://opentracing.io[OpenTracing project] and
+http://opentracing.io/documentation/pages/spec[terminology] more generally.
+
+== Doxygen
+
+API docs generated using Doxygen are hosted
+https://opentracing.github.io/opentracing-c[here] on GitHub pages.
+
+== Compile and install
+
+[source,sh]
+----
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+----
+
+To test:
+
+[source,sh]
+----
+$ make test
+----
+
+== API overview for those adding instrumentation
+
+Everyday consumers of this `opentracing-c` package really only need to worry
+about a couple of key abstractions: the `opentracing_tracer` `start_span`
+function, the `opentracing_span` interface, and binding an `opentracing_tracer`
+at `main()`-time. Here are code snippets demonstrating some important use cases.
+
+=== Singleton initialization
+
+The simplest starting point is `opentracing-c/tracer.h`. As early as possible,
+call
+
+:sourcedir: examples
+
+[source,c]
+----
+#include "tracing_impl.h"
+#include <assert.h>
+#include <opentracing-c/tracer.h>
+
+int main(void)
+{
+    opentracing_tracer* tracer;
+    tracer = make_tracing_impl();
+    assert(tracer != NULL);
+    opentracing_init_global_tracer(tracer);
+}
+
+----
+
+=== Non-singleton initialization
+
+If you prefer direct control to singletons, manage ownership of the
+`opentracing_tracer` implementation explicitly.
+
+=== Starting an empty trace by creating a "root span"
+
+It's always possible to create a "root" `opentracing_span` with no parent or
+other causal reference.
+
+[source,c]
+----
+#include <stdlib.h>
+#include <opentracing-c/tracer.h>
+
+void abc(void)
+{
+    opentracing_tracer* tracer;
+    opentracing_span* span;
+    /* ... */
+    tracer = opentracing_global_tracer();
+    span = tracer->start_span(tracer, "operation_name");
+    if (span == NULL) {
+        /* Error creating span. */
+    }
+    /* ... */
+    span->finish(span);
+    /* ... */
+    ((opentracing_destructible*) span)
+        ->destroy((opentracing_destructible*) span);
+}
+
+----
+
+==== Creating a (child) span given an existing (parent) span
+
+[source,c]
+----
+void xyz(opentracing_span* parent_span)
+{
+    opentracing_tracer* tracer;
+    opentracing_span* span;
+    opentracing_start_span_options options = {0};
+    opentracing_span_reference refs[1];
+    opentracing_span_context* parent_context;
+
+    parent_context = parent_span->span_context(parent_span);
+    /* ... */
+    tracer = opentracing_global_tracer();
+    memset(&options, 0, sizeof(options));
+    refs[0] =
+        (opentracing_span_reference) OPENTRACINGC_CHILD_OF(*parent_context);
+    options.references = refs;
+    options.num_references = 1;
+    span = tracer->start_span_with_options(tracer, "operation_name", &options);
+    if (span == NULL) {
+        /* Error creating span. */
+    }
+    /* Finishing the span operation. */
+    span->finish(span);
+    /* Freeing the span. */
+    ((opentracing_destructible*) span)
+        ->destroy((opentracing_destructible*) span);
+}
+
+----
+
+==== Inject span context into an opentracing_text_map_writer
+
+[source,c]
+----
+typedef struct text_map_writer {
+    /* Base class instance. */
+    opentracing_text_map_writer base;
+
+    /* Map object. */
+    text_map* map;
+} text_map_writer;
+
+static void noop_destroy(opentracing_destructible* d)
+{
+    /* noop */
+}
+
+static opentracing_propagation_error_code text_map_writer_set(
+    opentracing_text_map_writer* writer, const char* key, const char* value)
+{
+    text_map_writer* w;
+
+    assert(writer != NULL);
+    assert(key != NULL);
+    assert(value != NULL);
+
+    w = (text_map_writer*) writer;
+    if (text_map_has_key(w->map, key) || !text_map_insert(w->map, key, value)) {
+        return opentracing_propagation_error_code_unknown;
+    }
+    return opentracing_propagation_error_code_success;
+}
+
+opentracing_bool text_map_writer_init(text_map_writer* writer)
+{
+    assert(writer != NULL);
+    ((opentracing_destructible*) writer)->destroy = &noop_destroy;
+    ((opentracing_text_map_writer*) writer)->set = &text_map_writer_set;
+    writer->map = text_map_new();
+    return (writer->map != NULL) ? opentracing_true : opentracing_false;
+}
+
+void inject(void)
+{
+    text_map_writer writer;
+    opentracing_tracer* tracer;
+    opentracing_span* span;
+    opentracing_propagation_error_code return_code;
+    if (!text_map_writer_init(&writer)) {
+        return;
+    }
+    tracer = opentracing_global_tracer();
+    span = tracer->start_span(tracer, "test-inject");
+    return_code =
+        tracer->inject_text_map(tracer,
+                                (opentracing_text_map_writer*) &writer,
+                                span->span_context(span));
+    if (return_code != 0) {
+        /* Injection failed, log an error message. */
+        fprintf(stderr, "Injection failed, return code = %d\n", return_code);
+        return;
+    }
+}
+
+----
+
+==== Extract span context from an opentracing_text_map_reader
+
+[source,c]
+----
+#include "text_map_iterator.h"
+#include <assert.h>
+#include <stdio.h>
+
+typedef struct text_map_reader {
+    /* Base class instance. */
+    opentracing_text_map_reader base;
+
+    /* Pointer to existing map object. */
+    const text_map* map;
+} text_map_reader;
+
+static opentracing_propagation_error_code text_map_reader_foreach_key(
+    opentracing_text_map_reader* reader,
+    opentracing_propagation_error_code (*f)(void*, const char*, const char*),
+    void* arg)
+{
+    text_map_reader* r;
+    text_map_iterator* it;
+    const char* key;
+    const char* value;
+    opentracing_propagation_error_code return_code;
+
+    assert(reader != NULL);
+    assert(f != NULL);
+
+    r = (text_map_reader*) reader;
+    it = text_map_get_iterator(r->map);
+    if (it == NULL) {
+        /* Failed to allocate iterator. */
+        return opentracing_false;
+    }
+
+    for (; text_map_iterator_has_next(it);
+         text_map_iterator_next(it, &key, &value)) {
+        assert(key != NULL);
+        assert(value != NULL);
+        return_code = f(arg, key, value);
+        if (return_code != opentracing_propagation_error_code_success) {
+            goto cleanup;
+        }
+    }
+
+    return_code = opentracing_propagation_error_code_success;
+
+cleanup:
+    text_map_iterator_destroy(it);
+    return return_code;
+}
+
+static void noop_destroy(opentracing_destructible* d)
+{
+}
+
+/* Initialize new reader with existing map. */
+static void text_map_reader_init(text_map_reader* reader, const text_map* map)
+{
+    assert(reader != NULL);
+    ((opentracing_text_map_reader*) &reader)->foreach_key =
+        &text_map_reader_foreach_key;
+    ((opentracing_destructible*) &reader)->destroy = &noop_destroy;
+    reader->map = map;
+}
+
+void extract(const text_map* map)
+{
+    text_map_reader reader;
+    opentracing_tracer* tracer;
+    opentracing_span_context* span_context;
+    opentracing_propagation_error_code return_code;
+
+    text_map_reader_init(&reader, map);
+    tracer = opentracing_global_tracer();
+    span_context = NULL;
+    return_code = tracer->extract_text_map(
+        tracer, (opentracing_text_map_reader*) &reader, &span_context);
+    if (return_code != opentracing_propagation_error_code_success) {
+        fprintf(stderr,
+                "Failed to extract span context, error code = %d\n",
+                return_code);
+        return;
+    }
+}
+
+----

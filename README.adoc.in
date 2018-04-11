@@ -1,0 +1,90 @@
+= opentracing-c
+
+image:https://travis-ci.org/opentracing/opentracing-c.svg?branch=master["Build Status", link="https://travis-ci.org/opentracing/opentracing-c"]
+image:https://codecov.io/gh/opentracing/opentracing-c/branch/master/graph/badge.svg["Coverage", link="https://codecov.io/gh/opentracing/opentracing-c"]
+
+ANSI C implementation of the OpenTracing API http://opentracing.io.
+
+== Required Reading
+
+In order to understand the C platform API, one must first be familiar with the
+http://opentracing.io[OpenTracing project] and
+http://opentracing.io/documentation/pages/spec[terminology] more generally.
+
+== Doxygen
+
+API docs generated using Doxygen are hosted
+https://opentracing.github.io/opentracing-c[here] on GitHub pages.
+
+== Compile and install
+
+[source,sh]
+----
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+----
+
+To test:
+
+[source,sh]
+----
+$ make test
+----
+
+== API overview for those adding instrumentation
+
+Everyday consumers of this `opentracing-c` package really only need to worry
+about a couple of key abstractions: the `opentracing_tracer` `start_span`
+function, the `opentracing_span` interface, and binding an `opentracing_tracer`
+at `main()`-time. Here are code snippets demonstrating some important use cases.
+
+=== Singleton initialization
+
+The simplest starting point is `opentracing-c/tracer.h`. As early as possible,
+call
+
+:sourcedir: examples
+
+[source,c]
+----
+@main_snippet@
+----
+
+=== Non-singleton initialization
+
+If you prefer direct control to singletons, manage ownership of the
+`opentracing_tracer` implementation explicitly.
+
+=== Starting an empty trace by creating a "root span"
+
+It's always possible to create a "root" `opentracing_span` with no parent or
+other causal reference.
+
+[source,c]
+----
+@new_span_snippet@
+----
+
+==== Creating a (child) span given an existing (parent) span
+
+[source,c]
+----
+@existing_span_snippet@
+----
+
+==== Inject span context into an opentracing_text_map_writer
+
+[source,c]
+----
+@inject_snippet@
+----
+
+==== Extract span context from an opentracing_text_map_reader
+
+[source,c]
+----
+@extract_snippet@
+----

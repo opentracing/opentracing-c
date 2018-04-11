@@ -150,6 +150,37 @@ if(BUILD_TESTING)
   endif()
 endif()
 
+option(OPENTRACINGC_BUILD_SNIPPETS "Build opentracing-c snippets" ON)
+if(OPENTRACINGC_BUILD_SNIPPETS)
+  add_executable(example
+    snippets/existing_span.c
+    snippets/extract.c
+    snippets/inject.c
+    snippets/main.c
+    snippets/new_span.c
+    snippets/text_map.c
+    snippets/text_map_iterator.c
+    snippets/tracing_impl.c)
+  target_include_directories(example PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/snippets>)
+  target_link_libraries(example opentracingc)
+
+  set(snippet_files
+    snippets/existing_span_snippet.c
+    snippets/extract_snippet.c
+    snippets/inject_snippet.c
+    snippets/main_snippet.c
+    snippets/new_span_snippet.c)
+  foreach(snippet_file ${snippet_files})
+    get_filename_component(snippet_name ${snippet_file} NAME_WE)
+    file(READ ${snippet_file} ${snippet_name})
+  endforeach()
+
+  configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/README.adoc.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/README.adoc)
+endif()
+
 generate_documentation()
 
 # Installation (https://github.com/forexample/package-example)
