@@ -48,8 +48,6 @@ cleanup:
     return return_code;
 }
 
-static void noop_destroy(opentracing_destructible* d) OPENTRACINGC_USED;
-
 static void noop_destroy(opentracing_destructible* d)
 {
 }
