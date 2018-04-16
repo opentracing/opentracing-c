@@ -28,7 +28,7 @@ static opentracing_propagation_error_code text_map_reader_foreach_key(
     it = text_map_get_iterator(r->map);
     if (it == NULL) {
         /* Failed to allocate iterator. */
-        return opentracing_false;
+        return opentracing_propagation_error_code_unknown;
     }
 
     for (; text_map_iterator_has_next(it);
@@ -47,8 +47,6 @@ cleanup:
     text_map_iterator_destroy(it);
     return return_code;
 }
-
-static void noop_destroy(opentracing_destructible* d) OPENTRACINGC_USED;
 
 static void noop_destroy(opentracing_destructible* d)
 {
