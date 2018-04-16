@@ -90,7 +90,7 @@ typedef enum opentracing_span_reference_type {
      *     [-Parent Span-]
      *                 [-Child Span-]
      *
-     * See http:*opentracing.io/spec/
+     * See http://opentracing.io/spec/
      */
     opentracing_span_reference_follows_from = 2
 } opentracing_span_reference_type;
@@ -160,7 +160,7 @@ typedef struct opentracing_span {
     /**
      * Yields the opentracing_span_context for this span. Note that the
      * return value of context is still valid after a call to finish, as is
-     * a call to context after a call to finish.
+     * a call to span_context after a call to finish.
      * @param span Span instance.
      * @return Span context associated with this span.
      * @see finish
