@@ -41,8 +41,8 @@ typedef struct opentracing_span_context {
  * Log field to represent key-value pair for a log.
  */
 typedef struct opentracing_log_field {
-    /** Key string. Owner of log field must free upon log field destruction. */
-    char* key;
+    /** Key string. */
+    const char* key;
     /** Value representation. */
     opentracing_value value;
 } opentracing_log_field;
