@@ -51,7 +51,11 @@ function main() {
     local prefix_arg
     prefix_arg=$1
     prefix_arg=${prefix_arg:+"-DCMAKE_INSTALL_PREFIX=$prefix_arg"}
-    cmake -DCMAKE_BUILD_TYPE=Debug ${prefix_arg} -DOPENTRACINGC_COVERAGE=${COVERAGE:OFF} ..
+    cmake -DCMAKE_BUILD_TYPE=Debug \
+        ${prefix_arg} \
+        -DBUILD_SHARED_LIBS=ON \
+        -DOPENTRACINGC_COVERAGE=${COVERAGE:OFF} \
+        ..
 
     if make all -j3; then
         if valgrind_check ./tracer_test && \

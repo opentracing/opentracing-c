@@ -105,9 +105,13 @@ if(OPENTRACINGC_LINT)
 endif()
 
 if(BUILD_TESTING)
-  set(test_src
-    "test/dynamic_load_test.c"
-    "test/tracer_test.c")
+  set(test_src "test/tracer_test.c")
+  if(BUILD_SHARED_LIBS AND OPENTRACINGC_HAVE_WEAK_SYMBOLS)
+    set(build_dynamic_load_test ON)
+  endif()
+  if(build_dynamic_load_test)
+    list(APPEND test_src "test/dynamic_load_test.c")
+  endif()
 
   foreach(test_case_src ${test_src})
     get_filename_component(test_component ${test_case_src} NAME_WE)
@@ -117,7 +121,7 @@ if(BUILD_TESTING)
     list(APPEND test_executables ${test_component})
   endforeach()
 
-  if(OPENTRACINGC_HAVE_WEAK_SYMBOLS)
+  if(build_dynamic_load_test)
     add_library(mock_tracing_lib SHARED "test/mock_tracing_lib.c")
     target_compile_definitions(mock_tracing_lib PRIVATE DEFINE_HOOK)
     target_link_libraries(mock_tracing_lib PUBLIC opentracingc)
