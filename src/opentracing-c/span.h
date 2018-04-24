@@ -35,6 +35,33 @@ typedef struct opentracing_span_context {
                                                        const char* key,
                                                        const char* value),
                                  void* arg);
+
+    /**
+     * Unique data used to identify tracing vendor span type. Necessary for
+     * tracer to cast span to vendor's type during extract().
+     * @see extract()
+     *
+     * Below is a sample of a potential tracer creating a new span with a unique
+     * type descriptor.
+     * @code{.c}
+     *     static const char* custom_span_identifier = "example_vendor";
+     *     typedef struct custom_span {
+     *          opentracing_span base;
+     *          ...
+     *     } custom_span;
+     *     custom_span span;
+     *     ((opentracing_span*) &span)->type_descriptor =
+     *         custom_span_identifier;
+     *     ((opentracing_span*) &span)->type_descriptor_length =
+     *         strlen(custom_span_identifier) + 1;
+     * @endcode
+     */
+    const void* type_descriptor;
+
+    /**
+     * Number of bytes the type descriptor occupies in memory.
+     */
+    unsigned int type_descriptor_length;
 } opentracing_span_context;
 
 /**
@@ -241,33 +268,6 @@ typedef struct opentracing_span {
      */
     struct opentracing_tracer* (*tracer)(const struct opentracing_span* span)
         OPENTRACINGC_NONNULL_ALL;
-
-    /**
-     * Unique data used to identify tracing vendor span type. Necessary for
-     * tracer to cast span to vendor's type during extract().
-     * @see extract()
-     *
-     * Below is a sample of a potential tracer creating a new span with a unique
-     * type descriptor.
-     * @code{.c}
-     *     static const char* custom_span_identifier = "example_vendor";
-     *     typedef struct custom_span {
-     *          opentracing_span base;
-     *          ...
-     *     } custom_span;
-     *     custom_span span;
-     *     ((opentracing_span*) &span)->type_descriptor =
-     *         custom_span_identifier;
-     *     ((opentracing_span*) &span)->type_descriptor_length =
-     *         strlen(custom_span_identifier) + 1;
-     * @endcode
-     */
-    const void* type_descriptor;
-
-    /**
-     * Number of bytes the type descriptor occupies in memory.
-     */
-    unsigned int type_descriptor_length;
 } opentracing_span;
 
 #ifdef __cplusplus
