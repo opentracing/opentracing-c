@@ -44,16 +44,16 @@ typedef struct opentracing_span_context {
      * Below is a sample of a potential tracer creating a new span with a unique
      * type descriptor.
      * @code{.c}
-     *     static const char* custom_span_identifier = "example_vendor";
-     *     typedef struct custom_span {
-     *          opentracing_span base;
+     *     static const char* custom_span_context_identifier = "example_vendor";
+     *     typedef struct custom_span_context {
+     *          opentracing_span_context base;
      *          ...
-     *     } custom_span;
-     *     custom_span span;
-     *     ((opentracing_span*) &span)->type_descriptor =
-     *         custom_span_identifier;
-     *     ((opentracing_span*) &span)->type_descriptor_length =
-     *         strlen(custom_span_identifier) + 1;
+     *     } custom_span_context;
+     *     custom_span_context ctx;
+     *     ((opentracing_span_context*) &ctx)->type_descriptor =
+     *         custom_span_context_identifier;
+     *     ((opentracing_span_context*) &ctx)->type_descriptor_length =
+     *         strlen(custom_span_context_identifier) + 1;
      * @endcode
      */
     const void* type_descriptor;
