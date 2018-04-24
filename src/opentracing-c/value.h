@@ -32,7 +32,7 @@ typedef struct opentracing_value {
     opentracing_value_type type;
     /** Value storage. */
     union {
-        /** Storage for Boolean value. */
+        /** Storage for boolean value. */
         opentracing_bool bool_value;
         /** Storage for double value. */
         double double_value;
@@ -40,8 +40,8 @@ typedef struct opentracing_value {
         int64_t int64_value;
         /** Storage for 64 bit unsigned integer value. */
         uint64_t uint64_value;
-        /** Storage for string value. Must be freed when no longer in use. */
-        char* string_value;
+        /** Storage for string value. */
+        const char* string_value;
     } value;
 } opentracing_value;
 
