@@ -24,7 +24,7 @@ static void noop_foreach_baggage_item(opentracing_span_context* span_context,
 }
 
 static opentracing_span_context noop_span_context_singleton = {
-    NOOP_DESTRUCTIBLE_INIT, &noop_foreach_baggage_item};
+    NOOP_DESTRUCTIBLE_INIT, &noop_foreach_baggage_item, NULL, 0};
 
 typedef struct noop_span {
     opentracing_span base;
@@ -112,9 +112,7 @@ static opentracing_tracer* noop_span_tracer(const opentracing_span* span)
          &noop_span_log_fields,          \
          &noop_span_set_baggage_item,    \
          &noop_span_baggage_item,        \
-         &noop_span_tracer,              \
-         NULL,                           \
-         0},                             \
+         &noop_span_tracer},             \
             NULL                         \
     }
 
