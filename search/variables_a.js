@@ -9,5 +9,5 @@ var searchData=
   ['start_5fspan_5fwith_5foptions',['start_span_with_options',['../structopentracing__tracer.html#af66d8df55b697e8de700a788b914925f',1,'opentracing_tracer']]],
   ['start_5ftime_5fsteady',['start_time_steady',['../structopentracing__start__span__options.html#a4fb5e14cbfc0c1dfc05a203200505313',1,'opentracing_start_span_options']]],
   ['start_5ftime_5fsystem',['start_time_system',['../structopentracing__start__span__options.html#a5a9471a9c87d75f82f4b061d6e1889dd',1,'opentracing_start_span_options']]],
-  ['string_5fvalue',['string_value',['../structopentracing__value.html#a2b9597c3bebdb93313a37a6aa2d54241',1,'opentracing_value']]]
+  ['string_5fvalue',['string_value',['../structopentracing__value.html#a09016803d38991ed07c0c2a3d9a16e1b',1,'opentracing_value']]]
 ];

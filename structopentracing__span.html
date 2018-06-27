@@ -76,14 +76,12 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for opentracing_span:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structopentracing__span__inherit__graph.svg" width="178" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structopentracing__span__inherit__graph.svg" width="178" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for opentracing_span:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structopentracing__span__coll__graph.svg" width="380" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structopentracing__span__coll__graph.svg" width="380" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -118,13 +116,6 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a315a147bceecfebd2f373296ef00f528"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structopentracing__tracer.html">opentracing_tracer</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a315a147bceecfebd2f373296ef00f528">tracer</a> )(const struct <a class="el" href="structopentracing__span.html">opentracing_span</a> *span) OPENTRACINGC_NONNULL_ALL</td></tr>
 <tr class="memdesc:a315a147bceecfebd2f373296ef00f528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the tracer that created this span.  <a href="#a315a147bceecfebd2f373296ef00f528">More...</a><br /></td></tr>
 <tr class="separator:a315a147bceecfebd2f373296ef00f528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6091eb7db5404dd4955b55b5ce54960"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#ac6091eb7db5404dd4955b55b5ce54960">type_descriptor</a></td></tr>
-<tr class="memdesc:ac6091eb7db5404dd4955b55b5ce54960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique data used to identify tracing vendor span type.  <a href="#ac6091eb7db5404dd4955b55b5ce54960">More...</a><br /></td></tr>
-<tr class="separator:ac6091eb7db5404dd4955b55b5ce54960"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b1772ded320ac6b09517bc51f81cc9e"><td class="memItemLeft" align="right" valign="top"><a id="a0b1772ded320ac6b09517bc51f81cc9e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__span.html#a0b1772ded320ac6b09517bc51f81cc9e">type_descriptor_length</a></td></tr>
-<tr class="memdesc:a0b1772ded320ac6b09517bc51f81cc9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes the type descriptor occupies in memory. <br /></td></tr>
-<tr class="separator:a0b1772ded320ac6b09517bc51f81cc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structopentracing__destructible"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structopentracing__destructible')"><img src="closed.png" alt="-"/>&#160;Data Fields inherited from <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a></td></tr>
 <tr class="memitem:a12d9c6e6607ae23222f82f09177fed7a inherit pub_attribs_structopentracing__destructible"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structopentracing__destructible.html#a12d9c6e6607ae23222f82f09177fed7a">destroy</a> )(struct <a class="el" href="structopentracing__destructible.html">opentracing_destructible</a> *destructible) OPENTRACINGC_NONNULL_ALL</td></tr>
 <tr class="memdesc:a12d9c6e6607ae23222f82f09177fed7a inherit pub_attribs_structopentracing__destructible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up any resources allocated to the instance.  <a href="structopentracing__destructible.html#a12d9c6e6607ae23222f82f09177fed7a">More...</a><br /></td></tr>
@@ -333,7 +324,7 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
 </div><div class="memdoc">
 
 <p>Yields the <a class="el" href="structopentracing__span__context.html" title="Span context interface. ">opentracing_span_context</a> for this span. </p>
-<p>Note that the return value of context is still valid after a call to finish, as is a call to context after a call to finish. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Note that the return value of context is still valid after a call to finish, as is a call to span_context after a call to finish. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">span</td><td>Span instance. </td></tr>
   </table>
@@ -365,23 +356,6 @@ Use this thoughtfully and with care. Every key and value is copied into every lo
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Tracer instance that created this span. </dd></dl>
 
-</div>
-</div>
-<a id="ac6091eb7db5404dd4955b55b5ce54960"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6091eb7db5404dd4955b55b5ce54960">&#9670;&nbsp;</a></span>type_descriptor</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const void* opentracing_span::type_descriptor</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Unique data used to identify tracing vendor span type. </p>
-<p>Necessary for tracer to cast span to vendor's type during extract(). </p><dl class="section see"><dt>See also</dt><dd>extract()</dd></dl>
-<p>Below is a sample of a potential tracer creating a new span with a unique type descriptor. </p><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* custom_span_identifier = <span class="stringliteral">&quot;example_vendor&quot;</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>custom_span {</div><div class="line">     <a class="code" href="structopentracing__span.html">opentracing_span</a> <a class="code" href="structopentracing__span.html#a46d3d092915de4138912af2d32344fb3">base</a>;</div><div class="line">     ...</div><div class="line">} custom_span;</div><div class="line">custom_span span;</div><div class="line">((<a class="code" href="structopentracing__span.html">opentracing_span</a>*) &amp;span)-&gt;type_descriptor =</div><div class="line">    custom_span_identifier;</div><div class="line">((<a class="code" href="structopentracing__span.html">opentracing_span</a>*) &amp;span)-&gt;type_descriptor_length =</div><div class="line">    strlen(custom_span_identifier) + 1;</div></div><!-- fragment --> 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
